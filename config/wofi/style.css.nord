@@ -1,0 +1,87 @@
+/* Nord — Wofi Theme
+ * Style: cool, minimal, arctic night vibe
+ * Format: simple #ids for wofi
+ */
+
+window {
+    margin: 5px;
+    border: 2px solid #4C566A;             /* Nord3 - border grey */
+    background-color: rgba(46, 52, 64, 0.85); /* Nord0 with transparency */
+    border-radius: 10px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12pt;
+    color: #D8DEE9;                        /* Nord4 - light fg */
+}
+
+/* Search input box */
+#input {
+    margin: 8px;
+    padding: 6px 10px;
+    border: 1px solid #434C5E;             /* Nord2 */
+    border-radius: 6px;
+    background-color: rgba(59, 66, 82, 0.9); /* Nord1 */
+    color: #ECEFF4;                        /* Nord6 */
+    caret-color: #88C0D0;                  /* Nord8 - cyan accent */
+}
+
+/* Scroll container */
+#scroll {
+    margin: 6px;
+    padding: 4px;
+}
+
+/* Each entry in the list */
+#entry {
+    padding: 8px 12px;
+    margin: 3px 0;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #E5E9F0;                        /* Nord5 */
+}
+
+/* Selected entry */
+#entry:selected {
+    background-color: #3B4252;             /* Nord1 - subtle highlight */
+    color: #88C0D0;                        /* Nord8 - cyan accent text */
+}
+
+/* Text inside entries */
+#text {
+    color: inherit;
+}
+
+/* Selected text */
+#text:selected {
+    color: #8FBCBB;                        /* Nord7 - aqua tone */
+}
+
+/* Icon area */
+#image {
+    padding-right: 10px;
+}
+
+#image:selected {
+    background-color: transparent;
+}
+
+/* Scrollbar styling */
+scrollbar {
+    width: 6px;
+    background-color: rgba(46, 52, 64, 0.9); /* Nord0 */
+}
+
+scrollbar trough {
+    background-color: rgba(46, 52, 64, 0.9);
+}
+
+scrollbar slider {
+    background-color: #88C0D0;             /* Nord8 */
+    border-radius: 4px;
+}
+
+/* Hovered entries */
+#entry:hover {
+    background-color: #4C566A;             /* Nord3 */
+    color: #ECEFF4;                        /* Nord6 */
+}
+

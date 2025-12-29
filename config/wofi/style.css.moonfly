@@ -1,0 +1,74 @@
+window {
+    margin: 5px;
+    border: 2px solid #5f5f87;
+    background-color: #080808;
+    border-radius: 8px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12pt;
+    color: #c6c6c6;
+}
+
+#input {
+    margin: 8px;
+    padding: 6px 10px;
+    border: 1px solid #5f5f87;
+    border-radius: 6px;
+    background-color: #1c1c1c;
+    color: #b2b2b2;
+    caret-color: #80a0ff;
+}
+
+#scroll {
+    margin: 6px;
+    padding: 4px;
+}
+
+#entry {
+    padding: 6px 10px;
+    margin: 2px 0;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #b2b2b2;
+}
+
+#entry:selected {
+    background-color: #323437;
+    color: #80a0ff;
+}
+
+#text {
+    color: inherit;
+}
+
+#text:selected {
+    color: #80a0ff;
+}
+
+#image {
+    padding-right: 10px;
+}
+
+#image:selected {
+    background-color: transparent;
+}
+
+/* Scrollbar */
+scrollbar {
+    width: 6px;
+    background-color: #1c1c1c;
+}
+
+scrollbar trough {
+    background-color: #1c1c1c;
+}
+
+scrollbar slider {
+    background-color: #5f5f87;
+    border-radius: 4px;
+}
+
+#entry:hover {
+    background-color: #1f1f1f;
+    color: #c6c6c6;
+}
+

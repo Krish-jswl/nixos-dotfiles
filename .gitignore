@@ -1,0 +1,18 @@
+# Nix
+result
+*.drv
+
+# Editor junk
+*.swp
+*.swo
+*~
+
+# Env / secrets
+.env
+
+# Direnv
+.direnv
+
+# OS
+.DS_Store
+

@@ -1,0 +1,11 @@
+show=drun
+width=450
+height=350
+always_parse_args=true
+show_all=false
+term=foot
+hide_scroll=true
+print_command=true
+insensitive=true
+prompt=
+columns=1

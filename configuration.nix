@@ -19,11 +19,15 @@
 
   hardware.graphics = {
     enable = true;
-    enable32Bit = true; # important for games
+    enable32Bit = true;
   };
 
-  networking.hostName = "ternix"; # Define your hostname.
+  networking.hostName = "ternix";
   networking.networkmanager.enable = true;
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -36,6 +40,7 @@
   programs.hyprland.xwayland.enable = true;
 
   programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
@@ -110,7 +115,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateVersion = "25.11";
 
 }
 

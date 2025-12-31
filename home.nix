@@ -9,6 +9,7 @@ let
         foot = "foot";
         wofi = "wofi";
         waybar = "waybar";
+        zathura = "zathura";
     };
 in
 
@@ -17,6 +18,7 @@ in
 	home.homeDirectory = "/home/ternoid";
 	programs.git.enable = true;
 	home.stateVersion = "25.05";
+
 
 	programs.bash = {
 		enable = true;
@@ -33,6 +35,25 @@ in
         nrebuild  = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#ternix";
     };
 
+    programs.tmux = {
+        enable = true;
+        extraConfig = "
+            unbind r 
+            bind r source-file ~/.tmux.conf
+
+            set -g prefix C-s
+
+            set -g mouse on 
+
+            bind-key h select-pane -L
+            bind-key j select-pane -D
+            bind-key k select-pane -U
+            bind-key l select-pane -R
+
+            set-option -g status-position bottom
+        ";
+    };
+
     xdg.configFile = builtins.mapAttrs 
         (name: subpath: {
             source = create_symlink "${dotfiles}/${subpath}";
@@ -40,22 +61,17 @@ in
     })
     configs;
 
-
     gtk = {
         enable = true;
 
         theme = {
-            name = "catppuccin-mocha-blue-standard";
-            package = (pkgs.catppuccin-gtk.override {
-                accents = [ "blue" ];
-                size = "standard";
-                variant = "mocha";
-            });
+            name = "Gruvbox-Dark";
+            package = pkgs.gruvbox-gtk-theme;
         };
 
         iconTheme = {
-            name = "Papirus-Dark";
-            package = pkgs.papirus-icon-theme;
+            name = "Gruvbox-Plus-Dark";
+            package = pkgs.gruvbox-plus-icons;
         };
     };
 
@@ -70,6 +86,7 @@ in
 	home.packages = with pkgs; [
         fastfetch
         htop
+        brightnessctl
         wl-clipboard
         hyprpaper
         hyprlock
@@ -82,6 +99,8 @@ in
         nixpkgs-fmt
         nodejs
         gcc
+        zathura
+        zathuraPkgs.zathura_pdf_mupdf
         unzip
         gnutar
         gzip

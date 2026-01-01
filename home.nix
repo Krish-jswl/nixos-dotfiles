@@ -43,6 +43,8 @@ in
 
             set -g prefix C-s
 
+            set -sg escape-time 0
+
             set -g mouse on 
 
             bind-key h select-pane -L
@@ -99,6 +101,8 @@ in
         nixpkgs-fmt
         nodejs
         gcc
+         clang-tools
+        glibc.dev
         zathura
         zathuraPkgs.zathura_pdf_mupdf
         unzip

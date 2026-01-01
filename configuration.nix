@@ -28,6 +28,13 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  services.tlp.enable = true;
+
+  boot.kernelParams = [ "amd_pstate=active" ];
+
+  powerManagement.cpuFreqGovernor = "power saver";
+
+  services.power-profiles-daemon.enable = false;
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";

@@ -67,13 +67,13 @@ in
         enable = true;
 
         theme = {
-            name = "Gruvbox-Dark";
-            package = pkgs.gruvbox-gtk-theme;
+            name = "Flat-Remix-GTK-Blue-Darkest-Solid";
+            package = pkgs.flat-remix-gtk;
         };
 
         iconTheme = {
-            name = "Gruvbox-Plus-Dark";
-            package = pkgs.gruvbox-plus-icons;
+            name = "Flat-Remix-Blue-Dark";
+            package = pkgs.flat-remix-icon-theme;
         };
     };
 
@@ -101,7 +101,7 @@ in
         nixpkgs-fmt
         nodejs
         gcc
-         clang-tools
+        clang-tools
         glibc.dev
         zathura
         zathuraPkgs.zathura_pdf_mupdf
@@ -113,6 +113,10 @@ in
         qbittorrent
         vlc
         go
+        gopls
+        obsidian
+        obs-studio
+        imv
 	];
 
 }

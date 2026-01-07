@@ -22,6 +22,8 @@
     enable32Bit = true;
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   networking.hostName = "ternix";
   networking.networkmanager.enable = true;
 
@@ -85,6 +87,16 @@
    services.pipewire = {
      enable = true;
      pulse.enable = true;
+     alsa.enable = true;
+     jack.enable = true;
+   };
+
+   xdg.portal = {
+     enable = true;
+     wlr.enable = true;
+     extraPortals = [
+       pkgs.xdg-desktop-portal-hyprland
+     ];
    };
 
   services.dbus.enable = true;
@@ -118,6 +130,8 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    nerd-fonts.terminess-ttf
+    nerd-fonts.caskaydia-mono
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

@@ -1,0 +1,134 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "swap-icon-label": false,
+    // "height": 18, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+        "tray",
+        "network",
+        "pulseaudio",
+        "cpu",
+        "memory",
+        "backlight",
+        "battery",
+        "clock",
+    ],
+    "hyprland/workspaces": {
+        "swap-icon-label": false
+    },
+
+    "hyprland/window": {
+        "swap-icon-label": false
+    },
+
+    "hyprland/language": {
+        "format": "{long}"
+    },
+    "keyboard-state": {
+        "numlock": false,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "{:%m/%d/%Y}",
+        "format": "{:%I:%M %p}",
+        "format-alt": "{:%H:%M}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+  "network": {
+        "interval": 3,
+        "format-wifi": "{icon}", 
+        "format-ethernet": "󰌗 {ipaddr}", 
+        "format-linked": "󰌙 {ifname} (Sin IP)", 
+        "format-disconnected": "󰖪", 
+        "format-alt": "󰛳 {ifname}", 
+        "tooltip-format-wifi": "{essid}  {bandwidthDownBytes}  {bandwidthUpBytes}", 
+        "tooltip-format-ethernet": "󰌗 {ifname} | IP: {ipaddr}/{cidr} | GW: {gwaddr}", 
+        "tooltip-format-disconnected": "󰖪 No internet connection", 
+        "tooltip-format-linked": "󰌙 {ifname}: Not ip",
+        "max-length": 30, 
+        "format-icons": {
+            "wifi": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"], 
+            "ethernet": ["󰌗"], 
+            "disconnected": ["󰖪"] 
+        }
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "󰝟 {icon} {format_source}",
+        "format-muted": "󰝟 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+}
+

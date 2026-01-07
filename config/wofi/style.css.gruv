@@ -1,0 +1,152 @@
+/*************************************************
+ * Gruvbox Dark GTK Theme (Full File)
+ * Clean • Readable • Based
+ *************************************************/
+
+/* =======================
+   Gruvbox Color Palette
+   ======================= */
+
+@define-color bg0        #282828;
+@define-color bg1        #3c3836;
+@define-color bg2        #504945;
+@define-color bg3        #665c54;
+
+@define-color fg0        #ebdbb2;
+@define-color fg1        #d5c4a1;
+@define-color fg2        #bdae93;
+
+@define-color red        #fb4934;
+@define-color green      #b8bb26;
+@define-color yellow     #fabd2f;
+@define-color blue       #83a598;
+@define-color purple     #d3869b;
+@define-color aqua       #8ec07c;
+@define-color orange     #fe8019;
+@define-color gray       #928374;
+
+/* RGB variants (GTK likes these sometimes) */
+@define-color fg0-rgb    rgb(235, 219, 178);
+@define-color red-rgb    rgb(251, 73, 52);
+@define-color green-rgb  rgb(184, 187, 38);
+@define-color yellow-rgb rgb(250, 189, 47);
+@define-color blue-rgb   rgb(131, 165, 152);
+@define-color purple-rgb rgb(211, 134, 155);
+@define-color aqua-rgb   rgb(142, 192, 124);
+@define-color orange-rgb rgb(254, 128, 25);
+
+
+/* =======================
+   Global Font
+   ======================= */
+
+* {
+  font-family: "CaskaydiaCove Nerd Font", monospace;
+  font-size: 18px;
+}
+
+
+/* =======================
+   Window
+   ======================= */
+
+window {
+  margin: 0px;
+  padding: 10px;
+  border: 2px solid @aqua;
+  border-radius: 8px;
+  background-color: @bg0;
+}
+
+
+/* =======================
+   Boxes
+   ======================= */
+
+#inner-box {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: @bg0;
+}
+
+#outer-box {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: @bg0;
+}
+
+#scroll {
+  margin: 0px;
+  padding: 10px;
+  border: none;
+  background-color: @bg0;
+}
+
+
+/* =======================
+   Input
+   ======================= */
+
+#input {
+  margin: 5px 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 0.1em;
+  color: @fg0;
+  background-color: @bg1;
+}
+
+#input image {
+  border: none;
+  color: @red;
+}
+
+#input * {
+  outline: 4px solid @orange !important;
+}
+
+
+/* =======================
+   Text
+   ======================= */
+
+#text {
+  margin: 5px;
+  border: none;
+  color: @fg0;
+}
+
+
+/* =======================
+   Entries
+   ======================= */
+
+#entry {
+  background-color: @bg0;
+}
+
+#entry arrow {
+  border: none;
+  color: @yellow;
+}
+
+
+/* =======================
+   Selected Entry
+   ======================= */
+
+#entry:selected {
+  border: 0.11em solid @aqua;
+  background-color: @bg2;
+}
+
+#entry:selected #text {
+  color: @yellow;
+}
+
+#entry:drop(active) {
+  background-color: @orange !important;
+}
+

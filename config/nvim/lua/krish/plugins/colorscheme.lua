@@ -150,46 +150,84 @@
 -- }
 
 -- Gruvbox
+-- return {
+--   {
+--     "ellisonleao/gruvbox.nvim",
+--     priority = 1000,
+--     config = function()
+--       require("gruvbox").setup({
+--         terminal_colors = true, -- Use gruvbox colors in the terminal
+--         undercurl = true,
+--         underline = true,
+--         bold = true,
+--         italic = {
+--           strings = true,
+--           comments = true,
+--           operators = false,
+--           folds = true,
+--         },
+--         strikethrough = true,
+--         invert_selection = false,
+--         invert_signs = false,
+--         invert_tabline = false,
+--         invert_intend_guides = false,
+--         inverse = true, -- Invert background for search, diffs, statuslines
+--         contrast = "hard", -- options: "soft", "medium", "hard"
+--         palette_overrides = {},
+--         overrides = {
+--           Normal = { bg = "none" },
+--           NormalFloat = { bg = "none" },
+--           SignColumn = { bg = "none" },
+--           VertSplit = { bg = "none" },
+--           StatusLine = { bg = "none" },
+--         },
+--         dim_inactive = false,
+--         transparent_mode = true, -- enable transparency
+--       })
+--
+--       vim.cmd("colorscheme gruvbox")
+--     end,
+--   },
+-- }
+
+-- rasmus
 return {
-  {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    config = function()
-      require("gruvbox").setup({
-        terminal_colors = true, -- Use gruvbox colors in the terminal
-        undercurl = true,
-        underline = true,
-        bold = true,
-        italic = {
-          strings = true,
-          comments = true,
-          operators = false,
-          folds = true,
-        },
-        strikethrough = true,
-        invert_selection = false,
-        invert_signs = false,
-        invert_tabline = false,
-        invert_intend_guides = false,
-        inverse = true, -- Invert background for search, diffs, statuslines
-        contrast = "hard", -- options: "soft", "medium", "hard"
-        palette_overrides = {},
-        overrides = {
-          Normal = { bg = "none" },
-          NormalFloat = { bg = "none" },
-          SignColumn = { bg = "none" },
-          VertSplit = { bg = "none" },
-          StatusLine = { bg = "none" },
-        },
-        dim_inactive = false,
-        transparent_mode = true, -- enable transparency
-      })
+	"kvrohit/rasmus.nvim",
+	priority = 1000,
+	config = function()
+		vim.cmd.colorscheme("rasmus")
 
-      vim.cmd("colorscheme gruvbox")
-    end,
-  },
+		local groups = {
+			"Normal",
+			"NormalNC",
+			"NormalFloat",
+			"SignColumn",
+			"LineNr",
+			"EndOfBuffer",
+			"FloatBorder",
+			"StatusLine",
+			"StatusLineNC",
+			"WinSeparator",
+		}
+
+		-- fundo totalmente preto + foreground coldark
+		for _, group in ipairs(groups) do
+			vim.api.nvim_set_hl(0, group, { bg = "#000000", fg = "#C9D1D9" })
+		end
+
+		-- estilo Coldark-Dark
+		vim.api.nvim_set_hl(0, "Comment", { fg = "#5C6370", italic = true })
+		vim.api.nvim_set_hl(0, "Function", { fg = "#5DC2D6" })
+		vim.api.nvim_set_hl(0, "Keyword", { fg = "#C586C0", bold = true })
+		vim.api.nvim_set_hl(0, "String", { fg = "#EBCB8B" })
+		vim.api.nvim_set_hl(0, "Number", { fg = "#7FE5F0" })
+		vim.api.nvim_set_hl(0, "Type", { fg = "#4A90A4" })
+		vim.api.nvim_set_hl(0, "Constant", { fg = "#E06C75" })
+		vim.api.nvim_set_hl(0, "Operator", { fg = "#C9D1D9" })
+		vim.api.nvim_set_hl(0, "Identifier", { fg = "#F6A878" })
+		vim.api.nvim_set_hl(0, "Boolean", { fg = "#7BD88F" })
+	end,
 }
-
 
 
 

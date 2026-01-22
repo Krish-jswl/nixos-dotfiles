@@ -7,7 +7,6 @@
   "margin-right": 5,
   "margin-top": 5,
   "margin-bottom": 0,
-  "swap-icon-label": false,
   "spacing": 15,
   "reload_style_on_change": true,
 
@@ -107,7 +106,6 @@
   "hyprland/workspaces": {
     "on-click": "activate",
     "activate-only": false,
-    "swap-icon-label": false,
     "all-outputs": true,
     "format": "{name}",
     "format-icons": {
@@ -133,7 +131,6 @@
     "format": "  {}",
     "max-length": 32,
     "separate-outputs": false,
-    "swap-icon-label": false,
   },
 
   "tray": {

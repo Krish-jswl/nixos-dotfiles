@@ -1,73 +1,87 @@
-/* === Wofi Theme - Gray Minimalist === */
+/* Nord — Wofi Theme
+ * Style: cool, minimal, arctic night vibe
+ * Format: simple #ids for wofi
+ */
 
-/* Main window */
 window {
-    margin: 0px;
-    border: 1px solid #555555;
-    background-color: #1c1c1c;
-    border-radius: 4px;
-}
-
-/* Input box */
-#input {
     margin: 5px;
-    padding: 6px 8px;
-    border: 1px solid #444444;
-    color: #d0d0d0;
-    background-color: #2e2e2e;
-    font-weight: 500;
-    border-radius: 4px;
-}
-
-/* Container inside the window */
-#inner-box {
-    margin: 5px;
-    border: none;
-    background-color: #1c1c1c;
-}
-
-/* Outer container */
-#outer-box {
-    margin: 5px;
-    border: none;
-    background-color: #1c1c1c;
-}
-
-/* Scrollbar styling */
-#scroll {
-    margin: 0px;
-    border: none;
-    background-color: #333333;
-    border-radius: 4px;
-}
-
-/* Text styling */
-#text {
-    margin: 5px;
-    border: none;
-    color: #d0d0d0;
+    border: 2px solid #88C0D0;             /* Nord3 - border grey */
+    background-color: rgba(46, 52, 64, 0.85); /* Nord0 with transparency */
+    border-radius: 10px;
+    font-family: "JetBrains Mono Nerd Font", monospace;
     font-size: 12pt;
+    color: #D8DEE9;                        /* Nord4 - light fg */
 }
 
-/* Entry styling */
+/* Search input box */
+#input {
+    margin: 8px;
+    padding: 6px 10px;
+    border: 1px solid #434C5E;             /* Nord2 */
+    border-radius: 6px;
+    background-color: rgba(59, 66, 82, 0.9); /* Nord1 */
+    color: #ECEFF4;                        /* Nord6 */
+    caret-color: #88C0D0;                  /* Nord8 - cyan accent */
+}
+
+/* Scroll container */
+#scroll {
+    margin: 6px;
+    padding: 4px;
+}
+
+/* Each entry in the list */
 #entry {
-    margin: 2px 0px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    color: #d0d0d0;
-    background-color: #1c1c1c;
-}
-
-/* Entry hover effect */
-#entry:hover {
-    background-color: #333333;
-    color: #f0f0f0;
+    padding: 8px 12px;
+    margin: 3px 0;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #E5E9F0;                        /* Nord5 */
 }
 
 /* Selected entry */
 #entry:selected {
-    background-color: #555555;
-    color: #f0f0f0;
-    font-weight: bold;
+    background-color: #3B4252;             /* Nord1 - subtle highlight */
+    color: #88C0D0;                        /* Nord8 - cyan accent text */
+}
+
+/* Text inside entries */
+#text {
+    color: inherit;
+}
+
+/* Selected text */
+#text:selected {
+    color: #3B4252;                        /* Nord7 - aqua tone */
+}
+
+/* Icon area */
+#image {
+    padding-right: 10px;
+}
+
+#image:selected {
+    background-color: transparent;
+}
+
+/* Scrollbar styling */
+scrollbar {
+    width: 6px;
+    background-color: rgba(46, 52, 64, 0.9); /* Nord0 */
+}
+
+scrollbar trough {
+    background-color: rgba(46, 52, 64, 0.9);
+}
+
+scrollbar slider {
+    background-color: #88C0D0;             /* Nord8 */
+    border-radius: 4px;
+}
+
+/* Hovered entries */
+#entry:hover {
+    background-color: #4C566A;             /* Nord3 */
+    color: #ECEFF4;                        /* Nord6 */
 }
 

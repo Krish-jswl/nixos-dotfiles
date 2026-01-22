@@ -38,6 +38,16 @@
 
   services.power-profiles-daemon.enable = false;
 
+  # Enable Postgresql
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_16;
+  };
+
+
+  # Enables docker
+  virtualisation.docker.enable = true;
+
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
@@ -109,7 +119,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ternoid = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
@@ -127,6 +137,7 @@
     mesa-demos
     gvfs
   ];
+
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono

@@ -53,8 +53,8 @@
 window {
   margin: 0px;
   padding: 10px;
-  border: 2px solid @aqua;
-  border-radius: 8px;
+  border: 2px solid @blue;
+  border-radius: 15px;
   background-color: @bg0;
 }
 
@@ -138,7 +138,7 @@ window {
    ======================= */
 
 #entry:selected {
-  border: 0.11em solid @aqua;
+  border: 0.11em solid @blue;
   background-color: @bg2;
 }
 

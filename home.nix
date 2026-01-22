@@ -67,13 +67,13 @@ in
         enable = true;
 
         theme = {
-            name = "Flat-Remix-GTK-Blue-Darkest-Solid";
-            package = pkgs.flat-remix-gtk;
+            name = "Nordic";
+            package = pkgs.nordic;
         };
 
         iconTheme = {
-            name = "Flat-Remix-Blue-Dark";
-            package = pkgs.flat-remix-icon-theme;
+            name = "Papirus-Dark";
+            package = pkgs.papirus-icon-theme;
         };
     };
 
@@ -117,6 +117,10 @@ in
         obsidian
         obs-studio
         imv
+        gnumake
+        pkg-config
+        tomato-c
+        syncthing
 	];
 
 }

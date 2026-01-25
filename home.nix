@@ -67,13 +67,13 @@ in
         enable = true;
 
         theme = {
-            name = "Nordic";
-            package = pkgs.nordic;
+            name = "Gruvbox-Dark";
+            package = pkgs.gruvbox-gtk-theme;
         };
 
         iconTheme = {
-            name = "Papirus-Dark";
-            package = pkgs.papirus-icon-theme;
+            name = "Gruvbox-Plus-Dark";
+            package = pkgs.gruvbox-plus-icons;
         };
     };
 

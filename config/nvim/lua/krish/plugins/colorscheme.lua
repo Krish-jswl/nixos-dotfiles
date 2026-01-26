@@ -150,45 +150,45 @@
 -- }
 
 -- Gruvbox
-return {
-  {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    config = function()
-      require("gruvbox").setup({
-        terminal_colors = true, -- Use gruvbox colors in the terminal
-        undercurl = true,
-        underline = true,
-        bold = true,
-        italic = {
-          strings = true,
-          comments = true,
-          operators = false,
-          folds = true,
-        },
-        strikethrough = true,
-        invert_selection = false,
-        invert_signs = false,
-        invert_tabline = false,
-        invert_intend_guides = false,
-        inverse = true, -- Invert background for search, diffs, statuslines
-        contrast = "hard", -- options: "soft", "medium", "hard"
-        palette_overrides = {},
-        overrides = {
-          Normal = { bg = "none" },
-          NormalFloat = { bg = "none" },
-          SignColumn = { bg = "none" },
-          VertSplit = { bg = "none" },
-          StatusLine = { bg = "none" },
-        },
-        dim_inactive = false,
-        transparent_mode = true, -- enable transparency
-      })
-
-      vim.cmd("colorscheme gruvbox")
-    end,
-  },
-}
+-- return {
+--   {
+--     "ellisonleao/gruvbox.nvim",
+--     priority = 1000,
+--     config = function()
+--       require("gruvbox").setup({
+--         terminal_colors = true, -- Use gruvbox colors in the terminal
+--         undercurl = true,
+--         underline = true,
+--         bold = true,
+--         italic = {
+--           strings = true,
+--           comments = true,
+--           operators = false,
+--           folds = true,
+--         },
+--         strikethrough = true,
+--         invert_selection = false,
+--         invert_signs = false,
+--         invert_tabline = false,
+--         invert_intend_guides = false,
+--         inverse = true, -- Invert background for search, diffs, statuslines
+--         contrast = "hard", -- options: "soft", "medium", "hard"
+--         palette_overrides = {},
+--         overrides = {
+--           Normal = { bg = "none" },
+--           NormalFloat = { bg = "none" },
+--           SignColumn = { bg = "none" },
+--           VertSplit = { bg = "none" },
+--           StatusLine = { bg = "none" },
+--         },
+--         dim_inactive = false,
+--         transparent_mode = true, -- enable transparency
+--       })
+--
+--       vim.cmd("colorscheme gruvbox")
+--     end,
+--   },
+-- }
 
 -- rasmus
 -- return {
@@ -232,35 +232,35 @@ return {
 
 
 -- Gruvbox Material
--- return {
---   {
---     "f4z3r/gruvbox-material.nvim",
---     name = "gruvbox-material",
---     lazy = false, -- Load during startup
---     priority = 1000, -- High priority to ensure it loads before other plugins
---     config = function()
---       require("gruvbox-material").setup({
---         background = {
---           transparent = true, -- Enable transparent background
---         },
---         contrast = "medium", -- Options: "hard", "medium", "soft"
---         -- Optional: Other configurations
---         italics = true, -- Enable italics for certain elements
---         comments = { italics = true }, -- Italic comments
---         float = {
---           force_background = false, -- Ensure floating windows are transparent
---           background_color = nil, -- Use default colors for floats
---         },
---         signs = {
---           force_background = false, -- Ensure signs are transparent
---           background_color = nil, -- Use default colors for signs
---         },
---       })
---       -- Apply the colorscheme
---       vim.cmd([[colorscheme gruvbox-material]])
---     end,
---   },
--- }
+return {
+  {
+    "f4z3r/gruvbox-material.nvim",
+    name = "gruvbox-material",
+    lazy = false, -- Load during startup
+    priority = 1000, -- High priority to ensure it loads before other plugins
+    config = function()
+      require("gruvbox-material").setup({
+        background = {
+          transparent = true, -- Enable transparent background
+        },
+        contrast = "medium", -- Options: "hard", "medium", "soft"
+        -- Optional: Other configurations
+        italics = true, -- Enable italics for certain elements
+        comments = { italics = true }, -- Italic comments
+        float = {
+          force_background = false, -- Ensure floating windows are transparent
+          background_color = nil, -- Use default colors for floats
+        },
+        signs = {
+          force_background = false, -- Ensure signs are transparent
+          background_color = nil, -- Use default colors for signs
+        },
+      })
+      -- Apply the colorscheme
+      vim.cmd([[colorscheme gruvbox-material]])
+    end,
+  },
+}
 
 -- Rose pine
 -- return {

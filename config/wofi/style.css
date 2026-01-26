@@ -93,7 +93,7 @@ window {
   margin: 5px 20px;
   padding: 10px;
   border: none;
-  border-radius: 0.1em;
+  border-radius: 15px;
   color: @fg0;
   background-color: @bg1;
 }

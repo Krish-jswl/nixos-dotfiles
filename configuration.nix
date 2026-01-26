@@ -24,7 +24,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  networking.hostName = "ternix";
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
   hardware.bluetooth.enable = true;
@@ -59,8 +59,8 @@
 
   programs.hyprland.xwayland.enable = true;
 
-  programs.fish.enable = true;
-  users.defaultUserShell = pkgs.fish;
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
@@ -118,7 +118,7 @@
   # services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ternoid = {
+  users.users.krishj = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [

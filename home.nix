@@ -10,13 +10,13 @@ let
         wofi = "wofi";
         waybar = "waybar";
         zathura = "zathura";
+        mako = "mako";
     };
 in
 
 {
-	home.username = "ternoid";
-	home.homeDirectory = "/home/ternoid";
-	programs.git.enable = true;
+	home.username = "krishj";
+	home.homeDirectory = "/home/krishj";
 	home.stateVersion = "25.05";
 
 
@@ -24,15 +24,22 @@ in
 		enable = true;
 	};
 
-    programs.fish = {
-        enable = true;
-        interactiveShellInit = ''
-            set -g fish_greeting
-        '';
+    programs.zsh = {
+      enable = true;
+      autocd = true;
+      enableCompletion = true;
+      syntaxHighlighting.enable = true;
+      autosuggestion.enable = true;
+
+      initContent = ''
+        bindkey '^H' backward-kill-word
+        WORDCHARS=''${WORDCHARS//[\/\-#]/}
+      '';
     };
 
-    programs.fish.shellAliases = {
-        nrebuild  = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#ternix";
+    programs.starship = {
+      enable = true;
+      enableZshIntegration = true;
     };
 
     programs.tmux = {
@@ -55,6 +62,20 @@ in
             set-option -g status-position bottom
         ";
     };
+
+      programs.git = {
+        enable = true;
+
+        userName = "Krish-jswl";
+        userEmail = "imkrishjaiswal05@gmail.com";
+
+        extraConfig = {
+          init.defaultBranch = "main";
+          core.editor = "nvim";
+          pull.rebase = true;
+        };
+      };
+
 
     xdg.configFile = builtins.mapAttrs 
         (name: subpath: {
@@ -121,6 +142,8 @@ in
         pkg-config
         tomato-c
         syncthing
+        mako
+        libnotify
 	];
 
 }

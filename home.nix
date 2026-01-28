@@ -85,17 +85,21 @@ in
     configs;
 
     gtk = {
-        enable = true;
+      enable = true;
 
-        theme = {
-            name = "Gruvbox-Dark";
-            package = pkgs.gruvbox-gtk-theme;
-        };
+      theme = {
+        name = "rose-pine";
+        package = pkgs.rose-pine-gtk-theme;
+      };
 
-        iconTheme = {
-            name = "Gruvbox-Plus-Dark";
-            package = pkgs.gruvbox-plus-icons;
-        };
+      iconTheme = {
+        name = "Adwaita";
+        package = pkgs.adwaita-icon-theme;
+      };
+
+      gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+      gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
+
     };
 
     home.pointerCursor = {

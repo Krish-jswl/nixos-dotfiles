@@ -1,48 +1,48 @@
 # =========================
-# Gruvbox Dark for Zathura
+# Gruvbox Material Hard for Zathura
 # =========================
 
 # Core colors
-set default-bg              "#282828"  # bg
-set default-fg              "#ebdbb2"  # fg
+set default-bg              "#1d2021"  # bg0 hard
+set default-fg              "#d4be98"  # fg0
 
-# Recolor mode (this is the magic)
+# Recolor mode (the magic)
 set recolor                 true
-set recolor-lightcolor      "#282828"  # background
-set recolor-darkcolor       "#ebdbb2"  # foreground
+set recolor-lightcolor      "#1d2021"  # background
+set recolor-darkcolor       "#d4be98"  # foreground
 
 # UI elements
-set statusbar-bg            "#3c3836"
-set statusbar-fg            "#ebdbb2"
+set statusbar-bg            "#282828"  # bg1
+set statusbar-fg            "#d4be98"
 
-set inputbar-bg             "#3c3836"
-set inputbar-fg             "#ebdbb2"
+set inputbar-bg             "#282828"
+set inputbar-fg             "#d4be98"
 
-set notification-bg         "#3c3836"
-set notification-fg         "#ebdbb2"
-set notification-error-bg   "#cc241d"
-set notification-error-fg   "#fbf1c7"
-set notification-warning-bg "#d79921"
-set notification-warning-fg "#282828"
+set notification-bg         "#282828"
+set notification-fg         "#d4be98"
+set notification-error-bg   "#ea6962"  # red
+set notification-error-fg   "#1d2021"
+set notification-warning-bg "#d8a657"  # yellow
+set notification-warning-fg "#1d2021"
 
 # Highlighting
-set highlight-color         "#fabd2f"
-set highlight-active-color  "#fe8019"
+set highlight-color         "#7daea3"  # blue
+set highlight-active-color  "#d3869b"  # purple
 
 # Completion menu
-set completion-bg           "#3c3836"
-set completion-fg           "#ebdbb2"
-set completion-highlight-bg "#504945"
-set completion-highlight-fg "#fabd2f"
+set completion-bg           "#282828"
+set completion-fg           "#d4be98"
+set completion-highlight-bg "#32302f"  # overlay
+set completion-highlight-fg "#89b482"  # aqua
 
 # Index / TOC
-set index-bg                "#282828"
-set index-fg                "#ebdbb2"
-set index-active-bg         "#504945"
-set index-active-fg         "#fabd2f"
+set index-bg                "#1d2021"
+set index-fg                "#d4be98"
+set index-active-bg         "#32302f"
+set index-active-fg         "#89b482"
 
-# Links
+# Links / loading
 set render-loading          true
-set render-loading-bg       "#282828"
-set render-loading-fg       "#fabd2f"
+set render-loading-bg       "#1d2021"
+set render-loading-fg       "#7daea3"  # blue
 

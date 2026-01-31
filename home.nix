@@ -44,11 +44,15 @@ in
 
     programs.tmux = {
         enable = true;
-        extraConfig = "
+        extraConfig = ''
             unbind r 
             bind r source-file ~/.tmux.conf
 
             set -g prefix C-s
+
+            set -g default-terminal "$TERM"
+            set -ag terminal-overrides ",$TERM:Tc"
+
 
             set -sg escape-time 0
 
@@ -60,7 +64,7 @@ in
             bind-key l select-pane -R
 
             set-option -g status-position bottom
-        ";
+        '';
     };
 
       programs.git = {
@@ -88,18 +92,21 @@ in
       enable = true;
 
       theme = {
-        name = "rose-pine";
-        package = pkgs.rose-pine-gtk-theme;
+        name = "Gruvbox-Dark";
+        package = pkgs.gruvbox-gtk-theme;
       };
 
       iconTheme = {
-        name = "Adwaita";
-        package = pkgs.adwaita-icon-theme;
+        name = "Gruvbox-Plus-Dark";
+        package = pkgs.gruvbox-plus-icons;
+      };
+      gtk3.extraConfig = {
+        gtk-theme-variant = "soft";
       };
 
-      gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
-      gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
-
+      gtk4.extraConfig = {
+        gtk-theme-variant = "soft";
+      };
     };
 
     home.pointerCursor = {
@@ -148,6 +155,9 @@ in
         syncthing
         mako
         libnotify
+        nautilus
+        ffmpegthumbnailer
+
 	];
 
 }

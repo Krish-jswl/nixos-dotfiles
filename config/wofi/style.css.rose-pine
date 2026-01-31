@@ -1,0 +1,68 @@
+/* Rosé Pine palette */
+@define-color base     #191724;
+@define-color surface  #1f1d2e;
+@define-color overlay  #26233a;
+@define-color muted    #6e6a86;
+@define-color text     #e0def4;
+@define-color love     #eb6f92;
+@define-color gold     #f6c177;
+@define-color rose     #ebbcba;
+@define-color pine     #31748f;
+@define-color foam     #9ccfd8;
+@define-color iris     #c4a7e7;
+
+* {
+    font-family: JetBrainsMono Nerd Font, monospace;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+window {
+    background-color: @base;
+    border: 2px solid @overlay;
+    padding: 10px;
+}
+
+#input {
+    background-color: @surface;
+    color: @text;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    border: none;
+}
+
+#outer-box {
+    padding: 8px;
+}
+
+#inner-box {
+    background-color: transparent;
+}
+
+#scroll {
+    margin: 0;
+}
+
+#entry {
+    padding: 8px 12px;
+    margin: 4px 0;
+    color: @muted;
+}
+
+#entry:selected {
+    background-color: @overlay;
+    color: @iris;
+}
+
+#text:selected {
+    color: @base;
+}
+
+#entry:hover {
+    background-color: @surface;
+}
+
+#img {
+    margin-right: 8px;
+}
+

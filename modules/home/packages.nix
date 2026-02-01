@@ -1,0 +1,45 @@
+{ pkgs, ... }:
+
+{
+    home.packages = with pkgs; [
+        fastfetch
+        htop
+        brightnessctl
+        wl-clipboard
+        hyprpaper
+        hyprlock
+        hypridle
+        waybar
+        fuzzel
+        grim
+        slurp
+        ripgrep
+        nixpkgs-fmt
+        nodejs
+        gcc
+        clang-tools
+        glibc.dev
+        zathura
+        zathuraPkgs.zathura_pdf_mupdf
+        unzip
+        gnutar
+        gzip
+        fzf
+        qbittorrent
+        vlc
+        go
+        gopls
+        obsidian
+        obs-studio
+        imv
+        gnumake
+        pkg-config
+        tomato-c
+        syncthing
+        mako
+        libnotify
+        nautilus
+        ffmpegthumbnailer
+        tree-sitter
+	];
+}

@@ -30,17 +30,33 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  services.tlp.enable = true;
+  services.tlp = {
+    enable = true;
+
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_BOOST_ON_BAT = 0;
+
+      PCIE_ASPM_ON_BAT = "powersupersave";
+
+      RUNTIME_PM_ON_BAT = "auto";
+
+      WIFI_PWR_ON_BAT = "on";
+
+      USB_AUTOSUSPEND = 1;
+    };
+  };
 
   boot.kernelParams = [ "amd_pstate=active" ];
 
-  powerManagement.cpuFreqGovernor = "power saver";
+  powerManagement.cpuFreqGovernor = "powrsaver";
 
   services.power-profiles-daemon.enable = false;
 
   # Enable Postgresql
   services.postgresql = {
-    enable = true;
+    enable = false;
     package = pkgs.postgresql_16;
 
     ensureDatabases = [ "gokit" ];
@@ -53,7 +69,7 @@
   };
 
   # Enables docker
-  virtualisation.docker.enable = true;
+  virtualisation.docker.enable = false;
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";

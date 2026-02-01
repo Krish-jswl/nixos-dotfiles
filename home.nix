@@ -19,6 +19,31 @@ in
 	home.homeDirectory = "/home/krishj";
 	home.stateVersion = "25.05";
 
+    gtk = {
+      enable = true;
+
+      theme = {
+        name = "Nordic-darker";
+        package = pkgs.nordic;
+      };
+
+      iconTheme = {
+        name = "Papirus-Dark";
+        package = pkgs.papirus-icon-theme;
+      };
+    };
+
+    dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
+
+
+    programs.neovim = {
+      enable = true;
+    };
+
 
 	programs.bash = {
 		enable = true;
@@ -88,26 +113,8 @@ in
     })
     configs;
 
-    gtk = {
-      enable = true;
+    xdg.userDirs.enable = true;
 
-      theme = {
-        name = "Gruvbox-Dark";
-        package = pkgs.gruvbox-gtk-theme;
-      };
-
-      iconTheme = {
-        name = "Gruvbox-Plus-Dark";
-        package = pkgs.gruvbox-plus-icons;
-      };
-      gtk3.extraConfig = {
-        gtk-theme-variant = "soft";
-      };
-
-      gtk4.extraConfig = {
-        gtk-theme-variant = "soft";
-      };
-    };
 
     home.pointerCursor = {
         name = "Bibata-Modern-Ice";
@@ -140,7 +147,6 @@ in
         unzip
         gnutar
         gzip
-        neovim
         fzf
         qbittorrent
         vlc
@@ -157,7 +163,7 @@ in
         libnotify
         nautilus
         ffmpegthumbnailer
-
+        tree-sitter
 	];
 
 }

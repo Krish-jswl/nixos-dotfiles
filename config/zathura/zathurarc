@@ -1,48 +1,53 @@
 # =========================
-# Gruvbox Material Hard for Zathura
+# PURE NORD for Zathura
 # =========================
 
-# Core colors
-set default-bg              "#1d2021"  # bg0 hard
-set default-fg              "#d4be98"  # fg0
+# Core colors (Polar Night)
+set default-bg              "#2e3440"  # nord0
+set default-fg              "#d8dee9"  # nord4
 
-# Recolor mode (the magic)
+# Recolor mode (PDF dark magic)
 set recolor                 true
-set recolor-lightcolor      "#1d2021"  # background
-set recolor-darkcolor       "#d4be98"  # foreground
+set recolor-lightcolor      "#2e3440"  # nord0
+set recolor-darkcolor       "#d8dee9"  # nord4
 
 # UI elements
-set statusbar-bg            "#282828"  # bg1
-set statusbar-fg            "#d4be98"
+set statusbar-bg            "#3b4252"  # nord1
+set statusbar-fg            "#d8dee9"  # nord4
 
-set inputbar-bg             "#282828"
-set inputbar-fg             "#d4be98"
+set inputbar-bg             "#3b4252"
+set inputbar-fg             "#d8dee9"
 
-set notification-bg         "#282828"
-set notification-fg         "#d4be98"
-set notification-error-bg   "#ea6962"  # red
-set notification-error-fg   "#1d2021"
-set notification-warning-bg "#d8a657"  # yellow
-set notification-warning-fg "#1d2021"
+set notification-bg         "#3b4252"
+set notification-fg         "#d8dee9"
+
+set notification-error-bg   "#bf616a"  # nord11 (red)
+set notification-error-fg   "#2e3440"
+
+set notification-warning-bg "#ebcb8b"  # nord13 (yellow)
+set notification-warning-fg "#2e3440"
 
 # Highlighting
-set highlight-color         "#7daea3"  # blue
-set highlight-active-color  "#d3869b"  # purple
+set highlight-color         "#81a1c1"  # nord9 (frost blue)
+set highlight-active-color  "#88c0d0"  # nord8 (cyan)
 
 # Completion menu
-set completion-bg           "#282828"
-set completion-fg           "#d4be98"
-set completion-highlight-bg "#32302f"  # overlay
-set completion-highlight-fg "#89b482"  # aqua
+set completion-bg           "#3b4252"
+set completion-fg           "#d8dee9"
+set completion-highlight-bg "#4c566a"  # nord3
+set completion-highlight-fg "#a3be8c"  # nord14 (green)
 
 # Index / TOC
-set index-bg                "#1d2021"
-set index-fg                "#d4be98"
-set index-active-bg         "#32302f"
-set index-active-fg         "#89b482"
+set index-bg                "#2e3440"
+set index-fg                "#d8dee9"
+set index-active-bg         "#4c566a"
+set index-active-fg         "#a3be8c"
 
-# Links / loading
+# Loading screen
 set render-loading          true
-set render-loading-bg       "#1d2021"
-set render-loading-fg       "#7daea3"  # blue
+set render-loading-bg       "#2e3440"
+set render-loading-fg       "#81a1c1"
+
+# Toggle recolor mode
+map <C-r> set recolor "!"
 

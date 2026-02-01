@@ -1,20 +1,35 @@
+# =========================
+# PURE NORD for mako
+# =========================
+
 font=JetBrainsMono Nerd Font 11
-background-color=#1d2021
-text-color=#ebdbb2
+
+# Core colors (Polar Night)
+background-color=#2e3440   # nord0
+text-color=#d8dee9         # nord4
+
 width=300
 height=200
+
+# Borders
 border-size=4
-border-color=#689d6a
+border-color=#81a1c1       # nord9 (frost blue)
 border-radius=10
+
 padding=20
+
 icons=1
 actions=1
 history=1
+
 layer=overlay
 text-alignment=center
 
+# =========================
+# Urgency: High
+# =========================
 [urgency=high]
-border-color=#cc241d
-text-color=#fb4934
+border-color=#bf616a       # nord11 (red)
+text-color=#eceff4         # nord6
 default-timeout=0
 

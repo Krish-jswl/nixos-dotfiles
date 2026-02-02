@@ -6,9 +6,6 @@
         htop
         brightnessctl
         wl-clipboard
-        hyprpaper
-        hyprlock
-        hypridle
         waybar
         fuzzel
         grim
@@ -41,5 +38,9 @@
         nautilus
         ffmpegthumbnailer
         tree-sitter
+        swaybg
+        swaylock-effects
+        swayidle
+        kitty
 	];
 }

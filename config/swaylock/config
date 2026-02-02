@@ -1,0 +1,45 @@
+# =========================
+# BACKGROUND
+# =========================
+image=~/Pictures/Wallpapers/waifu-on-balcony.png
+scaling=fill
+
+# =========================
+# FONT
+# =========================
+font=JetBrainsMono Nerd Font
+font-size=70
+
+# =========================
+# CLOCK & DATE
+# =========================
+clock
+timestr=%I:%M %p
+datestr=%A, %d %B
+
+text-color=ffffffff
+
+# =========================
+# INDICATOR
+# =========================
+indicator
+indicator-radius=150
+indicator-thickness=8
+
+# Nord colors
+ring-color=88c0d0ff
+ring-clear-color=8fbcbbff
+ring-ver-color=8fbcbbff
+ring-wrong-color=bf616aff
+
+inside-color=3b4252e6
+inside-clear-color=3b4252e6
+inside-ver-color=a3be8c
+inside-wrong-color=3b4252e6
+
+key-hl-color=b48ead
+line-color=2e3440
+separator-color=00000000
+
+show-failed-attempts
+

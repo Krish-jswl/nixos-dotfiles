@@ -12,6 +12,14 @@
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
 
+    shellAliases = {
+      hmodules = "nvim ~/nixos-dotfiles/modules/home/";
+      packages = "nvim ~/nixos-dotfiles/modules/home/packages.nix";
+
+      rebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos";
+    };
+
+
     initContent = ''
       bindkey '^H' backward-kill-word
       WORDCHARS=''${WORDCHARS//[\/\-#]/}

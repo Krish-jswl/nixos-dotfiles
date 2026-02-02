@@ -5,15 +5,15 @@ let
   link = path: config.lib.file.mkOutOfStoreSymlink path;
 
   configs = {
-      hypr = "hypr";
-      nvim = "nvim";
-      foot = "foot";
-      fuzzel = "fuzzel";
-      waybar = "waybar";
-      zathura = "zathura";
-      mako = "mako";
-    };
-
+    hypr     = "hypr";
+    nvim     = "nvim";
+    fuzzel   = "fuzzel";
+    waybar   = "waybar";
+    zathura  = "zathura";
+    mako     = "mako";
+    niri     = "niri";
+    swaylock = "swaylock";
+    kitty    = "kitty";
   };
 in
 {

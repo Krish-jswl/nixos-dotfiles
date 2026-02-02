@@ -45,7 +45,7 @@ button:hover {
     box-shadow: inset 0 -3px transparent;
 }
 
-#workspaces button {
+#niri-workspaces button {
     box-shadow: none;
     text-shadow: none;
     padding: 0px;
@@ -60,7 +60,7 @@ button:hover {
     animation: ws_normal 20s ease-in-out 1;
 }
 
-#workspaces button.active {
+#niri-workspaces button.active {
     background: @blue;
     color: @crust;
     border-radius:  4.5pt;
@@ -72,7 +72,7 @@ button:hover {
     transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
-#workspaces button:hover {
+#niri-workspaces button:hover {
     background: @mantle;
     color: @text;
     animation: ws_hover 20s ease-in-out 1;
@@ -171,3 +171,4 @@ label:focus {
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
+

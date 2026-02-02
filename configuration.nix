@@ -82,6 +82,8 @@
 
   programs.hyprland.xwayland.enable = true;
 
+  programs.niri.enable = true;
+
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 

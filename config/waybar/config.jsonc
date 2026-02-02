@@ -26,7 +26,7 @@
   "group/group-1": {
     "orientation": "horizontal",
     "modules": [
-      "hyprland/workspaces",
+      "niri/workspaces",
     ],
   },
   "group/group-2": {
@@ -61,7 +61,7 @@
   "group/group-5": {
     "orientation": "horizontal",
     "modules": [
-      "hyprland/window",
+      "niri/window",
     ],
   },
   "group/group-6": {
@@ -104,35 +104,19 @@
     ],
   },
   // Modules configuration
-  "hyprland/workspaces": {
-    "on-click": "activate",
-    "activate-only": false,
+  "niri/workspaces": {
+    "disable-click": true,
+    "format": "{icon}",
     "swap-icon-label": true,
-    "all-outputs": true,
-    "format": "{name}",
     "format-icons": {
-      "1": "*",  
-      "2": "*",   
-      "3": "*",     
-      "4": "*",    
-      "5": "*",   
-      "6": "*",     
-      "7": "*",    
-      "8": "*",     
-      "9": "*",    
-      "10": "*",
-       "urgent": "*",
-       "active": "*",
-       "default": "*",
+      "active": " ",
+      "default": " ",
     },
-    "persistent_workspaces": {
-      "[]": 3
-    }
   },
-  "hyprland/window": {
+  "niri/window": {
     "format": "  {}",
-    "max-length": 32,
     "swap-icon-label": true,
+    "max-length": 32,
     "separate-outputs": false,
   },
 
@@ -505,3 +489,4 @@
     "min-length": 14,
   },
 } 
+

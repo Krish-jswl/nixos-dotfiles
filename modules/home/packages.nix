@@ -42,5 +42,6 @@
         swaylock-effects
         swayidle
         kitty
+        libresprite
 	];
 }

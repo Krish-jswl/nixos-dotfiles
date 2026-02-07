@@ -104,17 +104,19 @@
     ],
   },
   // Modules configuration
-  "niri/workspaces": {
-    "disable-click": true,
-    "format": "{icon}",
-    "swap-icon-label": true,
-    "format-icons": {
-      "active": " ",
-      "default": " ",
-    },
+"niri/workspaces": {
+  "disable-click": false,
+  "format": "{icon}",
+  "on-scroll-up": "true",
+  "on-scroll-down": "true",
+  "swap-icon-label": true,
+  "format-icons": {
+    "active": " ",
+    "default": " "
+    }
   },
   "niri/window": {
-    "format": "  {}",
+    "format": " {} ",
     "swap-icon-label": true,
     "max-length": 32,
     "separate-outputs": false,

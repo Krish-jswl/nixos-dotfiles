@@ -39,6 +39,8 @@ output "eDP-1" {
 // Layout
 // ======================
 layout {
+    background-color "transparent"
+
     center-focused-column "never"
 
     preset-column-widths {
@@ -62,9 +64,9 @@ layout {
     gaps 5
 
     struts {
-        left 15
-        right 15
-        top 15
+        left 7
+        right 7
+        top 7
     }
 }
 

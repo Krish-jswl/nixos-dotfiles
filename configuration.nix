@@ -77,12 +77,13 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-  
-  programs.hyprland.enable = true;
-
-  programs.hyprland.xwayland.enable = true;
-
   programs.niri.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
+
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
@@ -125,14 +126,6 @@
      pulse.enable = true;
      alsa.enable = true;
      jack.enable = true;
-   };
-
-   xdg.portal = {
-     enable = true;
-     wlr.enable = true;
-     extraPortals = [
-       pkgs.xdg-desktop-portal-hyprland
-     ];
    };
 
   services.dbus.enable = true;

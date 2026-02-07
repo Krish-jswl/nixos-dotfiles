@@ -111,7 +111,7 @@
   "on-scroll-down": "true",
   "swap-icon-label": true,
   "format-icons": {
-    "active": " ",
+    "active": " ",
     "default": " "
     }
   },

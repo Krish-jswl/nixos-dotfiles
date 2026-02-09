@@ -1,4 +1,4 @@
-@import "nord.css";
+@import "mocha.css";
 
 * {
     min-height: 0;
@@ -29,7 +29,7 @@
     background-color: @base;
     transition-property:  background-color;
     transition-duration: 0.5s;
-    border: 2px solid @blue;
+    border: 2px solid @mauve;
 }
 
 button {
@@ -53,8 +53,8 @@ button:hover {
     margin-top: 1em;
     margin-bottom: 1em;
     margin-left: 0px;
-    padding-left: 3px;
-    padding-right: 3px;
+    padding-left: 2px;
+    padding-right: 2px;
     margin-right: 0px;
     color: @text;
     animation: ws_normal 20s ease-in-out 1;
@@ -69,7 +69,7 @@ button:hover {
 }
 
 #tags button {
-    color: @blue;
+    color: @mauve;
     background: @base;
     border-radius: 0px;
     padding: 0px 0px;

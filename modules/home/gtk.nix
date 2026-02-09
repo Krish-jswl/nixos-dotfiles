@@ -5,8 +5,12 @@
     enable = true;
 
     theme = {
-      name = "Nordic-darker";
-      package = pkgs.nordic;
+      name = "catppuccin-mocha-mauve-standard";
+      package = (pkgs.catppuccin-gtk.override {
+        accents = [ "mauve" ];
+        size = "standard";
+        variant = "mocha";
+      });
     };
 
     iconTheme = {

@@ -4,13 +4,16 @@
   programs.git = {
     enable = true;
 
-    userName = "Krish-jswl";
-    userEmail = "imkrishjaiswal05@gmail.com";
+    settings = {
+      user = {
+        email = "imkrishjaiswal05@gmail.com";
+        name = "Krish-jswl";
+      };
 
-    extraConfig = {
       init.defaultBranch = "main";
       core.editor = "nvim";
       pull.rebase = true;
     };
+
   };
 }

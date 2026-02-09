@@ -1,22 +1,16 @@
-// ======================
 // Startup
-// ======================
 spawn-at-startup "waybar"
 spawn-at-startup "mako"
 spawn-at-startup "~/nixos-dotfiles/config/niri/scripts/wallpaper.sh"
 spawn-at-startup "~/nixos-dotfiles/config/niri/scripts/idel.sh"
 
-// ======================
 // Cursor
-// ======================
 cursor {
     xcursor-theme "Bibata-Modern-Ice"
     xcursor-size 24
 }
 
-// ======================
 // Input
-// ======================
 input {
     touchpad {
         tap
@@ -26,18 +20,19 @@ input {
     focus-follows-mouse max-scroll-amount="100%"
 }
 
-// ======================
 // Output
-// ======================
 output "eDP-1" {
     mode "2560x1440@165.003"
     scale 1.5
     position x=0 y=0
 }
 
-// ======================
+// Overview
+overview {
+    backdrop-color "#1e1e2e"
+}
+
 // Layout
-// ======================
 layout {
     background-color "transparent"
 
@@ -57,8 +52,8 @@ layout {
 
     border {
         width 3
-        active-color "#81a1c1"
-        inactive-color "#4c566a"
+        active-color "#cba6f7"
+        inactive-color "#6c7086"
     }
 
     gaps 5
@@ -70,16 +65,12 @@ layout {
     }
 }
 
-// ======================
 // Animations
-// ======================
 animations {
     slowdown 2.0
 }
 
-// ======================
 // Window Rules
-// ======================
 window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
@@ -90,18 +81,14 @@ window-rule {
     clip-to-geometry true
 }
 
-// ======================
 // Misc
-// ======================
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 hotkey-overlay {
     skip-at-startup
 }
 
-// ======================
 // Keybindings
-// ======================
 binds {
     Mod+Tab { toggle-overview; }
     Mod+Shift+Slash { show-hotkey-overlay; }

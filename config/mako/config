@@ -1,27 +1,9 @@
+# Colors
 
-font=JetBrainsMono Nerd Font 11
-
-background-color=#2e3440
-text-color=#d8dee9
-
-width=300
-height=200
-
-border-size=4
-border-color=#81a1c1
-border-radius=10
-
-padding=20
-
-icons=1
-actions=1
-history=1
-
-layer=overlay
-text-alignment=center
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#cba6f7
+progress-color=over #313244
 
 [urgency=high]
-border-color=#bf616a
-text-color=#eceff4
-default-timeout=0
-
+border-color=#fab387

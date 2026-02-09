@@ -9,85 +9,85 @@
 
 
 --Nord
-return {
-  {
-    "shaunsingh/nord.nvim",
-    lazy = false, -- load immediately
-    priority = 1000,
-    config = function()
-      -- enable transparent background
-      vim.g.nord_disable_background = true
-      vim.g.nord_borders = true
-      vim.g.nord_contrast = false
-      vim.g.nord_italic = true
-
-      -- Load the colorscheme
-      require("nord").set()
-
-      -- optional: make floating windows transparent too
-      vim.cmd([[
-        hi Normal guibg=none
-        hi NormalFloat guibg=none
-        hi SignColumn guibg=none
-        hi VertSplit guibg=none
-        hi StatusLine guibg=none
-        hi StatusLineNC guibg=none
-      ]])
-    end,
-  },
-}
+-- return {
+--   {
+--     "shaunsingh/nord.nvim",
+--     lazy = false, -- load immediately
+--     priority = 1000,
+--     config = function()
+--       -- enable transparent background
+--       vim.g.nord_disable_background = true
+--       vim.g.nord_borders = true
+--       vim.g.nord_contrast = false
+--       vim.g.nord_italic = true
+--
+--       -- Load the colorscheme
+--       require("nord").set()
+--
+--       -- optional: make floating windows transparent too
+--       vim.cmd([[
+--         hi Normal guibg=none
+--         hi NormalFloat guibg=none
+--         hi SignColumn guibg=none
+--         hi VertSplit guibg=none
+--         hi StatusLine guibg=none
+--         hi StatusLineNC guibg=none
+--       ]])
+--     end,
+--   },
+-- }
 
 
 
 
 -- Catppuccin
--- return {
---   {
---     "catppuccin/nvim",
---     name = "catppuccin",
---     priority = 1000,
---     config = function()
---       require("catppuccin").setup({
---         flavour = "mocha", -- Options: latte, frappe, macchiato, mocha
---         transparent_background = true,
---         term_colors = true,
---         no_italic = false,
---         no_bold = false,
---         no_underline = false,
---         integrations = {
---           cmp = true,
---           gitsigns = true,
---           nvimtree = true,
---           telescope = true,
---           treesitter = true,
---           notify = false,
---           mini = {
---             enabled = true,
---             indentscope_color = "",
---           },
---           lsp_trouble = true,
---           which_key = true,
---         },
---       })
---
---       -- Apply the colorscheme
---       vim.cmd.colorscheme("catppuccin")
---
---       -- Make background fully transparent
---       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
---       vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
---       vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
---       vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
---       vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
---       vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
---       vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
---       vim.api.nvim_set_hl(0, "MsgArea", { bg = "none" })
---       vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
---       vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
---       vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
---     end,
---   },
--- }
+return {
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha", -- Options: latte, frappe, macchiato, mocha
+        transparent_background = true,
+        term_colors = true,
+        no_italic = false,
+        no_bold = false,
+        no_underline = false,
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          nvimtree = true,
+          telescope = true,
+          treesitter = true,
+          notify = false,
+          mini = {
+            enabled = true,
+            indentscope_color = "",
+          },
+          lsp_trouble = true,
+          which_key = true,
+        },
+      })
+
+      -- Apply the colorscheme
+      vim.cmd.colorscheme("catppuccin")
+
+      -- Make background fully transparent
+      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+      vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+      vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+      vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
+      vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+      vim.api.nvim_set_hl(0, "MsgArea", { bg = "none" })
+      vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
+      vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
+      vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
+    end,
+  },
+}
 
 --ONE_DARK
 -- return {

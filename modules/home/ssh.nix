@@ -3,14 +3,15 @@
 {
   programs.ssh = {
     enable = true;
-    startAgent = true;
 
-    extraConfig = ''
-      AddKeysToAgent yes
-      IdentityFile ~/.ssh/id_ed25519
-      ServerAliveInterval 60
-      ServerAliveCountMax 3
-    '';
+    enableDefaultConfig = false;
+
+    matchBlocks."*" = {
+      addKeysToAgent = "yes";
+      identityFile = "~/.ssh/id_ed25519";
+      serverAliveInterval = 60;
+      serverAliveCountMax = 3;
+    };
   };
 }
 

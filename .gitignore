@@ -1,18 +1,26 @@
-# Nix
+# Nix build outputs
 result
-*.drv
+result-*
+
+# Nix stuff
+.nix-profile/
+.nix-defexpr/
+.nix-channels/
+
+# Direnv
+.direnv/
 
 # Editor junk
 *.swp
 *.swo
 *~
+.vscode/
+.idea/
 
-# Env / secrets
-.env
-
-# Direnv
-.direnv
-
-# OS
+# OS junk
 .DS_Store
+
+# Optional: logs / cache
+*.log
+.cache/
 

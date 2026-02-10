@@ -1,4 +1,4 @@
--- Blood-moon
+-- Blood-mooncolo
 -- return {
 --   "nvim-lua/plenary.nvim", -- dummy entry so Lazy handles it
 --   priority = 1000,
@@ -41,53 +41,53 @@
 
 
 -- Catppuccin
-return {
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    config = function()
-      require("catppuccin").setup({
-        flavour = "mocha", -- Options: latte, frappe, macchiato, mocha
-        transparent_background = true,
-        term_colors = true,
-        no_italic = false,
-        no_bold = false,
-        no_underline = false,
-        integrations = {
-          cmp = true,
-          gitsigns = true,
-          nvimtree = true,
-          telescope = true,
-          treesitter = true,
-          notify = false,
-          mini = {
-            enabled = true,
-            indentscope_color = "",
-          },
-          lsp_trouble = true,
-          which_key = true,
-        },
-      })
-
-      -- Apply the colorscheme
-      vim.cmd.colorscheme("catppuccin")
-
-      -- Make background fully transparent
-      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-      vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
-      vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-      vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
-      vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
-      vim.api.nvim_set_hl(0, "MsgArea", { bg = "none" })
-      vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
-      vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
-      vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
-    end,
-  },
-}
+-- return {
+--   {
+--     "catppuccin/nvim",
+--     name = "catppuccin",
+--     priority = 1000,
+--     config = function()
+--       require("catppuccin").setup({
+--         flavour = "mocha", -- Options: latte, frappe, macchiato, mocha
+--         transparent_background = true,
+--         term_colors = true,
+--         no_italic = false,
+--         no_bold = false,
+--         no_underline = false,
+--         integrations = {
+--           cmp = true,
+--           gitsigns = true,
+--           nvimtree = true,
+--           telescope = true,
+--           treesitter = true,
+--           notify = false,
+--           mini = {
+--             enabled = true,
+--             indentscope_color = "",
+--           },
+--           lsp_trouble = true,
+--           which_key = true,
+--         },
+--       })
+--
+--       -- Apply the colorscheme
+--       vim.cmd.colorscheme("catppuccin")
+--
+--       -- Make background fully transparent
+--       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "MsgArea", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
+--     end,
+--   },
+-- }
 
 --ONE_DARK
 -- return {
@@ -156,45 +156,45 @@ return {
 -- }
 
 -- Gruvbox
--- return {
---   {
---     "ellisonleao/gruvbox.nvim",
---     priority = 1000,
---     config = function()
---       require("gruvbox").setup({
---         terminal_colors = true, -- Use gruvbox colors in the terminal
---         undercurl = true,
---         underline = true,
---         bold = true,
---         italic = {
---           strings = true,
---           comments = true,
---           operators = false,
---           folds = true,
---         },
---         strikethrough = true,
---         invert_selection = false,
---         invert_signs = false,
---         invert_tabline = false,
---         invert_intend_guides = false,
---         inverse = true, -- Invert background for search, diffs, statuslines
---         contrast = "hard", -- options: "soft", "medium", "hard"
---         palette_overrides = {},
---         overrides = {
---           Normal = { bg = "none" },
---           NormalFloat = { bg = "none" },
---           SignColumn = { bg = "none" },
---           VertSplit = { bg = "none" },
---           StatusLine = { bg = "none" },
---         },
---         dim_inactive = false,
---         transparent_mode = true, -- enable transparency
---       })
---
---       vim.cmd("colorscheme gruvbox")
---     end,
---   },
--- }
+return {
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = function()
+      require("gruvbox").setup({
+        terminal_colors = true, -- Use gruvbox colors in the terminal
+        undercurl = true,
+        underline = true,
+        bold = true,
+        italic = {
+          strings = true,
+          comments = true,
+          operators = false,
+          folds = true,
+        },
+        strikethrough = true,
+        invert_selection = false,
+        invert_signs = false,
+        invert_tabline = false,
+        invert_intend_guides = false,
+        inverse = true, -- Invert background for search, diffs, statuslines
+        contrast = "hard", -- options: "soft", "medium", "hard"
+        palette_overrides = {},
+        overrides = {
+          Normal = { bg = "none" },
+          NormalFloat = { bg = "none" },
+          SignColumn = { bg = "none" },
+          VertSplit = { bg = "none" },
+          StatusLine = { bg = "none" },
+        },
+        dim_inactive = false,
+        transparent_mode = true, -- enable transparency
+      })
+
+      vim.cmd("colorscheme gruvbox")
+    end,
+  },
+}
 
 -- rasmus
 -- return {

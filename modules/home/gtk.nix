@@ -5,17 +5,19 @@
     enable = true;
 
     theme = {
-      name = "catppuccin-mocha-mauve-standard";
-      package = (pkgs.catppuccin-gtk.override {
-        accents = [ "mauve" ];
-        size = "standard";
-        variant = "mocha";
-      });
+      name = "Gruvbox-Dark";
+      package = pkgs.gruvbox-gtk-theme;
     };
 
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      name = "Gruvbox-Plus-Dark";
+      package = pkgs.gruvbox-plus-icons;
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
     };
   };
 

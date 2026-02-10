@@ -2,7 +2,7 @@
 spawn-at-startup "waybar"
 spawn-at-startup "mako"
 spawn-at-startup "~/nixos-dotfiles/config/niri/scripts/wallpaper.sh"
-spawn-at-startup "~/nixos-dotfiles/config/niri/scripts/idel.sh"
+spawn-at-startup "hypridle"
 
 // Cursor
 cursor {
@@ -29,7 +29,7 @@ output "eDP-1" {
 
 // Overview
 overview {
-    backdrop-color "#1e1e2e"
+    backdrop-color "#282828"
 }
 
 // Layout
@@ -52,8 +52,8 @@ layout {
 
     border {
         width 3
-        active-color "#cba6f7"
-        inactive-color "#6c7086"
+        active-color "#a89984"
+        inactive-color "#2a2a2a"
     }
 
     gaps 5
@@ -97,8 +97,8 @@ binds {
 
     Mod+Return { spawn "kitty"; }
     Mod+R { spawn "fuzzel"; }
-    Mod+Shift+X { spawn "swaylock" "-f" "--clock" "--indicator"; }
     Mod+B { spawn "firefox"; }
+    Mod+Shift+X { spawn "hyprlock"; }
     Mod+E { spawn "nautilus" "--new-window"; }
 
     XF86AudioRaiseVolume allow-when-locked=true {
@@ -145,11 +145,11 @@ binds {
     Mod+4 { focus-workspace 4; }
     Mod+5 { focus-workspace 5; }
 
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
 
     Mod+D { switch-preset-column-width; }
     Mod+F { maximize-column; }

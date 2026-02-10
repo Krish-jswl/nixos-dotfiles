@@ -12,7 +12,6 @@ let
     zathura  = "zathura";
     mako     = "mako";
     niri     = "niri";
-    swaylock = "swaylock";
     kitty    = "kitty";
   };
 in

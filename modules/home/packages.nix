@@ -39,9 +39,9 @@
         ffmpegthumbnailer
         tree-sitter
         swaybg
-        swaylock-effects
-        swayidle
         kitty
         libresprite
+        hyprlock
+        hypridle
 	];
 }

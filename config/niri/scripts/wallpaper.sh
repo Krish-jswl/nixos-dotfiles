@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-swaybg -m fill -i ~/Pictures/Wallpapers/MC_snow_night_moon.png
+swaybg -m fill -i ~/Pictures/Wallpapers/gruv-street.jpg

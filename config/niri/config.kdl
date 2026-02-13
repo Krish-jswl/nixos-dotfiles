@@ -29,7 +29,7 @@ output "eDP-1" {
 
 // Overview
 overview {
-    backdrop-color "#282828"
+    backdrop-color "#32302f"
 }
 
 // Layout
@@ -52,8 +52,8 @@ layout {
 
     border {
         width 3
-        active-color "#a89984"
-        inactive-color "#2a2a2a"
+        active-color "#928374"
+        inactive-color "#3c3836"
     }
 
     gaps 5
@@ -72,8 +72,9 @@ animations {
 
 // Window Rules
 window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
+    match app-id="kitty"
+    opacity 0.9
+    draw-border-with-background false
 }
 
 window-rule {

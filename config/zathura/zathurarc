@@ -1,53 +1,53 @@
 # =========================
-# CATPPUCCIN MOCHA for Zathura
+# TOKYO NIGHT (Storm) for Zathura
 # =========================
 
 # Core colors
 # Base / Text
-set default-bg              "#1e1e2e"  # base
-set default-fg              "#cdd6f4"  # text
+set default-bg              "#1a1b26"
+set default-fg              "#c0caf5"
 
 # Recolor mode (PDF dark magic)
 set recolor                 true
-set recolor-lightcolor      "#1e1e2e"  # base
-set recolor-darkcolor       "#cdd6f4"  # text
+set recolor-lightcolor      "#1a1b26"
+set recolor-darkcolor       "#c0caf5"
 
 # UI elements
-set statusbar-bg            "#313244"  # surface0
-set statusbar-fg            "#cdd6f4"  # text
+set statusbar-bg            "#24283b"
+set statusbar-fg            "#c0caf5"
 
-set inputbar-bg             "#313244"  # surface0
-set inputbar-fg             "#cdd6f4"  # text
+set inputbar-bg             "#24283b"
+set inputbar-fg             "#c0caf5"
 
-set notification-bg         "#313244"  # surface0
-set notification-fg         "#cdd6f4"  # text
+set notification-bg         "#24283b"
+set notification-fg         "#c0caf5"
 
-set notification-error-bg   "#f38ba8"  # red
-set notification-error-fg   "#1e1e2e"  # base
+set notification-error-bg   "#f7768e"
+set notification-error-fg   "#1a1b26"
 
-set notification-warning-bg "#f9e2af"  # yellow
-set notification-warning-fg "#1e1e2e"  # base
+set notification-warning-bg "#e0af68"
+set notification-warning-fg "#1a1b26"
 
 # Highlighting
-set highlight-color         "#89b4fa"  # blue
-set highlight-active-color  "#94e2d5"  # teal
+set highlight-color         "#7aa2f7"
+set highlight-active-color  "#7dcfff"
 
 # Completion menu
-set completion-bg           "#313244"  # surface0
-set completion-fg           "#cdd6f4"  # text
-set completion-highlight-bg "#45475a"  # surface1
-set completion-highlight-fg "#a6e3a1"  # green
+set completion-bg           "#24283b"
+set completion-fg           "#c0caf5"
+set completion-highlight-bg "#3b4261"
+set completion-highlight-fg "#9ece6a"
 
 # Index / TOC
-set index-bg                "#1e1e2e"  # base
-set index-fg                "#cdd6f4"  # text
-set index-active-bg         "#45475a"  # surface1
-set index-active-fg         "#a6e3a1"  # green
+set index-bg                "#1a1b26"
+set index-fg                "#c0caf5"
+set index-active-bg         "#3b4261"
+set index-active-fg         "#9ece6a"
 
 # Loading screen
 set render-loading          true
-set render-loading-bg       "#1e1e2e"  # base
-set render-loading-fg       "#89b4fa"  # blue
+set render-loading-bg       "#1a1b26"
+set render-loading-fg       "#7aa2f7"
 
 # Toggle recolor mode
 map <C-r> set recolor "!"

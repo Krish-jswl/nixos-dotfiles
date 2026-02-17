@@ -57,7 +57,7 @@ button:hover {
 
 #tags button {
     color: #d3869b;
-    background: rgba(40, 40, 40, 0.92);
+    background: #30302f;
     border-radius: 0px;
     margin: 5px 0px;
 }
@@ -84,7 +84,7 @@ button:hover {
 #group-8,
 #group-9,
 #group-10 {
-    background: rgba(40, 40, 40, 0.92);
+    background: #30302f;
     margin: 0px 5px;
     border-radius: 6px;
     border: 2px solid #928374;
@@ -141,6 +141,6 @@ button:hover {
 }
 
 label:focus {
-    background-color: rgba(40, 40, 40, 0.92);
+    background-color: #30302f;
 }
 

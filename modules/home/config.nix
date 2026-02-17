@@ -12,7 +12,7 @@ let
     zathura  = "zathura";
     mako     = "mako";
     niri     = "niri";
-    kitty    = "kitty";
+    foot     = "foot";
   };
 in
 {

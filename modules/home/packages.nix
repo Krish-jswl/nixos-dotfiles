@@ -14,7 +14,6 @@
         nixpkgs-fmt
         nodejs
         gcc
-        clang-tools
         glibc.dev
         zathura
         zathuraPkgs.zathura_pdf_mupdf
@@ -25,7 +24,6 @@
         qbittorrent
         vlc
         go
-        gopls
         obsidian
         obs-studio
         imv
@@ -37,11 +35,10 @@
         libnotify
         nautilus
         ffmpegthumbnailer
-        tree-sitter
         swaybg
-        kitty
         libresprite
         hyprlock
         hypridle
+        python3
 	];
 }

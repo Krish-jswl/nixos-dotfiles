@@ -1,54 +1,48 @@
 # =========================
-# TOKYO NIGHT (Storm) for Zathura
+# Gruvbox Dark for Zathura
 # =========================
 
 # Core colors
-# Base / Text
-set default-bg              "#1a1b26"
-set default-fg              "#c0caf5"
+set default-bg              "#30302f"  # bg
+set default-fg              "#ebdbb2"  # fg
 
-# Recolor mode (PDF dark magic)
+# Recolor mode (this is the magic)
 set recolor                 true
-set recolor-lightcolor      "#1a1b26"
-set recolor-darkcolor       "#c0caf5"
+set recolor-lightcolor      "#282828"  # background
+set recolor-darkcolor       "#ebdbb2"  # foreground
 
 # UI elements
-set statusbar-bg            "#24283b"
-set statusbar-fg            "#c0caf5"
+set statusbar-bg            "#3c3836"
+set statusbar-fg            "#ebdbb2"
 
-set inputbar-bg             "#24283b"
-set inputbar-fg             "#c0caf5"
+set inputbar-bg             "#3c3836"
+set inputbar-fg             "#ebdbb2"
 
-set notification-bg         "#24283b"
-set notification-fg         "#c0caf5"
-
-set notification-error-bg   "#f7768e"
-set notification-error-fg   "#1a1b26"
-
-set notification-warning-bg "#e0af68"
-set notification-warning-fg "#1a1b26"
+set notification-bg         "#3c3836"
+set notification-fg         "#ebdbb2"
+set notification-error-bg   "#cc241d"
+set notification-error-fg   "#fbf1c7"
+set notification-warning-bg "#d79921"
+set notification-warning-fg "#282828"
 
 # Highlighting
-set highlight-color         "#7aa2f7"
-set highlight-active-color  "#7dcfff"
+set highlight-color         "#fabd2f"
+set highlight-active-color  "#fe8019"
 
 # Completion menu
-set completion-bg           "#24283b"
-set completion-fg           "#c0caf5"
-set completion-highlight-bg "#3b4261"
-set completion-highlight-fg "#9ece6a"
+set completion-bg           "#3c3836"
+set completion-fg           "#ebdbb2"
+set completion-highlight-bg "#504945"
+set completion-highlight-fg "#fabd2f"
 
 # Index / TOC
-set index-bg                "#1a1b26"
-set index-fg                "#c0caf5"
-set index-active-bg         "#3b4261"
-set index-active-fg         "#9ece6a"
+set index-bg                "#282828"
+set index-fg                "#ebdbb2"
+set index-active-bg         "#504945"
+set index-active-fg         "#fabd2f"
 
-# Loading screen
+# Links
 set render-loading          true
-set render-loading-bg       "#1a1b26"
-set render-loading-fg       "#7aa2f7"
-
-# Toggle recolor mode
-map <C-r> set recolor "!"
+set render-loading-bg       "#282828"
+set render-loading-fg       "#fabd2f"
 

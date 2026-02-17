@@ -1,40 +1,31 @@
 { pkgs, ... }:
 
 {
-  programs.bash = {
-	enable = true;
-  };
 
-  programs.zsh = {
+  programs.fish = {
     enable = true;
-    autocd = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-    autosuggestion.enable = true;
 
     shellAliases = {
       hmodules = "nvim ~/nixos-dotfiles/modules/home/";
       packages = "nvim ~/nixos-dotfiles/modules/home/packages.nix";
-
       rebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos";
     };
 
-
-    initContent = ''
-      bindkey '^H' backward-kill-word
-      WORDCHARS=''${WORDCHARS//[\/\-#]/}
-
+    interactiveShellInit = ''
+      set -g fish_greeting
     '';
   };
 
   programs.starship = {
     enable = true;
-    enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.tmux = {
     enable = true;
     extraConfig = ''
+      zmodload zsh/zprof
+
       unbind r 
       bind r source-file ~/.tmux.conf
 
@@ -54,6 +45,8 @@
       bind-key l select-pane -R
 
       set-option -g status-position bottom
+
+      zprof
     '';
   };
 

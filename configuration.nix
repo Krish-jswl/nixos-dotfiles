@@ -85,8 +85,8 @@
   };
 
 
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
+  programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [

@@ -67,12 +67,12 @@ layout {
 
 // Animations
 animations {
-    slowdown 2.0
+    slowdown 1.0
 }
 
 // Window Rules
 window-rule {
-    match app-id="kitty"
+    match app-id="foot"
     opacity 0.9
     draw-border-with-background false
 }
@@ -96,7 +96,7 @@ binds {
 
     Mod+S { toggle-window-floating; }
 
-    Mod+Return { spawn "kitty"; }
+    Mod+Return { spawn "foot"; }
     Mod+R { spawn "fuzzel"; }
     Mod+B { spawn "firefox"; }
     Mod+Shift+X { spawn "hyprlock"; }

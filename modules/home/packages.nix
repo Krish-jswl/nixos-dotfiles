@@ -22,8 +22,8 @@
         gzip
         fzf
         qbittorrent
-        vlc
         go
+        mpv
         obsidian
         obs-studio
         imv

@@ -73,7 +73,7 @@ animations {
 // Window Rules
 window-rule {
     match app-id="foot"
-    opacity 0.9
+    opacity 1.0
     draw-border-with-background false
 }
 

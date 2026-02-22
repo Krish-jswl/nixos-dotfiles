@@ -138,7 +138,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.krishj = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" "video" ];
     packages = with pkgs; [
       tree
     ];

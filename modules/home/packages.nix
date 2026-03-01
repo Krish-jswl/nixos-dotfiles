@@ -40,5 +40,6 @@
         hyprlock
         hypridle
         python3
+        jdk
 	];
 }

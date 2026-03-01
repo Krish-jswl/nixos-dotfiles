@@ -1,4 +1,3 @@
-//--- ZepharDev Nvim
 {
   "layer": "top",
   "position": "top",
@@ -11,7 +10,6 @@
   "swap-icon-label": true,
   "reload_style_on_change": true,
 
-  // Choose the order of the modules
 
   "modules-left": [  
     "group/group-5",

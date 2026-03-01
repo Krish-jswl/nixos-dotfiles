@@ -56,8 +56,7 @@
 
   # Enable Postgresql
   services.postgresql = {
-    enable = false;
-    package = pkgs.postgresql_16;
+    enable = true;
 
     ensureDatabases = [ "gokit" ];
 
@@ -69,7 +68,7 @@
   };
 
   # Enables docker
-  virtualisation.docker.enable = false;
+  virtualisation.docker.enable = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -159,8 +158,7 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
-    nerd-fonts.terminess-ttf
-    nerd-fonts.caskaydia-mono
+    nerd-fonts.iosevka 
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

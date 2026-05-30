@@ -1,26 +1,33 @@
-font=Iosevka Nerd Font 11
+# ~/.config/mako/config
 
-background-color=#32302f
-text-color=#ebdbb2
+font=JetBrainsMono Nerd Font 11
 
-width=300
-height=200
+background-color=#282828
+text-color=#d4be98
 
-border-size=4
-border-color=#928374
+border-color=#d8a657
+border-size=2
 border-radius=10
 
-padding=20
+default-timeout=5000
+
+margin=20
+padding=15
+
+width=320
+height=110
 
 icons=1
-actions=1
-history=1
+markup=1
 
-layer=overlay
-text-alignment=center
+progress-color=over #3c3836
+
+[urgency=low]
+border-color=#7daea3
+
+[urgency=normal]
+border-color=#d8a657
 
 [urgency=high]
-border-color=#fb4934
-text-color=#ebdbb2
+border-color=#ea6962
 default-timeout=0
-

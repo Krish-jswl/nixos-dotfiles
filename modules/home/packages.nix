@@ -12,28 +12,24 @@
         slurp
         ripgrep
         nixpkgs-fmt
-        nodejs
         gcc
         glibc.dev
-        zathura
-        zathuraPkgs.zathura_pdf_mupdf
         unzip
         gnutar
         gzip
         fzf
-        qbittorrent
         go
         mpv
-        obsidian
-        obs-studio
         imv
         gnumake
         pkg-config
-        tomato-c
         syncthing
         mako
         libnotify
-        nautilus
+        xfce.thunar
+        xfce.thunar-archive-plugin
+        xfce.thunar-volman
+        xfce.thunar-media-tags-plugin
         ffmpegthumbnailer
         swaybg
         libresprite

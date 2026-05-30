@@ -50,13 +50,13 @@
 
   boot.kernelParams = [ "amd_pstate=active" ];
 
-  powerManagement.cpuFreqGovernor = "powrsaver";
+  powerManagement.cpuFreqGovernor = "powrsave";
 
   services.power-profiles-daemon.enable = false;
 
   # Enable Postgresql
   services.postgresql = {
-    enable = true;
+    enable = false;
 
     ensureDatabases = [ "gokit" ];
 
@@ -68,7 +68,7 @@
   };
 
   # Enables docker
-  virtualisation.docker.enable = true;
+  virtualisation.docker.enable = false;
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -76,7 +76,8 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-  programs.niri.enable = true;
+  # programs.niri.enable = true;
+  programs.mangowc.enable = true;
 
   xdg.portal = {
     enable = true;
@@ -84,8 +85,8 @@
   };
 
 
-  programs.fish.enable = true;
-  users.defaultUserShell = pkgs.fish;
+  # programs.fish.enable = false;
+  # users.defaultUserShell = pkgs.fish;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [

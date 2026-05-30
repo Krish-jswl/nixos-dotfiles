@@ -1,2 +1,4 @@
-require("krish.core")
-require("krish.lazy")
+require("options")
+require("keymaps")
+require("commands")
+require("pack")

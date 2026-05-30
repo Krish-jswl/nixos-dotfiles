@@ -5,13 +5,13 @@ let
   link = path: config.lib.file.mkOutOfStoreSymlink path;
 
   configs = {
-    hypr     = "hypr";
+    mango    = "mango";
     nvim     = "nvim";
     fuzzel   = "fuzzel";
     waybar   = "waybar";
     zathura  = "zathura";
     mako     = "mako";
-    niri     = "niri";
+    # niri     = "niri";
     foot     = "foot";
   };
 in

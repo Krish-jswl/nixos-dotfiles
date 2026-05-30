@@ -77,13 +77,14 @@
   # services.xserver.enable = true;
 
   # programs.niri.enable = true;
-  programs.mangowc.enable = true;
+  programs.mango.enable = true;
 
   xdg.portal = {
     enable = true;
     wlr.enable = true;
   };
 
+  programs.dconf.enable = true;
 
   # programs.fish.enable = false;
   # users.defaultUserShell = pkgs.fish;

@@ -67,6 +67,8 @@
     '';
   };
 
+  services.tumbler.enable = true;
+
   # Enables docker
   virtualisation.docker.enable = false;
 

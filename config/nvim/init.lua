@@ -1,1 +1,4 @@
-/nix/store/l3nsgl0m9xkz12fl9c7wbnypfvmhjjs3-home-manager-files/.config/nvim/init.lua
+require("options")
+require("keymaps")
+require("commands")
+require("pack")

@@ -3,7 +3,8 @@
 {
   imports = [
     ./shell.nix
-    ./dev.nix
+    # ./dev.nix
+    ./nixvim.nix
     ./gtk.nix
     ./config.nix
     ./packages.nix

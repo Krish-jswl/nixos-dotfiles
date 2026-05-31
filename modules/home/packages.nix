@@ -2,7 +2,6 @@
 
 {
     home.packages = with pkgs; [
-	neovim
         fastfetch
         htop
         brightnessctl

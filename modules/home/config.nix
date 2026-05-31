@@ -6,7 +6,6 @@ let
 
   configs = {
     hypr     = "hypr";
-    # nvim     = "nvim";
     fuzzel   = "fuzzel";
     waybar   = "waybar";
     mako     = "mako";

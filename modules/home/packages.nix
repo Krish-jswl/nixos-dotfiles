@@ -8,6 +8,7 @@
         wl-clipboard
         waybar
         fuzzel
+        brave
         grim
         slurp
         ripgrep
@@ -35,6 +36,7 @@
         libresprite
         hyprlock
         hypridle
+	wlr-randr
         python3
         jdk
 	];

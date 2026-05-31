@@ -42,7 +42,7 @@
 
       RUNTIME_PM_ON_BAT = "auto";
 
-      WIFI_PWR_ON_BAT = "on";
+      WIFI_PWR_ON_BAT = "off";
 
       USB_AUTOSUSPEND = 1;
     };
@@ -50,7 +50,7 @@
 
   boot.kernelParams = [ "amd_pstate=active" ];
 
-  powerManagement.cpuFreqGovernor = "powrsave";
+  powerManagement.cpuFreqGovernor = "powersave";
 
   services.power-profiles-daemon.enable = false;
 
@@ -72,11 +72,11 @@
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-  # programs.niri.enable = true;
   programs.mango.enable = true;
 
   xdg.portal = {
@@ -85,9 +85,8 @@
   };
 
   programs.dconf.enable = true;
-
-  # programs.fish.enable = false;
-  # users.defaultUserShell = pkgs.fish;
+  programs.zsh.enable = true;
+  programs.firefox.enable = true;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
@@ -122,12 +121,17 @@
   # Enable sound.
   # services.pulseaudio.enable = true;
   # OR
-   services.pipewire = {
-     enable = true;
-     pulse.enable = true;
-     alsa.enable = true;
-     jack.enable = true;
-   };
+  services.pipewire = {
+    enable = true;
+
+    alsa.enable = true;
+    alsa.support32Bit = true;
+
+    pulse.enable = true;
+    jack.enable = true;
+  };
+
+  security.rtkit.enable = true;
 
   services.dbus.enable = true;
   services.udisks2.enable = true;
@@ -139,13 +143,12 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.krishj = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     extraGroups = [ "wheel" "docker" "video" ];
     packages = with pkgs; [
       tree
     ];
   };
-
-  programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim

@@ -1,0 +1,77 @@
+{
+  "modules-left": [
+    "ext/workspaces",
+  ],
+  "modules-center": [
+    // "dwl/window#title"
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "network",
+    "wireplumber",
+    "battery",
+  ],
+
+    "clock": {
+      "format": "  {:%H:%M}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format-alt": "{:%Y-%m-%d}",
+    },
+    "battery": {
+      "states": {
+        "good": 95,
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "Bat: {capacity}% {icon} {time}",
+      "format-plugged": "{capacity}% ",
+      "format-alt": "Bat {capacity}%",
+      "format-time": "{H}:{M}",
+      "format-icons": ["", "", "", "", ""]
+    },
+    "wireplumber": {
+      "format": "{icon}{volume:>3}% ",
+      "format-muted": " 󰖁{volume:>3}% ",
+      "format-bluetooth": "{icon}{volume:>2}% 󰂯 ", //{format_source}",
+      "format-bluetooth-muted": " 󰖁 {icon} 󰂯 ", //{format_source}",
+      "format-icons": [" ", " ", " "],
+   },
+   "network": {
+        "interval": 3,
+        "format-wifi": "{essid} {icon}", 
+        "format-ethernet": "󰌗 {ipaddr}", 
+        "format-linked": "󰌙 {ifname} (Sin IP)", 
+        "format-disconnected": "󰖪", 
+        "format-alt": "󰛳 {ifname}", 
+        "tooltip-format-wifi": "{essid}  {bandwidthDownBytes}  {bandwidthUpBytes}", 
+        "tooltip-format-ethernet": "󰌗 {ifname} | IP: {ipaddr}/{cidr} | GW: {gwaddr}", 
+        "tooltip-format-disconnected": "󰖪 No internet connection", 
+        "tooltip-format-linked": "󰌙 {ifname}: Not ip",
+        "max-length": 30, 
+        "format-icons": {
+            "wifi": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"], 
+            "ethernet": ["󰌗"], 
+            "disconnected": ["󰖪"] 
+        }
+    },
+  "ext/workspaces": {
+    "format": "{icon}",
+    "ignore-hidden": false,
+    "on-click": "activate",
+    "sort-by-id": true
+  },
+  "dwl/tags": {
+    "num-tags": 9
+  },
+  "dwl/window#layout": {
+    "format": "[{layout}]"
+  },
+  "dwl/window#title": {
+    "format": "{title}"
+  },
+  "custom/sep": {
+    "format": "|",
+    "interval": 0
+  }
+}

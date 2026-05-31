@@ -2,7 +2,7 @@
 
 {
 
-  programs.fish = {
+  programs.zsh = {
     enable = true;
 
     shellAliases = {
@@ -11,14 +11,37 @@
       rebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos";
     };
 
-    interactiveShellInit = ''
-      set -g fish_greeting
-    '';
-  };
+    history = {
+      size = 10000;
+      save = 10000;
+      path = "$HOME/.zsh_history";
+      ignoreDups = true;
+      share = true;
+    };
 
-  programs.starship = {
-    enable = true;
-    enableFishIntegration = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    enableCompletion = true;
+
+    initContent = ''
+      # Completion
+      autoload -Uz compinit
+      compinit
+
+      zstyle ':completion:*' menu select
+      zstyle ':completion:*' use-cache on
+      zstyle ':completion:*' cache-path ~/.zsh/cache
+
+      WORDCHARS='*?_[]~=&;!#$%^(){}<>'
+
+      # Ctrl+Backspace / Ctrl+W
+      bindkey '^H' backward-kill-word
+      bindkey '^W' backward-kill-word
+
+      # Prompt
+      PROMPT='%F{cyan}%n@%m%f %F{blue}%~%f %# '
+
+    '';
   };
 
   programs.tmux = {

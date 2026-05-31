@@ -6,7 +6,7 @@
 
     enableDefaultConfig = false;
 
-    matchBlocks."*" = {
+    settings."*" = {
       addKeysToAgent = "yes";
       identityFile = "~/.ssh/id_ed25519";
       serverAliveInterval = 60;

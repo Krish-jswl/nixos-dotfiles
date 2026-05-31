@@ -2,6 +2,7 @@
 
 {
     home.packages = with pkgs; [
+	neovim
         fastfetch
         htop
         brightnessctl
@@ -27,17 +28,17 @@
         syncthing
         mako
         libnotify
-        xfce.thunar
-        xfce.thunar-archive-plugin
-        xfce.thunar-volman
-        xfce.thunar-media-tags-plugin
+        thunar
+        thunar-archive-plugin
+        thunar-volman
+        thunar-media-tags-plugin
         ffmpegthumbnailer
+	tumbler
         swaybg
         libresprite
         hyprlock
         hypridle
 	wlr-randr
         python3
-        jdk
 	];
 }

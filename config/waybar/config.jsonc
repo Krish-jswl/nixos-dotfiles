@@ -9,6 +9,7 @@
   "modules-right": [
     "tray",
     "network",
+    "backlight",
     "wireplumber",
     "battery",
   ],
@@ -30,12 +31,21 @@
       "format-time": "{H}:{M}",
       "format-icons": ["", "", "", "", ""]
     },
-    "wireplumber": {
-      "format": "{icon}{volume:>3}% ",
-      "format-muted": " 󰖁{volume:>3}% ",
-      "format-bluetooth": "{icon}{volume:>2}% 󰂯 ", //{format_source}",
-      "format-bluetooth-muted": " 󰖁 {icon} 󰂯 ", //{format_source}",
-      "format-icons": [" ", " ", " "],
+     "wireplumber": {
+    "format": "{icon}{volume:>3}%",
+    "format-muted": "󰖁 {volume:>3}%",
+    "format-bluetooth": "{icon} {volume:>2}% 󰂯", //{format_source}",
+    "format-bluetooth-muted": "󰖁 {icon} 󰂯", //{format_source}",
+    "format-icons": ["", "", ""],
+   },
+   "backlight": {
+   "device": "amdgpu_bl1",
+   "format": "{icon} {percent}%",
+   "format-icons": [
+       "󰃞",
+       "󰃟",
+       "󰃠"
+     ]
    },
    "network": {
         "interval": 3,

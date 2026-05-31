@@ -1,27 +1,19 @@
-{ pkgs, ... }:
-
-let
-  gruvboxSoft =
-    pkgs.gruvbox-gtk-theme.overrideAttrs (old: {
-      installPhase = ''
-        mkdir -p $out/share/themes
-        cd themes
-        bash install.sh \
-          -d $out/share/themes \
-          -c dark \
-          -t default \
-          --tweaks soft
-      '';
-    });
-in
+{ config, pkgs, ... }:
 
 {
   gtk = {
     enable = true;
 
     theme = {
-      name = "gruvbox-gtk-theme-0-unstable-2025-10-23-Dark-Soft";
-      package = gruvboxSoft;
+      name = "Gruvbox-Material-Dark";
+      package = pkgs.gruvbox-material-gtk-theme;
+    };
+
+    gtk4 = {
+      theme = {
+        name = "Gruvbox-Material-Dark";
+        package = pkgs.gruvbox-material-gtk-theme;
+      };
     };
 
     iconTheme = {
@@ -43,4 +35,3 @@ in
     gtk.enable = true;
   };
 }
-

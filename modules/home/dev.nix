@@ -1,8 +1,11 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.neovim = {
+    withPython3 = false;
+    withRuby = false;
     enable = true;
+    extraLuaConfig = builtins.readFile ../../config/nvim/init.lua;
 
     extraPackages = with pkgs; [
       tree-sitter
@@ -10,9 +13,9 @@
       gopls
       pyright
       nil
-      nodePackages.bash-language-server
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted
+      bash-language-server
+      typescript-language-server
+      vscode-langservers-extracted
     ];
   };
 }

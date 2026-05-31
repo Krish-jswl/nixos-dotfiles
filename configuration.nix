@@ -92,12 +92,11 @@
   programs.nix-ld.libraries = with pkgs; [
       stdenv.cc.cc
       libGL
-      mesa
       vulkan-loader
-      xorg.libX11
-      xorg.libXcursor
-      xorg.libXrandr
-      xorg.libXinerama
+      libX11
+      libXcursor
+      libXrandr
+      libXinerama
       alsa-lib
 ];
 

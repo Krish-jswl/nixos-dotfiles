@@ -1,6 +1,5 @@
 * {
     border: none;
-    border-radius: 0;
     min-height: 0;
     font-family: "JetBrainsMono Nerd Font";
     font-size: 13px;
@@ -12,29 +11,28 @@ window#waybar {
     color: #d4be98;
 }
 
+/* Remove giant containers */
+
 .modules-left,
 .modules-center,
 .modules-right {
+    background: transparent;
+}
+
+/* Workspace bubble */
+
+#workspaces {
     background: #282828;
     border: 1px solid #504945;
     border-radius: 14px;
-    margin: 2px;
-    padding: 0 4px;
-}
-
-/* Workspaces */
-
-#workspaces {
-    margin: 2px;
+    padding: 2px 6px;
+    margin: 4px;
 }
 
 #workspaces button {
-    background: transparent;
     color: #7c6f64;
-    border-radius: 10px;
     padding: 0 8px;
-    margin: 2px;
-    transition: all 0.15s ease;
+    border-radius: 10px;
 }
 
 #workspaces button.active {
@@ -44,68 +42,45 @@ window#waybar {
 
 #workspaces button:hover {
     background: #504945;
-    color: #d4be98;
 }
 
-/* Window title */
-
-#title,
-#window {
-    color: #d4be98;
-    padding: 0 8px;
-}
-
-/* Layout indicator */
-
-#layout {
-    color: #7daea3;
-    padding: 0 8px;
-}
-
-/* Generic modules */
+/* Floating pills */
 
 #clock,
-#cpu,
-#memory,
-#disk,
 #network,
-#pulseaudio,
+#backlight,
+#wireplumber,
 #battery,
 #tray {
-    background: #32302f;
-    border-radius: 10px;
-    margin: 2px;
-    padding: 0 8px;
+    background: #282828;
+    border: 1px solid #504945;
+
+    margin: 4px;
+    padding: 0 12px;
+
+    border-radius: 14px;
 }
 
-/* Individual colors */
+/* Colors */
 
 #clock {
     color: #d8a657;
-}
-
-#cpu {
-    color: #ea6962;
-}
-
-#memory {
-    color: #d3869b;
-}
-
-#disk {
-    color: #89b482;
 }
 
 #network {
     color: #7daea3;
 }
 
-#pulseaudio {
+#backlight {
+    color: #e78a4e;
+}
+
+#wireplumber {
     color: #a9b665;
 }
 
 #battery {
-    color: #a9b665;
+    color: #89b482;
 }
 
 #battery.warning {
@@ -116,10 +91,8 @@ window#waybar {
     color: #ea6962;
 }
 
-/* Tray */
-
 #tray {
-    padding-right: 6px;
+    padding-right: 10px;
 }
 
 /* Tooltip */

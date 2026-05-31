@@ -10,6 +10,6 @@
       ./modules/home/default.nix
     ];
 
-    xdg.userDirs.enable = true;
+    xdg.userDirs.setSessionVariables = true;
 
 }

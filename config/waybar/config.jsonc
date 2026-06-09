@@ -25,9 +25,9 @@
         "warning": 30,
         "critical": 15
       },
-      "format": "Bat: {capacity}% {icon} {time}",
+      "format": "{capacity}% {icon}",
       "format-plugged": "{capacity}% ",
-      "format-alt": "Bat {capacity}%",
+      "format-alt": "{capacity}% {time}",
       "format-time": "{H}:{M}",
       "format-icons": ["", "", "", "", ""]
     },
@@ -36,7 +36,7 @@
     "format-muted": "󰖁 {volume:>3}%",
     "format-bluetooth": "{icon} {volume:>2}% 󰂯", //{format_source}",
     "format-bluetooth-muted": "󰖁 {icon} 󰂯", //{format_source}",
-    "format-icons": ["", "", ""],
+    "format-icons": [" ", " ", " "],
    },
    "backlight": {
    "device": "amdgpu_bl1",

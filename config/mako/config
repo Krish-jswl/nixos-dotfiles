@@ -1,11 +1,9 @@
-# ~/.config/mako/config
-
 font=JetBrainsMono Nerd Font 11
 
-background-color=#282828
-text-color=#d4be98
+background-color=#282A2E
+text-color=#C5C8C6
 
-border-color=#d8a657
+border-color=#81A2BE
 border-size=2
 border-radius=10
 
@@ -20,14 +18,14 @@ height=110
 icons=1
 markup=1
 
-progress-color=over #3c3836
+progress-color=over #373B41
 
 [urgency=low]
-border-color=#7daea3
+border-color=#8ABEB7
 
 [urgency=normal]
-border-color=#d8a657
+border-color=#81A2BE
 
 [urgency=high]
-border-color=#ea6962
+border-color=#CC6666
 default-timeout=0

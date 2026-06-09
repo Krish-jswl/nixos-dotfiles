@@ -14,6 +14,8 @@
         ripgrep
         nixpkgs-fmt
         gcc
+        cmake
+        obsidian
         glibc.dev
         unzip
         gnutar
@@ -22,6 +24,7 @@
         go
         mpv
         imv
+        obs-studio
         gnumake
         pkg-config
         syncthing
@@ -32,12 +35,14 @@
         thunar-volman
         thunar-media-tags-plugin
         ffmpegthumbnailer
-	tumbler
+	    tumbler
         swaybg
         libresprite
         hyprlock
         hypridle
-	wlr-randr
+	    wlr-randr
         python3
+        qbittorrent
+        logisim-evolution
 	];
 }

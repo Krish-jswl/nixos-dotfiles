@@ -8,7 +8,7 @@
 
 window#waybar {
     background: transparent;
-    color: #d4be98;
+    color: #c5c8c6;
 }
 
 /* Remove giant containers */
@@ -22,26 +22,30 @@ window#waybar {
 /* Workspace bubble */
 
 #workspaces {
-    background: #282828;
-    border: 1px solid #504945;
+    background: #282a2e;
+    border: 1px solid #373b41;
     border-radius: 14px;
     padding: 2px 6px;
     margin: 4px;
 }
 
 #workspaces button {
-    color: #7c6f64;
+    color: #81a2be;
     padding: 0 8px;
     border-radius: 10px;
 }
 
-#workspaces button.active {
-    background: #a9b665;
-    color: #282828;
+#workspaces button.hidden {
+    color: #969896;
 }
 
-#workspaces button:hover {
-    background: #504945;
+#workspaces button.active {
+    background: #81a2be;
+    color: #1d1f21;
+}
+
+#workspaces button.urgent {
+    color: #cc6666;
 }
 
 /* Floating pills */
@@ -52,8 +56,8 @@ window#waybar {
 #wireplumber,
 #battery,
 #tray {
-    background: #282828;
-    border: 1px solid #504945;
+    background: #282a2e;
+    border: 1px solid #373b41;
 
     margin: 4px;
     padding: 0 12px;
@@ -64,31 +68,31 @@ window#waybar {
 /* Colors */
 
 #clock {
-    color: #d8a657;
+    color: #f0c674;
 }
 
 #network {
-    color: #7daea3;
+    color: #81a2be;
 }
 
 #backlight {
-    color: #e78a4e;
+    color: #de935f;
 }
 
 #wireplumber {
-    color: #a9b665;
+    color: #b5bd68;
 }
 
 #battery {
-    color: #89b482;
+    color: #b5bd68;
 }
 
 #battery.warning {
-    color: #d8a657;
+    color: #f0c674;
 }
 
 #battery.critical {
-    color: #ea6962;
+    color: #cc6666;
 }
 
 #tray {
@@ -98,11 +102,11 @@ window#waybar {
 /* Tooltip */
 
 tooltip {
-    background: #282828;
-    border: 1px solid #504945;
+    background: #282a2e;
+    border: 1px solid #373b41;
     border-radius: 12px;
 }
 
 tooltip label {
-    color: #d4be98;
+    color: #c5c8c6;
 }

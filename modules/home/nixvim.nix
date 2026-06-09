@@ -1,5 +1,9 @@
 { pkgs, ... }:
 
+let
+  tairiki = pkgs.callPackage ./pkgs/tairiki.nix {};
+in
+
 {
   programs.nixvim = {
     enable = true;
@@ -10,8 +14,6 @@
     globals = {
       mapleader = " ";
       netrw_banner = 0;
-      gruvbox_material_background = "medium";
-      gruvbox_material_enable_italic = true;
     };
 
     opts = {
@@ -33,7 +35,7 @@
       backup = false;
       undofile = true;
       completeopt = [ "menuone" "noselect" "fuzzy" "nosort" ];
-      colorcolumn = "0";
+      colorcolumn = "100";
       signcolumn = "yes";
       cmdheight = 0;
       termguicolors = true;
@@ -71,6 +73,7 @@
       { mode = "n"; key = "n"; action = "nzzzv"; options.desc = "Next search result centered"; }
       { mode = "n"; key = "N"; action = "Nzzzv"; options.desc = "Previous search result centered"; }
       { mode = "n"; key = "<leader>u"; action = "<cmd>UndotreeToggle<CR>"; options.desc = "Toggle Undotree"; }
+      { mode = "i"; key = "<C-BS>"; action = "<C-w>"; options.desc = "delete word by word"; }
       
       # Plugin Toggles
       { mode = "n"; key = "<leader>ee"; action = "<cmd>NvimTreeToggle<CR>"; options.desc = "Toggle file explorer"; }
@@ -87,17 +90,93 @@
     # CUSTOM PLUGINS & THEME
     # =========================================================================
     extraPlugins = with pkgs.vimPlugins; [
-      gruvbox-material
+      tairiki
     ];
+
     extraConfigLua = ''
-      vim.cmd.colorscheme("gruvbox-material")
+      vim.cmd.colorscheme("tairiki")
+    local transparent_groups = {
+      "Normal",
+      "NormalNC",
+      "NormalFloat",
+      "SignColumn",
+      "EndOfBuffer",
+      "FoldColumn",
+      "CursorLineNr",
+      "NvimTreeNormal",
+      "NvimTreeNormalNC",
+      "TelescopeNormal",
+      "TelescopeBorder",
+    }
+
+    for _, group in ipairs(transparent_groups) do
+      vim.api.nvim_set_hl(0, group, { bg = "none" })
+    end
+
+    -- Tomorrow night colors tweak
+    vim.api.nvim_set_hl(0, "Pmenu", {
+      bg = "#282a2e",
+      fg = "#c5c8c6"
+    })
+
+    vim.api.nvim_set_hl(0, "PmenuSel", {
+      bg = "#373b41",
+      fg = "#81a2be"
+    })
+
+    vim.api.nvim_set_hl(0, "DiagnosticError", { fg = "#cc6666" })
+    vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = "#f0c674" })
+    vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = "#81a2be" })
+    vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = "#8abeb7" })
+    -----
+
+    -- DIAGNOSTICS
+
+    vim.o.updatetime = 300
+
+    vim.diagnostic.config({
+      virtual_text = false,
+      underline = true,
+      update_in_insert = false,
+      severity_sort = true,
+
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "󰅚 ",
+          [vim.diagnostic.severity.WARN]  = "󰀪 ",
+          [vim.diagnostic.severity.INFO]  = "󰋽 ",
+          [vim.diagnostic.severity.HINT]  = "󰌶 ",
+        },
+      },
+
+      float = {
+        border = "rounded",
+        source = "if_many",
+      },
+    })
+
+    vim.api.nvim_create_autocmd("CursorHold", {
+      callback = function()
+        vim.diagnostic.open_float(nil, {
+          focusable = false,
+          border = "rounded",
+          source = "if_many",
+          scope = "cursor",
+        })
+      end,
+    })
+    -----
+
     '';
 
     # =========================================================================
     # PLUGINS 
     # =========================================================================
     plugins = {
+
       
+      nvim-autopairs.enable = true;
+
       web-devicons.enable = true;
       undotree.enable = true;
       

@@ -6,9 +6,7 @@
       ./hardware-configuration.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
   boot.loader.efi.canTouchEfiVariables = true;
-  #boot.loader.systemd-boot.enable = true;
 
   boot.loader.grub = {
     enable = true;
@@ -26,12 +24,14 @@
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.powersave = false;
+  programs.nm-applet.enable = true;
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
   services.tlp = {
-    enable = true;
+    enable = false;
 
     settings = {
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
@@ -48,9 +48,9 @@
     };
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
   boot.kernelParams = [ "amd_pstate=active" ];
 
-  powerManagement.cpuFreqGovernor = "powersave";
 
   services.power-profiles-daemon.enable = false;
 
@@ -83,7 +83,13 @@
 
   xdg.portal = {
     enable = true;
+
     wlr.enable = true;
+    config = {
+      common = {
+        default = [ "wlr" ];
+      };
+    };
   };
 
   programs.dconf.enable = true;
@@ -102,7 +108,7 @@
       alsa-lib
 ];
 
-  services.displayManager.ly.enable = true;
+  services.displayManager.ly.enable = false;
   
   systemd.services.fix-mic-led = {
     description = "Force microphone LED off";
@@ -111,13 +117,10 @@
 
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "/bin/sh -c 'echo 0 > /sys/class/leds/platform::micmute/brightness'";
+      ExecStart = "${pkgs.bash}/bin/sh -c 'echo 0 > /sys/class/leds/platform::micmute/brightness'";
     };
   };
 
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
 
   # Enable sound.
   # services.pulseaudio.enable = true;
@@ -145,7 +148,7 @@
   users.users.krishj = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "docker" "video" ];
+    extraGroups = [ "wheel" "docker" "video" "networkmanager" ];
     packages = with pkgs; [
       tree
     ];
@@ -156,15 +159,14 @@
     wget
     git
     foot
-    mesa
     mesa-demos
-    gvfs
+    pciutils
   ];
 
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
-    nerd-fonts.iosevka 
+    nerd-fonts.iosevka
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

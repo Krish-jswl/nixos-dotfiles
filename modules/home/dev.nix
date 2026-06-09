@@ -1,19 +1,38 @@
 { pkgs, ... }:
 
 {
-  programs.neovim = {
-    enable = true;
+  # programs.emacs = {
+  #   enable = true;
+  #   package = pkgs.emacs-pgtk;
+  # };
+  #
+  # programs.direnv = {
+  #   enable = true;
+  #   nix-direnv.enable = true;
+  # }; 
 
-    extraPackages = with pkgs; [
-      tree-sitter
-      clang-tools
-      gopls
-      pyright
-      nil
-      bash-language-server
-      typescript-language-server
-      vscode-langservers-extracted
-    ];
-  };
+  home.packages = with pkgs; [
+    # C/C++ tooling
+    gcc
+    clang-tools
+    cmake
+    gnumake
+    pkg-config
+    libtool
+    glibc.dev
+    bear
+
+    # General development
+    ripgrep
+    fzf
+    go
+    python3
+    nixpkgs-fmt
+
+    # Archive utilities
+    unzip
+    gnutar
+    gzip
+
+  ];
 }
-

@@ -5,6 +5,12 @@
   programs.zsh = {
     enable = true;
 
+    loginExtra = ''
+      if [[ -z "$WAYLAND_DISPLAY" && "$XDG_VTNR" == "1" ]]; then
+        exec dbus-run-session mango
+      fi
+    '';
+
     shellAliases = {
       hmodules = "nvim ~/nixos-dotfiles/modules/home/";
       packages = "nvim ~/nixos-dotfiles/modules/home/packages.nix";
@@ -26,7 +32,7 @@
     initContent = ''
       # Completion
       autoload -Uz compinit
-      compinit
+      compinit -C
 
       zstyle ':completion:*' menu select
       zstyle ':completion:*' use-cache on
@@ -41,14 +47,14 @@
       # Prompt
       PROMPT='%F{cyan}%n@%m%f %F{blue}%~%f %# '
 
+      # Paths
+      export PATH="/usr/local/bin:$PATH"
     '';
   };
 
   programs.tmux = {
     enable = true;
     extraConfig = ''
-      zmodload zsh/zprof
-
       unbind r 
       bind r source-file ~/.tmux.conf
 
@@ -68,8 +74,6 @@
       bind-key l select-pane -R
 
       set-option -g status-position bottom
-
-      zprof
     '';
   };
 

@@ -1,24 +1,27 @@
 { config, pkgs, ... }:
 
+let
+  tomorrow-night-gtk =
+    pkgs.callPackage ./pkgs/tomorrow-night-gtk.nix {};
+in
+
 {
   gtk = {
     enable = true;
 
-    theme = {
-      name = "Gruvbox-Material-Dark";
-      package = pkgs.gruvbox-material-gtk-theme;
-    };
+    gtk4.theme = null;
 
-    gtk4 = {
-      theme = {
-        name = "Gruvbox-Material-Dark";
-        package = pkgs.gruvbox-material-gtk-theme;
-      };
+    theme = {
+        name = "tomorrow-night";
+        package = tomorrow-night-gtk;
     };
 
     iconTheme = {
-      name = "Gruvbox-Plus-Dark";
-      package = pkgs.gruvbox-plus-icons;
+      name = "Papirus-Dark";
+      # package = pkgs.papirus-icon-theme;
+      package = pkgs.papirus-icon-theme.override {
+        color = "green";
+      };
     };
   };
 

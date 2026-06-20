@@ -3,29 +3,20 @@
 {
     home.packages = with pkgs; [
         fastfetch
+        pfetch
         htop
         brightnessctl
         wl-clipboard
         waybar
         fuzzel
         brave
+        librewolf
         grim
         slurp
-        ripgrep
-        nixpkgs-fmt
-        gcc
-        cmake
         obsidian
-        glibc.dev
-        unzip
-        gnutar
-        gzip
-        fzf
-        go
         mpv
         imv
         obs-studio
-        gnumake
         pkg-config
         syncthing
         mako
@@ -35,14 +26,14 @@
         thunar-volman
         thunar-media-tags-plugin
         ffmpegthumbnailer
-	    tumbler
+        tumbler
         swaybg
-        libresprite
         hyprlock
         hypridle
-	    wlr-randr
-        python3
+        wlr-randr
         qbittorrent
-        logisim-evolution
+        alacritty
+        glow
+        keepassxc
 	];
 }

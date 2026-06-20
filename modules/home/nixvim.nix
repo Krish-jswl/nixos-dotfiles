@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
-let
-  tairiki = pkgs.callPackage ./pkgs/tairiki.nix {};
-in
+# let
+#   tairiki = pkgs.callPackage ./pkgs/tairiki.nix {};
+# in
 
 {
   programs.nixvim = {
@@ -35,7 +35,7 @@ in
       backup = false;
       undofile = true;
       completeopt = [ "menuone" "noselect" "fuzzy" "nosort" ];
-      colorcolumn = "100";
+      colorcolumn = "";
       signcolumn = "yes";
       cmdheight = 0;
       termguicolors = true;
@@ -58,6 +58,30 @@ in
           __raw = "function() vim.hl.on_yank() end";
         };
       }
+
+      {
+        event = "FileType";
+        pattern = [ "c" "cpp" ];
+        callback.__raw = ''
+          function()
+            vim.bo.tabstop = 4
+            vim.bo.shiftwidth = 4
+            vim.bo.softtabstop = 4
+          end
+        '';
+      }
+
+      {
+        event = "FileType";
+        pattern = [ "lua" "nix" "html" "css" "javascript" "javascriptreact" "typescript" "typescriptreact" "json" "yaml" ];
+        callback.__raw = ''
+          function()
+            vim.bo.tabstop = 2
+            vim.bo.shiftwidth = 2
+            vim.bo.softtabstop = 2
+          end
+        '';
+      }
     ];
 
     # =========================================================================
@@ -73,28 +97,74 @@ in
       { mode = "n"; key = "n"; action = "nzzzv"; options.desc = "Next search result centered"; }
       { mode = "n"; key = "N"; action = "Nzzzv"; options.desc = "Previous search result centered"; }
       { mode = "n"; key = "<leader>u"; action = "<cmd>UndotreeToggle<CR>"; options.desc = "Toggle Undotree"; }
-      { mode = "i"; key = "<C-BS>"; action = "<C-w>"; options.desc = "delete word by word"; }
-      
       # Plugin Toggles
       { mode = "n"; key = "<leader>ee"; action = "<cmd>NvimTreeToggle<CR>"; options.desc = "Toggle file explorer"; }
-      
+      { mode = "n"; key = "<leader>tt"; action = "<cmd>ToggleTerm<CR>"; options.desc = "Toggle terminal"; }
+      { mode = "n"; key = "<leader>tf"; action = "<cmd>ToggleTerm direction=float<CR>"; options.desc = "Float terminal"; }
+      { mode = "t"; key = "<Esc>"; action = "<C-\\><C-n>"; options.desc = "Exit terminal mode"; }
+
       # LSP Formatting (Raw lua for async)
       { mode = "n"; key = "<leader>f"; action.__raw = "function() vim.lsp.buf.format({ async = true }) end"; options.desc = "Format buffer"; }
 
       # Visual Mode
       { mode = "v"; key = "J"; action = ":m '>+1<CR>gv=gv"; options.desc = "Move lines down"; }
       { mode = "v"; key = "K"; action = ":m '<-2<CR>gv=gv"; options.desc = "Move lines up"; }
+
+      # cmp extra
+      {
+        mode = [ "i" "s" ];
+        key = "<C-l>";
+
+        action.__raw = ''
+          function()
+            local ls = require("luasnip")
+            if ls.expand_or_jumpable() then
+              ls.expand_or_jump()
+            end
+          end
+        '';
+      }
+
+      {
+        mode = [ "i" "s" ];
+        key = "<C-h>";
+
+        action.__raw = ''
+          function()
+            local ls = require("luasnip")
+            if ls.jumpable(-1) then
+              ls.jump(-1)
+            end
+          end
+        '';
+      }
+
+      # snippet
+      {
+        mode = [ "i" "s" ];
+        key = "<C-j>";
+
+        action.__raw = ''
+          function()
+            local ls = require("luasnip")
+            if ls.choice_active() then
+              ls.change_choice(1)
+            end
+          end
+        '';
+      }
     ];
 
     # =========================================================================
     # CUSTOM PLUGINS & THEME
     # =========================================================================
-    extraPlugins = with pkgs.vimPlugins; [
-      tairiki
-    ];
+
+    # extraPlugins = with pkgs.vimPlugins; [
+    #   # tairiki
+    # ];
 
     extraConfigLua = ''
-      vim.cmd.colorscheme("tairiki")
+      -- vim.cmd.colorscheme("catppuccin")
     local transparent_groups = {
       "Normal",
       "NormalNC",
@@ -115,19 +185,19 @@ in
 
     -- Tomorrow night colors tweak
     vim.api.nvim_set_hl(0, "Pmenu", {
-      bg = "#282a2e",
-      fg = "#c5c8c6"
+      bg = "#1e1e2e",
+      fg = "#cdd6f4"
     })
 
     vim.api.nvim_set_hl(0, "PmenuSel", {
-      bg = "#373b41",
-      fg = "#81a2be"
+      bg = "#313244",
+      fg = "#b4befe"
     })
 
-    vim.api.nvim_set_hl(0, "DiagnosticError", { fg = "#cc6666" })
-    vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = "#f0c674" })
-    vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = "#81a2be" })
-    vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = "#8abeb7" })
+    vim.api.nvim_set_hl(0, "DiagnosticError", { fg = "#f38ba8" })
+    vim.api.nvim_set_hl(0, "DiagnosticWarn",  { fg = "#f9e2af" })
+    vim.api.nvim_set_hl(0, "DiagnosticInfo",  { fg = "#89b4fa" })
+    vim.api.nvim_set_hl(0, "DiagnosticHint",  { fg = "#94e2d5" })
     -----
 
     -- DIAGNOSTICS
@@ -167,13 +237,86 @@ in
     })
     -----
 
+    --- Doc Border
+      vim.lsp.handlers["textDocument/hover"] =
+        vim.lsp.with(
+          vim.lsp.handlers.hover,
+          {
+            border = "rounded",
+          }
+        )
+
+      vim.lsp.handlers["textDocument/signatureHelp"] =
+        vim.lsp.with(
+          vim.lsp.handlers.signature_help,
+          {
+            border = "rounded",
+          }
+        )
+
+      vim.api.nvim_set_hl(0, "FloatBorder", {
+        fg = "#b4befe",
+        bg = "none",
+      })
+    ---
+
     '';
+
+
+    # =========================================================================
+    # COLORSCHEME 
+    # =========================================================================
+    colorschemes = {
+      catppuccin = {
+        enable = true;
+
+        settings = {
+          flavour = "mocha";
+          transparent_background = true;
+        };
+      };
+    };
 
     # =========================================================================
     # PLUGINS 
     # =========================================================================
     plugins = {
 
+      lualine = {
+        enable = true;
+
+        settings = {
+          options = {
+            theme = "auto";
+            globalstatus = true;
+            component_separators = "";
+            section_separators = "";
+          };
+
+          sections = {
+            lualine_a = [ "mode" ];
+            lualine_b = [ "branch" "diff" ];
+            lualine_c = [ "filename" ];
+            lualine_x = [ "diagnostics" "filetype" ];
+            lualine_y = [ "progress" ];
+            lualine_z = [ "location" ];
+          };
+        };
+      };
+
+      toggleterm = {
+        enable = true;
+
+        settings = {
+          direction = "horizontal";
+          open_mapping = "[[<c-\\>]]";
+          shade_terminals = false;
+
+          float_opts = {
+            border = "rounded";
+          };
+        };
+      };
       
       nvim-autopairs.enable = true;
 
@@ -191,21 +334,54 @@ in
 
       nvim-tree = {
         enable = true;
+
         settings = {
           view.width = 30;
-          renderer.group_empty = true;
+
+          renderer = {
+            group_empty = true;
+
+            icons = {
+              show = {
+                git = true;
+                folder = true;
+                file = true;
+                folder_arrow = true;
+              };
+            };
+          };
+
           filters.dotfiles = false;
         };
       };
-
       telescope = {
         enable = true;
         keymaps = {
-          "<leader>." = { action = "find_files"; options.desc = "Find files"; };
+          "<leader>ff" = { action = "find_files"; options.desc = "Find files"; };
           "<leader>fs" = { action = "live_grep"; options.desc = "Live grep"; };
-          "<leader>," = { action = "buffers"; options.desc = "Buffers"; };
+          "<leader>fb" = { action = "buffers"; options.desc = "Buffers"; };
           "<leader>fh" = { action = "help_tags"; options.desc = "Help tags"; };
           "<leader>fd" = { action = "diagnostics"; options.desc = "Diagnostics"; };
+
+          "<leader>fr" = {
+            action = "lsp_references";
+            options.desc = "LSP references";
+          };
+
+          "<leader>fi" = {
+            action = "lsp_implementations";
+            options.desc = "LSP implementations";
+          };
+
+          "<leader>ft" = {
+            action = "lsp_type_definitions";
+            options.desc = "LSP type definitions";
+          };
+
+          "<leader>fsd" = {
+            action = "lsp_document_symbols";
+            options.desc = "Document symbols";
+          };
         };
       };
 
@@ -216,7 +392,7 @@ in
         };
       };
 
-lsp = {
+      lsp = {
         enable = true;
         
         # Buffer-local LSP Mappings (Removed the "options." prefix here!)
@@ -227,12 +403,17 @@ lsp = {
             "]d" = { action = "goto_next"; desc = "Next diagnostic"; };
           };
           lspBuf = {
-            "gd" = { action = "definition"; desc = "Go to definition"; };
-            "K" = { action = "hover"; desc = "Hover documentation"; };
-            "gi" = { action = "implementation"; desc = "Go to implementation"; };
-            "gr" = { action = "references"; desc = "References"; };
-            "<leader>rn" = { action = "rename"; desc = "Rename symbol"; };
-            "<leader>ca" = { action = "code_action"; desc = "Code actions"; };
+            "gd" = { action = "definition"; };
+            "gD" = { action = "declaration"; };
+            "gi" = { action = "implementation"; };
+            "gr" = { action = "references"; };
+            "gt" = { action = "type_definition"; };
+
+            "K" = { action = "hover"; };
+
+            "<leader>rn" = { action = "rename"; };
+            "<leader>ca" = { action = "code_action"; };
+
           };
         };
 
@@ -245,13 +426,35 @@ lsp = {
             enable = true;
             cmd = [ "clangd" "--offset-encoding=utf-16" ];
           };
-          ts_ls.enable = true;
+          ts_ls = {
+            enable = true;
+
+            settings = {
+              javascript = {
+                suggest = {
+                  completeFunctionCalls = true;
+                  autoImports = true;
+                };
+              };
+
+              typescript = {
+                suggest = {
+                  completeFunctionCalls = true;
+                  autoImports = true;
+                };
+              };
+            };
+          };
           html.enable = true;
           cssls.enable = true;
           tailwindcss.enable = true;
           jsonls.enable = true;
+          nixd.enable = true;
+          yamlls.enable = true;
+          bashls.enable = true;
         };
       };
+
       luasnip = {
         enable = true;
         settings = {
@@ -261,12 +464,13 @@ lsp = {
       };
       friendly-snippets.enable = true;
 
+      cmp-nvim-lsp.enable = true;
       cmp = {
         enable = true;
         settings = {
           snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
           completion.completeopt = "menu,menuone,noselect";
-          
+
           window = {
             completion = { border = "rounded"; };
             documentation = { border = "rounded"; };

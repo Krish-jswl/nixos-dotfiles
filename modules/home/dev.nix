@@ -18,8 +18,6 @@
     cmake
     gnumake
     pkg-config
-    libtool
-    glibc.dev
     bear
 
     # General development
@@ -27,7 +25,6 @@
     fzf
     go
     python3
-    nixpkgs-fmt
 
     # Archive utilities
     unzip

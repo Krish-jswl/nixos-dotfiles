@@ -70,7 +70,10 @@
   services.tumbler.enable = true;
 
   # Enables docker
-  virtualisation.docker.enable = false;
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = false;
+  };
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -94,7 +97,7 @@
 
   programs.dconf.enable = true;
   programs.zsh.enable = true;
-  programs.firefox.enable = true;
+  programs.firefox.enable = false;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
@@ -158,9 +161,10 @@
     vim
     wget
     git
-    foot
     mesa-demos
     pciutils
+    man-pages
+    man-pages-posix
   ];
 
 

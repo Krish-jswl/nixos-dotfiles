@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-
   programs.zsh = {
     enable = true;
 
@@ -45,10 +44,48 @@
       bindkey '^W' backward-kill-word
 
       # Prompt
-      PROMPT='%F{cyan}%n@%m%f %F{blue}%~%f %# '
+      setopt PROMPT_SUBST
 
+      nix_prompt() {
+        # Custom flake/dev shell name
+        if [[ -n "$DEVSHELL_NAME" ]]; then
+          echo "%F{magenta}[󱄅 $DEVSHELL_NAME]%f "
+          return
+        fi
+
+        # Generic nix shell / nix develop
+        if [[ -n "$IN_NIX_SHELL" ]]; then
+          case "$IN_NIX_SHELL" in
+            pure)
+              echo "%F{green}[󱄅 pure]%f "
+              ;;
+            impure)
+              echo "%F{yellow}[󱄅 impure]%f "
+              ;;
+            *)
+              echo "%F{blue}[󱄅 nix]%f "
+              ;;
+          esac
+          return
+        fi
+
+        # direnv
+        if [[ -n "$DIRENV_DIR" ]]; then
+          echo "%F{cyan}[direnv]%f "
+        fi
+      }
+
+      # key
+      bindkey '^R' history-incremental-search-backward
+
+      PROMPT='$(nix_prompt)%F{cyan}%n@%m%f %F{blue}%~%f %# '
       # Paths
       export PATH="/usr/local/bin:$PATH"
+
+      # Env Var
+      export EDITOR=nvim
+      export VISUAL=nvim
+      export TERM=alacritty
     '';
   };
 
@@ -60,7 +97,6 @@
 
       set -g prefix C-s
 
-      set -g default-terminal "$TERM"
       set -ag terminal-overrides ",$TERM:Tc"
 
 

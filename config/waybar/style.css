@@ -8,7 +8,7 @@
 
 window#waybar {
     background: transparent;
-    color: #c5c8c6;
+    color: #cdd6f4; /* Text */
 }
 
 /* Remove giant containers */
@@ -22,30 +22,30 @@ window#waybar {
 /* Workspace bubble */
 
 #workspaces {
-    background: #282a2e;
-    border: 1px solid #373b41;
+    background: #1e1e2e; /* Base */
+    border: 1px solid #313244; /* Surface0 */
     border-radius: 14px;
     padding: 2px 6px;
     margin: 4px;
 }
 
 #workspaces button {
-    color: #81a2be;
+    color: #b4befe; /* Lavender */
     padding: 0 8px;
     border-radius: 10px;
 }
 
 #workspaces button.hidden {
-    color: #969896;
+    color: #7f849c; /* Overlay1 */
 }
 
 #workspaces button.active {
-    background: #81a2be;
-    color: #1d1f21;
+    background: #b4befe; /* Lavender */
+    color: #1e1e2e; /* Base */
 }
 
 #workspaces button.urgent {
-    color: #cc6666;
+    color: #f38ba8; /* Red */
 }
 
 /* Floating pills */
@@ -56,8 +56,8 @@ window#waybar {
 #wireplumber,
 #battery,
 #tray {
-    background: #282a2e;
-    border: 1px solid #373b41;
+    background: #1e1e2e;
+    border: 1px solid #313244;
 
     margin: 4px;
     padding: 0 12px;
@@ -65,34 +65,46 @@ window#waybar {
     border-radius: 14px;
 }
 
-/* Colors */
+#wireplumber-mic {
+    background: #1e1e2e;
+    border: 1px solid #313244;
+    margin: 4px;
+    padding: 0 12px;
+    border-radius: 14px;
+}
+
+/* Module colors */
 
 #clock {
-    color: #f0c674;
+    color: #f9e2af; /* Yellow */
 }
 
 #network {
-    color: #81a2be;
+    color: #89b4fa; /* Blue */
 }
 
 #backlight {
-    color: #de935f;
+    color: #fab387; /* Peach */
 }
 
 #wireplumber {
-    color: #b5bd68;
+    color: #a6e3a1; /* Green */
+}
+
+#wireplumber-mic {
+    color: #94e2d5; /* Teal */
 }
 
 #battery {
-    color: #b5bd68;
+    color: #a6e3a1; /* Green */
 }
 
 #battery.warning {
-    color: #f0c674;
+    color: #f9e2af; /* Yellow */
 }
 
 #battery.critical {
-    color: #cc6666;
+    color: #f38ba8; /* Red */
 }
 
 #tray {
@@ -102,11 +114,11 @@ window#waybar {
 /* Tooltip */
 
 tooltip {
-    background: #282a2e;
-    border: 1px solid #373b41;
+    background: #1e1e2e;
+    border: 1px solid #313244;
     border-radius: 12px;
 }
 
 tooltip label {
-    color: #c5c8c6;
+    color: #cdd6f4;
 }

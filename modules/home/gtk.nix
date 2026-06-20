@@ -11,16 +11,25 @@ in
 
     gtk4.theme = null;
 
+    # theme = {
+    #     name = "tomorrow-night";
+    #     package = tomorrow-night-gtk;
+    # };
+
     theme = {
-        name = "tomorrow-night";
-        package = tomorrow-night-gtk;
+      name = "catppuccin-mocha-lavender-standard+normal";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "lavender" ];
+        size = "standard";
+        tweaks = [ "normal" ];
+        variant = "mocha";
+      };
     };
 
     iconTheme = {
       name = "Papirus-Dark";
-      # package = pkgs.papirus-icon-theme;
       package = pkgs.papirus-icon-theme.override {
-        color = "green";
+        color = "blue";
       };
     };
   };

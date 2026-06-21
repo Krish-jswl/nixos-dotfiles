@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs.zsh = {
@@ -89,29 +89,6 @@
     '';
   };
 
-  programs.tmux = {
-    enable = true;
-    extraConfig = ''
-      unbind r 
-      bind r source-file ~/.tmux.conf
-
-      set -g prefix C-s
-
-      set -ag terminal-overrides ",$TERM:Tc"
-
-
-      set -sg escape-time 0
-
-      set -g mouse on 
-
-      bind-key h select-pane -L
-      bind-key j select-pane -D
-      bind-key k select-pane -U
-      bind-key l select-pane -R
-
-      set-option -g status-position bottom
-    '';
-  };
 
 }
 

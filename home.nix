@@ -13,7 +13,7 @@
     xdg.userDirs.setSessionVariables = true;
 
     home.sessionVariables = {
-      TERMINAL = "foot";
+      TERMINAL = "alacritty";
     };
 
 }

@@ -1,4 +1,81 @@
-[[languages]]
+[[language]]
 name = "go"
-auto-formate = true
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
 
+[[language]]
+name = "rust"
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "c"
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "cpp"
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "bash"
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "toml"
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "lua"
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "javascript"
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "html"
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "meson"
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "json"
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "xml"
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "markdown"
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "nasm"
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
+
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[language-server.rust-analyzer.config]
+inlayHints.bindingModeHints.enable = false
+inlayHints.closingBraceHints.minLines = 10
+inlayHints.closureReturnTypeHints.enable = "with_block"
+inlayHints.discriminantHints.enable = "fieldless"
+inlayHints.lifetimeElisionHints.enable = "skip_trivial"
+inlayHints.typeHints.hideClosureInitialization = false

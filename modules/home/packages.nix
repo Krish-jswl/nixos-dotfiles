@@ -1,39 +1,40 @@
 { pkgs, ... }:
 
 {
-    home.packages = with pkgs; [
-        fastfetch
-        pfetch
-        htop
-        brightnessctl
-        wl-clipboard
-        waybar
-        fuzzel
-        brave
-        librewolf
-        grim
-        slurp
-        obsidian
-        mpv
-        imv
-        obs-studio
-        pkg-config
-        syncthing
-        mako
-        libnotify
-        thunar
-        thunar-archive-plugin
-        thunar-volman
-        thunar-media-tags-plugin
-        ffmpegthumbnailer
-        tumbler
-        swaybg
-        hyprlock
-        hypridle
-        wlr-randr
-        qbittorrent
-        alacritty
-        glow
-        keepassxc
-	];
+  home.packages = with pkgs; [
+    fastfetch
+    pfetch
+    htop
+    brightnessctl
+    wl-clipboard
+    waybar
+    fuzzel
+    brave
+    librewolf
+    grim
+    slurp
+    obsidian
+    mpv
+    imv
+    obs-studio
+    syncthing
+    mako
+    libnotify
+    thunar
+    thunar-archive-plugin
+    thunar-volman
+    thunar-media-tags-plugin
+    ffmpegthumbnailer
+    tumbler
+    swaybg
+    hyprlock
+    hypridle
+    wlr-randr
+    qbittorrent
+    alacritty
+    glow
+    keepassxc
+    tomato-c
+    sioyek
+  ];
 }

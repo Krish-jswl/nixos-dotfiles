@@ -9,28 +9,38 @@
   # programs.direnv = {
   #   enable = true;
   #   nix-direnv.enable = true;
-  # }; 
+  # };
 
   home.packages = with pkgs; [
-    # C/C++ tooling
+    # dev tooling
     gcc
-    clang-tools
     cmake
     gnumake
     pkg-config
     bear
 
-    # General development
-    ripgrep
-    fzf
+    # languages
     go
     python3
     rustup
 
-    # Archive utilities
+    # lsp
+    clang-tools
+    gopls
+
+    # formater
+    nixfmt
+    prettier
+    black
+    shfmt
+    stylua
+
+    # extra tools
     unzip
     gnutar
     gzip
+    ripgrep
+    fzf
 
   ];
 
@@ -96,5 +106,3 @@
   };
 
 }
-
-

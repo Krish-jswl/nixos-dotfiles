@@ -1,8 +1,6 @@
 {
-  "modules-left": ["ext/workspaces", "dwl/window#title"],
-
-  "modules-center": [],
-
+  "modules-left": ["ext/workspaces"],
+  "modules-center": ["clock"],
   "modules-right": [
     "tray",
     "network",
@@ -10,7 +8,6 @@
     "wireplumber",
     "wireplumber#mic",
     "battery",
-    "clock",
   ],
   "clock": {
     "format": "  {:%I:%M %p}",
@@ -68,7 +65,7 @@
   },
   "ext/workspaces": {
     "format": "{icon}",
-    "ignore-hidden": true,
+    "ignore-hidden": false,
     "on-click": "activate",
     "sort-by-id": true,
   },

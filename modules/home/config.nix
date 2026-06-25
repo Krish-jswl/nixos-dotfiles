@@ -12,6 +12,7 @@ let
     doom      = "doom";
     mango     = "mango";
     alacritty = "alacritty";
+    helix     = "helix";
   };
 in
 {

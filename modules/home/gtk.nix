@@ -1,9 +1,4 @@
-{ config, pkgs, ... }:
-
-let
-  tomorrow-night-gtk =
-    pkgs.callPackage ./pkgs/tomorrow-night-gtk.nix {};
-in
+{ pkgs, ... }:
 
 {
   gtk = {
@@ -11,25 +6,15 @@ in
 
     gtk4.theme = null;
 
-    # theme = {
-    #     name = "tomorrow-night";
-    #     package = tomorrow-night-gtk;
-    # };
-
     theme = {
-      name = "catppuccin-mocha-lavender-standard+normal";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "lavender" ];
-        size = "standard";
-        tweaks = [ "normal" ];
-        variant = "mocha";
-      };
+      name = "Everforest-Dark";
+      package = pkgs.everforest-gtk-theme;
     };
 
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme.override {
-        color = "blue";
+        color = "teal";
       };
     };
   };

@@ -1,15 +1,11 @@
 { pkgs, ... }:
 
-# let
-#   tairiki = pkgs.callPackage ./pkgs/tairiki.nix {};
-# in
-
 {
   programs.nixvim = {
     enable = true;
 
     # =========================================================================
-    # GLOBALS & OPTIONS 
+    # GLOBALS & OPTIONS
     # =========================================================================
     globals = {
       mapleader = " ";
@@ -34,21 +30,29 @@
       swapfile = false;
       backup = false;
       undofile = true;
-      completeopt = [ "menuone" "noselect" "fuzzy" "nosort" ];
+      completeopt = [
+        "menuone"
+        "noselect"
+        "fuzzy"
+        "nosort"
+      ];
       colorcolumn = "";
       signcolumn = "yes";
       cmdheight = 0;
       termguicolors = true;
       scrolloff = 4;
+      cursorline = true;
+      pumblend = 10;
+      winblend = 0;
     };
 
     clipboard = {
       register = "unnamedplus";
-      providers.wl-copy.enable = true; 
+      providers.wl-copy.enable = true;
     };
 
     # =========================================================================
-    # AUTOCOMMANDS 
+    # AUTOCOMMANDS
     # =========================================================================
     autoCmd = [
       {
@@ -61,9 +65,13 @@
 
       {
         event = "FileType";
-        pattern = [ "c" "cpp" ];
+        pattern = [
+          "c"
+          "cpp"
+        ];
         callback.__raw = ''
           function()
+            vim.bo.expandtab = true
             vim.bo.tabstop = 4
             vim.bo.shiftwidth = 4
             vim.bo.softtabstop = 4
@@ -73,9 +81,54 @@
 
       {
         event = "FileType";
-        pattern = [ "lua" "nix" "html" "css" "javascript" "javascriptreact" "typescript" "typescriptreact" "json" "yaml" ];
+        pattern = [ "go" ];
         callback.__raw = ''
           function()
+            vim.bo.expandtab = false
+            vim.bo.tabstop = 4
+            vim.bo.shiftwidth = 4
+            vim.bo.softtabstop = 4
+          end
+        '';
+      }
+
+      {
+        event = "FileType";
+        pattern = [
+          "rust"
+          "python"
+          "sh"
+          "bash"
+        ];
+        callback.__raw = ''
+          function()
+            vim.bo.expandtab = true
+            vim.bo.tabstop = 4
+            vim.bo.shiftwidth = 4
+            vim.bo.softtabstop = 4
+          end
+        '';
+      }
+
+      {
+        event = "FileType";
+        pattern = [
+          "lua"
+          "nix"
+          "html"
+          "css"
+          "javascript"
+          "javascriptreact"
+          "typescript"
+          "typescriptreact"
+          "json"
+          "jsonc"
+          "yaml"
+          "markdown"
+        ];
+        callback.__raw = ''
+          function()
+            vim.bo.expandtab = true
             vim.bo.tabstop = 2
             vim.bo.shiftwidth = 2
             vim.bo.softtabstop = 2
@@ -89,30 +142,99 @@
     # =========================================================================
     keymaps = [
       # Normal Mode
-      { mode = "n"; key = "<leader>nh"; action = "<cmd>nohl<CR>"; }
-      { mode = "n"; key = "<"; action = "<gv"; options.desc = "Unindent and keep selection"; }
-      { mode = "n"; key = ">"; action = ">gv"; options.desc = "Indent and keep selection"; }
-      { mode = "n"; key = "<C-d>"; action = "<C-d>zz"; options.desc = "Move down in buffer centered"; }
-      { mode = "n"; key = "<C-u>"; action = "<C-u>zz"; options.desc = "Move up in buffer centered"; }
-      { mode = "n"; key = "n"; action = "nzzzv"; options.desc = "Next search result centered"; }
-      { mode = "n"; key = "N"; action = "Nzzzv"; options.desc = "Previous search result centered"; }
-      { mode = "n"; key = "<leader>u"; action = "<cmd>UndotreeToggle<CR>"; options.desc = "Toggle Undotree"; }
+      {
+        mode = "n";
+        key = "<leader>nh";
+        action = "<cmd>nohl<CR>";
+      }
+      {
+        mode = "n";
+        key = "<";
+        action = "<gv";
+        options.desc = "Unindent and keep selection";
+      }
+      {
+        mode = "n";
+        key = ">";
+        action = ">gv";
+        options.desc = "Indent and keep selection";
+      }
+      {
+        mode = "n";
+        key = "<C-d>";
+        action = "<C-d>zz";
+        options.desc = "Move down in buffer centered";
+      }
+      {
+        mode = "n";
+        key = "<C-u>";
+        action = "<C-u>zz";
+        options.desc = "Move up in buffer centered";
+      }
+      {
+        mode = "n";
+        key = "n";
+        action = "nzzzv";
+        options.desc = "Next search result centered";
+      }
+      {
+        mode = "n";
+        key = "N";
+        action = "Nzzzv";
+        options.desc = "Previous search result centered";
+      }
+      {
+        mode = "n";
+        key = "<leader>u";
+        action = "<cmd>UndotreeToggle<CR>";
+        options.desc = "Toggle Undotree";
+      }
       # Plugin Toggles
-      { mode = "n"; key = "<leader>ee"; action = "<cmd>NvimTreeToggle<CR>"; options.desc = "Toggle file explorer"; }
-      { mode = "n"; key = "<leader>tt"; action = "<cmd>ToggleTerm<CR>"; options.desc = "Toggle terminal"; }
-      { mode = "n"; key = "<leader>tf"; action = "<cmd>ToggleTerm direction=float<CR>"; options.desc = "Float terminal"; }
-      { mode = "t"; key = "<Esc>"; action = "<C-\\><C-n>"; options.desc = "Exit terminal mode"; }
-
-      # LSP Formatting (Raw lua for async)
-      { mode = "n"; key = "<leader>f"; action.__raw = "function() vim.lsp.buf.format({ async = true }) end"; options.desc = "Format buffer"; }
+      {
+        mode = "n";
+        key = "<leader>ee";
+        action = "<cmd>NvimTreeToggle<CR>";
+        options.desc = "Toggle file explorer";
+      }
+      {
+        mode = "n";
+        key = "<leader>tt";
+        action = "<cmd>ToggleTerm<CR>";
+        options.desc = "Toggle terminal";
+      }
+      {
+        mode = "n";
+        key = "<leader>tv";
+        action = "<cmd>ToggleTerm direction=vertical<CR>";
+        options.desc = "Float terminal";
+      }
+      {
+        mode = "t";
+        key = "<Esc>";
+        action = "<C-\\><C-n>";
+        options.desc = "Exit terminal mode";
+      }
 
       # Visual Mode
-      { mode = "v"; key = "J"; action = ":m '>+1<CR>gv=gv"; options.desc = "Move lines down"; }
-      { mode = "v"; key = "K"; action = ":m '<-2<CR>gv=gv"; options.desc = "Move lines up"; }
+      {
+        mode = "v";
+        key = "J";
+        action = ":m '>+1<CR>gv=gv";
+        options.desc = "Move lines down";
+      }
+      {
+        mode = "v";
+        key = "K";
+        action = ":m '<-2<CR>gv=gv";
+        options.desc = "Move lines up";
+      }
 
       # cmp extra
       {
-        mode = [ "i" "s" ];
+        mode = [
+          "i"
+          "s"
+        ];
         key = "<C-l>";
 
         action.__raw = ''
@@ -126,7 +248,10 @@
       }
 
       {
-        mode = [ "i" "s" ];
+        mode = [
+          "i"
+          "s"
+        ];
         key = "<C-h>";
 
         action.__raw = ''
@@ -141,7 +266,10 @@
 
       # snippet
       {
-        mode = [ "i" "s" ];
+        mode = [
+          "i"
+          "s"
+        ];
         key = "<C-j>";
 
         action.__raw = ''
@@ -159,126 +287,101 @@
     # CUSTOM PLUGINS & THEME
     # =========================================================================
 
-    # extraPlugins = with pkgs.vimPlugins; [
-    #   # tairiki
-    # ];
-
     extraConfigLua = ''
-      -- vim.cmd.colorscheme("catppuccin")
-    local transparent_groups = {
-      "Normal",
-      "NormalNC",
-      "NormalFloat",
-      "SignColumn",
-      "EndOfBuffer",
-      "FoldColumn",
-      "CursorLineNr",
-      "NvimTreeNormal",
-      "NvimTreeNormalNC",
-      "TelescopeNormal",
-      "TelescopeBorder",
-    }
+      local transparent_groups = {
+        "Normal",
+        "NormalNC",
+        "NormalFloat",
+        "SignColumn",
+        "EndOfBuffer",
+        "FoldColumn",
+        "CursorLineNr",
+        "NvimTreeNormal",
+        "NvimTreeNormalNC",
+        "TelescopeNormal",
+        "TelescopeBorder",
+      }
 
-    for _, group in ipairs(transparent_groups) do
-      vim.api.nvim_set_hl(0, group, { bg = "none" })
-    end
+      for _, group in ipairs(transparent_groups) do
+        vim.api.nvim_set_hl(0, group, { bg = "none" })
+      end
 
-    -- Tomorrow night colors tweak
-    vim.api.nvim_set_hl(0, "Pmenu", {
-      bg = "#1e1e2e",
-      fg = "#cdd6f4"
-    })
+      -- DIAGNOSTICS
 
-    vim.api.nvim_set_hl(0, "PmenuSel", {
-      bg = "#313244",
-      fg = "#b4befe"
-    })
+      vim.o.updatetime = 300
 
-    vim.api.nvim_set_hl(0, "DiagnosticError", { fg = "#f38ba8" })
-    vim.api.nvim_set_hl(0, "DiagnosticWarn",  { fg = "#f9e2af" })
-    vim.api.nvim_set_hl(0, "DiagnosticInfo",  { fg = "#89b4fa" })
-    vim.api.nvim_set_hl(0, "DiagnosticHint",  { fg = "#94e2d5" })
-    -----
+      vim.diagnostic.config({
+        virtual_text = false,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
 
-    -- DIAGNOSTICS
-
-    vim.o.updatetime = 300
-
-    vim.diagnostic.config({
-      virtual_text = false,
-      underline = true,
-      update_in_insert = false,
-      severity_sort = true,
-
-      signs = {
-        text = {
-          [vim.diagnostic.severity.ERROR] = "󰅚 ",
-          [vim.diagnostic.severity.WARN]  = "󰀪 ",
-          [vim.diagnostic.severity.INFO]  = "󰋽 ",
-          [vim.diagnostic.severity.HINT]  = "󰌶 ",
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = "󰅚 ",
+            [vim.diagnostic.severity.WARN]  = "󰀪 ",
+            [vim.diagnostic.severity.INFO]  = "󰋽 ",
+            [vim.diagnostic.severity.HINT]  = "󰌶 ",
+          },
         },
-      },
 
-      float = {
-        border = "rounded",
-        source = "if_many",
-      },
-    })
-
-    vim.api.nvim_create_autocmd("CursorHold", {
-      callback = function()
-        vim.diagnostic.open_float(nil, {
-          focusable = false,
+        float = {
           border = "rounded",
           source = "if_many",
-          scope = "cursor",
-        })
-      end,
-    })
-    -----
-
-    --- Doc Border
-      vim.lsp.handlers["textDocument/hover"] =
-        vim.lsp.with(
-          vim.lsp.handlers.hover,
-          {
-            border = "rounded",
-          }
-        )
-
-      vim.lsp.handlers["textDocument/signatureHelp"] =
-        vim.lsp.with(
-          vim.lsp.handlers.signature_help,
-          {
-            border = "rounded",
-          }
-        )
-
-      vim.api.nvim_set_hl(0, "FloatBorder", {
-        fg = "#b4befe",
-        bg = "none",
+        },
       })
-    ---
+
+      vim.api.nvim_create_autocmd("CursorHold", {
+        callback = function()
+          vim.diagnostic.open_float(nil, {
+            focusable = false,
+            border = "rounded",
+            source = "if_many",
+            scope = "cursor",
+          })
+        end,
+      })
+      -----
+
+      --- Doc Border
+        vim.lsp.handlers["textDocument/hover"] =
+          vim.lsp.with(
+            vim.lsp.handlers.hover,
+            {
+              border = "rounded",
+            }
+          )
+
+        vim.lsp.handlers["textDocument/signatureHelp"] =
+          vim.lsp.with(
+            vim.lsp.handlers.signature_help,
+            {
+              border = "rounded",
+            }
+          )
+
+      ---
 
     '';
 
-
     # =========================================================================
-    # COLORSCHEME 
+    # COLORSCHEME
     # =========================================================================
     colorschemes = {
-      catppuccin = {
+      everforest = {
         enable = true;
 
         settings = {
-          flavour = "mocha";
-          transparent_background = true;
+          background = "hard";
+          transparent_background = 1;
+          disable_italic_comment = false;
+          better_performance = true;
         };
       };
     };
 
     # =========================================================================
-    # PLUGINS 
+    # PLUGINS
     # =========================================================================
     plugins = {
 
@@ -287,7 +390,7 @@
 
         settings = {
           options = {
-            theme = "auto";
+            theme = "everforest";
             globalstatus = true;
             component_separators = "";
             section_separators = "";
@@ -295,9 +398,15 @@
 
           sections = {
             lualine_a = [ "mode" ];
-            lualine_b = [ "branch" "diff" ];
+            lualine_b = [
+              "branch"
+              "diff"
+            ];
             lualine_c = [ "filename" ];
-            lualine_x = [ "diagnostics" "filetype" ];
+            lualine_x = [
+              "diagnostics"
+              "filetype"
+            ];
             lualine_y = [ "progress" ];
             lualine_z = [ "location" ];
           };
@@ -308,7 +417,7 @@
         enable = true;
 
         settings = {
-          direction = "horizontal";
+          direction = "float";
           open_mapping = "[[<c-\\>]]";
           shade_terminals = false;
 
@@ -317,18 +426,26 @@
           };
         };
       };
-      
+
       nvim-autopairs.enable = true;
 
       web-devicons.enable = true;
       undotree.enable = true;
-      
+
       colorizer = {
         enable = true;
         settings.user_default_options = {
-          RGB = true; RRGGBB = true; RRGGBBAA = true; AARRGGBB = true;
-          names = true; rgb_fn = true; hsl_fn = true; css = true; css_fn = true;
-          tailwind = true; mode = "background";
+          RGB = true;
+          RRGGBB = true;
+          RRGGBBAA = true;
+          AARRGGBB = true;
+          names = true;
+          rgb_fn = true;
+          hsl_fn = true;
+          css = true;
+          css_fn = true;
+          tailwind = true;
+          mode = "background";
         };
       };
 
@@ -357,11 +474,26 @@
       telescope = {
         enable = true;
         keymaps = {
-          "<leader>ff" = { action = "find_files"; options.desc = "Find files"; };
-          "<leader>fs" = { action = "live_grep"; options.desc = "Live grep"; };
-          "<leader>fb" = { action = "buffers"; options.desc = "Buffers"; };
-          "<leader>fh" = { action = "help_tags"; options.desc = "Help tags"; };
-          "<leader>fd" = { action = "diagnostics"; options.desc = "Diagnostics"; };
+          "<leader>ff" = {
+            action = "find_files";
+            options.desc = "Find files";
+          };
+          "<leader>fs" = {
+            action = "live_grep";
+            options.desc = "Live grep";
+          };
+          "<leader>fb" = {
+            action = "buffers";
+            options.desc = "Buffers";
+          };
+          "<leader>fh" = {
+            action = "help_tags";
+            options.desc = "Help tags";
+          };
+          "<leader>fd" = {
+            action = "diagnostics";
+            options.desc = "Diagnostics";
+          };
 
           "<leader>fr" = {
             action = "lsp_references";
@@ -394,25 +526,50 @@
 
       lsp = {
         enable = true;
-        
+
         # Buffer-local LSP Mappings (Removed the "options." prefix here!)
         keymaps = {
           diagnostic = {
-            "df" = { action = "open_float"; desc = "Line diagnostics"; };
-            "[d" = { action = "goto_prev"; desc = "Previous diagnostic"; };
-            "]d" = { action = "goto_next"; desc = "Next diagnostic"; };
+            "df" = {
+              action = "open_float";
+              desc = "Line diagnostics";
+            };
+            "[d" = {
+              action = "goto_prev";
+              desc = "Previous diagnostic";
+            };
+            "]d" = {
+              action = "goto_next";
+              desc = "Next diagnostic";
+            };
           };
           lspBuf = {
-            "gd" = { action = "definition"; };
-            "gD" = { action = "declaration"; };
-            "gi" = { action = "implementation"; };
-            "gr" = { action = "references"; };
-            "gt" = { action = "type_definition"; };
+            "gd" = {
+              action = "definition";
+            };
+            "gD" = {
+              action = "declaration";
+            };
+            "gi" = {
+              action = "implementation";
+            };
+            "gr" = {
+              action = "references";
+            };
+            "gt" = {
+              action = "type_definition";
+            };
 
-            "K" = { action = "hover"; };
+            "K" = {
+              action = "hover";
+            };
 
-            "<leader>rn" = { action = "rename"; };
-            "<leader>ca" = { action = "code_action"; };
+            "<leader>rn" = {
+              action = "rename";
+            };
+            "<leader>ca" = {
+              action = "code_action";
+            };
 
           };
         };
@@ -422,9 +579,21 @@
           marksman.enable = true;
           gopls.enable = true;
           pyright.enable = true;
+          rust_analyzer = {
+            enable = true;
+            installCargo = false;
+            installRustc = false;
+            settings = {
+              cargo.allFeatures = true;
+              check.command = "clippy";
+            };
+          };
           clangd = {
             enable = true;
-            cmd = [ "clangd" "--offset-encoding=utf-16" ];
+            cmd = [
+              "clangd"
+              "--offset-encoding=utf-16"
+            ];
           };
           ts_ls = {
             enable = true;
@@ -454,6 +623,46 @@
           bashls.enable = true;
         };
       };
+      conform-nvim = {
+        enable = true;
+
+        settings = {
+          format_on_save = {
+            timeout_ms = 500;
+            lsp_fallback = true;
+          };
+
+          formatters_by_ft = {
+            lua = [ "stylua" ];
+            nix = [ "nixfmt" ];
+
+            javascript = [ "prettier" ];
+            javascriptreact = [ "prettier" ];
+
+            typescript = [ "prettier" ];
+            typescriptreact = [ "prettier" ];
+
+            json = [ "prettier" ];
+            jsonc = [ "prettier" ];
+            yaml = [ "prettier" ];
+            html = [ "prettier" ];
+            css = [ "prettier" ];
+
+            markdown = [ "prettier" ];
+
+            python = [ "black" ];
+
+            go = [ "gofmt" ];
+
+            rust = [ "rustfmt" ];
+
+            c = [ "clang_format" ];
+            cpp = [ "clang_format" ];
+
+            sh = [ "shfmt" ];
+          };
+        };
+      };
 
       luasnip = {
         enable = true;
@@ -472,8 +681,12 @@
           completion.completeopt = "menu,menuone,noselect";
 
           window = {
-            completion = { border = "rounded"; };
-            documentation = { border = "rounded"; };
+            completion = {
+              border = "rounded";
+            };
+            documentation = {
+              border = "rounded";
+            };
           };
 
           mapping = {
@@ -484,7 +697,7 @@
             "<C-n>" = "cmp.mapping.select_next_item()";
             "<C-p>" = "cmp.mapping.select_prev_item()";
             "<CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })";
-            
+
             "<Tab>" = ''
               cmp.mapping(function(fallback)
                 local luasnip = require("luasnip")
@@ -512,10 +725,22 @@
           };
 
           sources = [
-            { name = "nvim_lsp"; priority = 1000; }
-            { name = "luasnip"; priority = 750; }
-            { name = "buffer"; priority = 500; }
-            { name = "path"; priority = 250; }
+            {
+              name = "nvim_lsp";
+              priority = 1000;
+            }
+            {
+              name = "luasnip";
+              priority = 750;
+            }
+            {
+              name = "buffer";
+              priority = 500;
+            }
+            {
+              name = "path";
+              priority = 250;
+            }
           ];
 
           formatting.format = ''

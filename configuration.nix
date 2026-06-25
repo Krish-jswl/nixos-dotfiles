@@ -1,10 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -24,14 +24,14 @@
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.powersave = false;
+  networking.networkmanager.wifi.powersave = true;
   programs.nm-applet.enable = true;
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
   services.tlp = {
-    enable = false;
+    enable = true;
 
     settings = {
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
@@ -42,7 +42,7 @@
 
       RUNTIME_PM_ON_BAT = "auto";
 
-      WIFI_PWR_ON_BAT = "off";
+      WIFI_PWR_ON_BAT = "on";
 
       USB_AUTOSUSPEND = 1;
     };
@@ -51,14 +51,11 @@
   boot.kernelPackages = pkgs.linuxPackages_6_12;
   boot.kernelParams = [ "amd_pstate=active" ];
 
-
   services.power-profiles-daemon.enable = false;
 
   # Enable Postgresql
   services.postgresql = {
     enable = false;
-
-    ensureDatabases = [ "gokit" ];
 
     authentication = pkgs.lib.mkOverride 10 ''
       local all all trust
@@ -101,29 +98,35 @@
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-      stdenv.cc.cc
-      libGL
-      vulkan-loader
-      libX11
-      libXcursor
-      libXrandr
-      libXinerama
-      alsa-lib
-];
+    stdenv.cc.cc
+    libGL
+    vulkan-loader
+    libX11
+    libXcursor
+    libXrandr
+    libXinerama
+    alsa-lib
+  ];
 
   services.displayManager.ly.enable = false;
-  
+
   systemd.services.fix-mic-led = {
     description = "Force microphone LED off";
-    wantedBy = [ "multi-user.target" "sleep.target" ];
-    after = [ "sysinit.target" "suspend.target" "hibernate.target" ];
+    wantedBy = [
+      "multi-user.target"
+      "sleep.target"
+    ];
+    after = [
+      "sysinit.target"
+      "suspend.target"
+      "hibernate.target"
+    ];
 
     serviceConfig = {
       Type = "oneshot";
       ExecStart = "${pkgs.bash}/bin/sh -c 'echo 0 > /sys/class/leds/platform::micmute/brightness'";
     };
   };
-
 
   # Enable sound.
   # services.pulseaudio.enable = true;
@@ -151,7 +154,12 @@
   users.users.krishj = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "docker" "video" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "docker"
+      "video"
+      "networkmanager"
+    ];
     packages = with pkgs; [
       tree
     ];
@@ -162,20 +170,23 @@
     wget
     git
     mesa-demos
-    pciutils
     man-pages
     man-pages-posix
+    powertop
+    tlp
+    pciutils
   ];
-
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     nerd-fonts.iosevka
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   system.stateVersion = "25.11";
 
 }
-

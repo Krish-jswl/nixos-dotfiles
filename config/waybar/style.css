@@ -1,124 +1,187 @@
 * {
-    border: none;
-    min-height: 0;
-    font-family: "JetBrainsMono Nerd Font";
-    font-size: 13px;
-    font-weight: 600;
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+  font-weight: bold;
+  min-height: 0;
 }
 
 window#waybar {
-    background: transparent;
-    color: #cdd6f4; /* Text */
+  background: rgba(39, 46, 51, 1);
+  color: #d3c6aa;
 }
 
-/* Remove giant containers */
-
-.modules-left,
-.modules-center,
-.modules-right {
-    background: transparent;
-}
-
-/* Workspace bubble */
+/* ==========================
+   WORKSPACES
+   ========================== */
 
 #workspaces {
-    background: #1e1e2e; /* Base */
-    border: 1px solid #313244; /* Surface0 */
-    border-radius: 14px;
-    padding: 2px 6px;
-    margin: 4px;
+  margin: 2px;
 }
 
 #workspaces button {
-    color: #b4befe; /* Lavender */
-    padding: 0 8px;
-    border-radius: 10px;
+  background: #a7c080;
+  color: #272e33;
+
+  min-width: 20px;
+  min-height: 20px;
+
+  padding: 0;
+  margin: 2px;
+
+  border-radius: 4px;
+
+  border-top: 1px solid #c8dfab;
+  border-bottom: 3px solid #7e9b60;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-#workspaces button.hidden {
-    color: #7f849c; /* Overlay1 */
+#workspaces button:hover {
+  background: #b8d296;
 }
 
 #workspaces button.active {
-    background: #b4befe; /* Lavender */
-    color: #1e1e2e; /* Base */
+  background: #7fbbb3;
+  border-top: 1px solid #a4d5cf;
+  border-bottom: 3px solid #5d9890;
+}
+
+#workspaces button.hidden {
+  background: #83c092;
+  border-top: 1px solid #a7d5b1;
+  border-bottom: 3px solid #5d9c71;
 }
 
 #workspaces button.urgent {
-    color: #f38ba8; /* Red */
+  background: #e67e80;
+  border-top: 1px solid #f2a2a4;
+  border-bottom: 3px solid #c85f61;
 }
 
-/* Floating pills */
+/* ==========================
+   COMMON MODULES
+   ========================== */
 
 #clock,
+#battery,
 #network,
 #backlight,
 #wireplumber,
-#battery,
-#tray {
-    background: #1e1e2e;
-    border: 1px solid #313244;
+#wireplumber-mic,
+#tray,
+#window {
+  min-height: 15px;
+  padding: 0px 10px;
+  margin: 4px 2px;
 
-    margin: 4px;
-    padding: 0 12px;
+  border-radius: 4px;
 
-    border-radius: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-#wireplumber-mic {
-    background: #1e1e2e;
-    border: 1px solid #313244;
-    margin: 4px;
-    padding: 0 12px;
-    border-radius: 14px;
-}
+/* ==========================
+   MODULE COLORS
+   ========================== */
 
-/* Module colors */
+#window {
+  background: #2d353b;
+  color: #d3c6aa;
+
+  border-top: 1px solid #49545a;
+  border-bottom: 3px solid #1d2327;
+}
 
 #clock {
-    color: #f9e2af; /* Yellow */
-}
+  background: #e69875;
+  color: #272e33;
 
-#network {
-    color: #89b4fa; /* Blue */
-}
-
-#backlight {
-    color: #fab387; /* Peach */
-}
-
-#wireplumber {
-    color: #a6e3a1; /* Green */
-}
-
-#wireplumber-mic {
-    color: #94e2d5; /* Teal */
+  border-top: 1px solid #f2b79d;
+  border-bottom: 3px solid #c77452;
 }
 
 #battery {
-    color: #a6e3a1; /* Green */
+  background: #a7c080;
+  color: #272e33;
+
+  border-top: 1px solid #c8dfab;
+  border-bottom: 3px solid #7e9b60;
 }
 
 #battery.warning {
-    color: #f9e2af; /* Yellow */
+  background: #dbbc7f;
+
+  border-top: 1px solid #ecd5a6;
+  border-bottom: 3px solid #b99855;
 }
 
 #battery.critical {
-    color: #f38ba8; /* Red */
+  background: #e67e80;
+  color: white;
+
+  border-top: 1px solid #f2a2a4;
+  border-bottom: 3px solid #c85f61;
+}
+
+#network {
+  background: #7fbbb3;
+  color: #272e33;
+
+  border-top: 1px solid #a4d5cf;
+  border-bottom: 3px solid #5d9890;
+}
+
+#backlight {
+  background: #dbbc7f;
+  color: #272e33;
+
+  border-top: 1px solid #ecd5a6;
+  border-bottom: 3px solid #b99855;
+}
+
+#wireplumber {
+  background: #a7c080;
+  color: #272e33;
+
+  border-top: 1px solid #c8dfab;
+  border-bottom: 3px solid #7e9b60;
+}
+
+#wireplumber.muted {
+  background: #e67e80;
+  color: white;
+
+  border-top: 1px solid #f2a2a4;
+  border-bottom: 3px solid #c85f61;
+}
+
+#wireplumber-mic {
+  background: #d699b6;
+  color: #272e33;
+
+  border-top: 1px solid #e8bdd1;
+  border-bottom: 3px solid #b87695;
 }
 
 #tray {
-    padding-right: 10px;
+  background: #2d353b;
+  color: #d3c6aa;
+
+  border-top: 1px solid #49545a;
+  border-bottom: 3px solid #1d2327;
 }
 
-/* Tooltip */
+/* ==========================
+   TOOLTIP
+   ========================== */
 
 tooltip {
-    background: #1e1e2e;
-    border: 1px solid #313244;
-    border-radius: 12px;
+  background: #2d353b;
+  border: 1px solid #4f5b58;
+  border-radius: 6px;
 }
 
 tooltip label {
-    color: #cdd6f4;
+  color: #d3c6aa;
 }

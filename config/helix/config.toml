@@ -1,1 +1,18 @@
 theme = "catppuccin_mocha"
+
+[editor.statusline]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+left = ["mode", "separator", "file-name"]
+center = ["spinner"]
+right = ["diagnostics", "selections", "position", "file-encoding"]
+separator = ""
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+character = "|" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1

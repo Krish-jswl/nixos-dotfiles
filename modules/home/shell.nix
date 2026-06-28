@@ -86,7 +86,7 @@
       # Env Var
       export EDITOR=nvim
       export VISUAL=nvim
-      export TERM=alacritty
+      export TERM=kitty
     '';
   };
 

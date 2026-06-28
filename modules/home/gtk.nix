@@ -17,6 +17,11 @@
         color = "teal";
       };
     };
+
+    font = {
+      name = "JetBrainsMono Nerd Font";
+      size = 11;
+    };
   };
 
   dconf.settings = {

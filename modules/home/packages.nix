@@ -31,7 +31,7 @@
     hypridle
     wlr-randr
     qbittorrent
-    alacritty
+    kitty
     glow
     keepassxc
     tomato-c

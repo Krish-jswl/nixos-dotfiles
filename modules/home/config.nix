@@ -9,10 +9,9 @@ let
     fuzzel = "fuzzel";
     waybar = "waybar";
     mako = "mako";
-    doom = "doom";
     mango = "mango";
-    alacritty = "alacritty";
-    # helix     = "helix";
+    kitty = "kitty";
+    sioyek = "sioyek";
   };
 in
 {

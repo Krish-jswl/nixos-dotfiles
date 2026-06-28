@@ -1,19 +1,19 @@
 { config, pkgs, ... }:
 
-
 {
-	home.username = "krishj";
-	home.homeDirectory = "/home/krishj";
-	home.stateVersion = "25.05";
+  home.username = "krishj";
+  home.homeDirectory = "/home/krishj";
+  home.stateVersion = "25.05";
 
-    imports = [
-      ./modules/home/default.nix
-    ];
+  imports = [
+    ./modules/home/default.nix
+  ];
 
-    xdg.userDirs.setSessionVariables = true;
+  xdg.userDirs.setSessionVariables = true;
 
-    home.sessionVariables = {
-      TERMINAL = "alacritty";
-    };
+  home.sessionVariables = {
+    TERMINAL = "kitty";
+    EDITOR = "emacs";
+  };
 
 }

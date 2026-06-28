@@ -374,7 +374,7 @@
         settings = {
           background = "hard";
           transparent_background = 1;
-          disable_italic_comment = false;
+          disable_italic_comment = 0;
           better_performance = true;
         };
       };
@@ -453,7 +453,10 @@
         enable = true;
 
         settings = {
-          view.width = 30;
+          view = {
+            width = 30;
+            side = "right";
+          };
 
           renderer = {
             group_empty = true;

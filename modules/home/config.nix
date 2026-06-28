@@ -5,22 +5,19 @@ let
   link = path: config.lib.file.mkOutOfStoreSymlink path;
 
   configs = {
-    hypr      = "hypr";
-    fuzzel    = "fuzzel";
-    waybar    = "waybar";
-    mako      = "mako";
-    doom      = "doom";
-    mango     = "mango";
+    hypr = "hypr";
+    fuzzel = "fuzzel";
+    waybar = "waybar";
+    mako = "mako";
+    doom = "doom";
+    mango = "mango";
     alacritty = "alacritty";
-    helix     = "helix";
+    # helix     = "helix";
   };
 in
 {
-  xdg.configFile =
-    builtins.mapAttrs (_: subpath: {
-      source = link "${dotfiles}/${subpath}";
-      recursive = true;
-    })
-    configs;
+  xdg.configFile = builtins.mapAttrs (_: subpath: {
+    source = link "${dotfiles}/${subpath}";
+    recursive = true;
+  }) configs;
 }
-

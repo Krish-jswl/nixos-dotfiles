@@ -1,5 +1,9 @@
 { pkgs, ... }:
 
+let
+  tomorrow-night-gtk = pkgs.callPackage ./pkgs/tomorrow-night-gtk.nix { };
+in
+
 {
   gtk = {
     enable = true;
@@ -7,14 +11,14 @@
     gtk4.theme = null;
 
     theme = {
-      name = "Everforest-Dark";
-      package = pkgs.everforest-gtk-theme;
+      name = "tomorrow-night";
+      package = tomorrow-night-gtk;
     };
 
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme.override {
-        color = "teal";
+        color = "green";
       };
     };
 

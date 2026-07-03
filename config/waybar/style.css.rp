@@ -1,0 +1,192 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+  font-weight: bold;
+  min-height: 0;
+}
+
+window#waybar {
+  background: #191724;
+  color: #e0def4;
+}
+
+/* ==========================
+   WORKSPACES
+   ========================== */
+
+#workspaces {
+  margin: 2px;
+}
+
+#workspaces button {
+  background: #9ccfd8;
+  color: #191724;
+
+  min-width: 20px;
+  min-height: 20px;
+
+  padding: 0;
+  margin: 2px;
+
+  border-radius: 4px;
+
+  border-top: 1px solid #c4e7ee;
+  border-bottom: 3px solid #6c9ca6;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+#workspaces button:hover {
+  background: #b4dfe7;
+}
+
+#workspaces button.active {
+  background: #c4a7e7;
+
+  border-top: 1px solid #dbc6f1;
+  border-bottom: 3px solid #9676bc;
+}
+
+#workspaces button.hidden {
+  background: #6e6a86;
+
+  border-top: 1px solid #8b879f;
+  border-bottom: 3px solid #504c66;
+}
+
+#workspaces button.urgent {
+  background: #eb6f92;
+  color: #faf4ed;
+
+  border-top: 1px solid #f39cb5;
+  border-bottom: 3px solid #c24f70;
+}
+
+/* ==========================
+   COMMON MODULES
+   ========================== */
+
+#clock,
+#battery,
+#network,
+#backlight,
+#wireplumber,
+#wireplumber-mic,
+#tray,
+#window {
+  min-height: 15px;
+  padding: 0px 10px;
+  margin: 4px 2px;
+
+  border-radius: 4px;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================
+   MODULE COLORS
+   ========================== */
+
+#window {
+  background: #26233a;
+  color: #e0def4;
+
+  border-top: 1px solid #403d52;
+  border-bottom: 3px solid #1a1826;
+}
+
+#clock {
+  background: #f6c177;
+  color: #191724;
+
+  border-top: 1px solid #f8d59d;
+  border-bottom: 3px solid #d59b4f;
+}
+
+#battery {
+  background: #31748f;
+  color: #faf4ed;
+
+  border-top: 1px solid #5f9cb5;
+  border-bottom: 3px solid #23576b;
+}
+
+#battery.warning {
+  background: #f6c177;
+  color: #191724;
+
+  border-top: 1px solid #f8d59d;
+  border-bottom: 3px solid #d59b4f;
+}
+
+#battery.critical {
+  background: #eb6f92;
+  color: #faf4ed;
+
+  border-top: 1px solid #f39cb5;
+  border-bottom: 3px solid #c24f70;
+}
+
+#network {
+  background: #9ccfd8;
+  color: #191724;
+
+  border-top: 1px solid #c4e7ee;
+  border-bottom: 3px solid #6c9ca6;
+}
+
+#backlight {
+  background: #f6c177;
+  color: #191724;
+
+  border-top: 1px solid #f8d59d;
+  border-bottom: 3px solid #d59b4f;
+}
+
+#wireplumber {
+  background: #c4a7e7;
+  color: #191724;
+
+  border-top: 1px solid #dbc6f1;
+  border-bottom: 3px solid #9676bc;
+}
+
+#wireplumber.muted {
+  background: #eb6f92;
+  color: #faf4ed;
+
+  border-top: 1px solid #f39cb5;
+  border-bottom: 3px solid #c24f70;
+}
+
+#wireplumber-mic {
+  background: #ebbcba;
+  color: #191724;
+
+  border-top: 1px solid #f3d6d5;
+  border-bottom: 3px solid #c89290;
+}
+
+#tray {
+  background: #26233a;
+  color: #e0def4;
+
+  border-top: 1px solid #403d52;
+  border-bottom: 3px solid #1a1826;
+}
+
+/* ==========================
+   TOOLTIP
+   ========================== */
+
+tooltip {
+  background: #26233a;
+  border: 1px solid #403d52;
+  border-radius: 6px;
+}
+
+tooltip label {
+  color: #e0def4;
+}

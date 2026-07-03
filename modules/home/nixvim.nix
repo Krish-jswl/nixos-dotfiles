@@ -1,5 +1,9 @@
 { pkgs, ... }:
 
+let
+  tairiki = pkgs.callPackage ./pkgs/tairiki.nix { };
+in
+
 {
   programs.nixvim = {
     enable = true;
@@ -136,6 +140,19 @@
     # KEYMAPS (ALL COMBINED)
     keymaps = [
       # Normal Mode
+      {
+        mode = "n";
+        key = "<leader>cf";
+        action.__raw = ''
+          function()
+            require("conform").format({
+              async = true,
+              lsp_format = "fallback",
+            })
+          end
+        '';
+        options.desc = "Format buffer";
+      }
       {
         mode = "n";
         key = "<leader>nh";
@@ -278,97 +295,87 @@
     ];
 
     # CUSTOM PLUGINS & THEME
+    extraPlugins = with pkgs.vimPlugins; [
+      tairiki
+    ];
 
     extraConfigLua = ''
+      vim.cmd.colorscheme("tairiki")
       local transparent_groups = {
-        "Normal",
-        "NormalNC",
-        "NormalFloat",
-        "SignColumn",
-        "EndOfBuffer",
-        "FoldColumn",
-        "CursorLineNr",
-        "NvimTreeNormal",
-        "NvimTreeNormalNC",
-        "TelescopeNormal",
-        "TelescopeBorder",
-      }
+          "Normal",
+          "NormalNC",
+          "NormalFloat",
+          "SignColumn",
+          "EndOfBuffer",
+          "FoldColumn",
+          "CursorLineNr",
+          "NvimTreeNormal",
+          "NvimTreeNormalNC",
+          "TelescopeNormal",
+          "TelescopeBorder",
+        }
 
-      for _, group in ipairs(transparent_groups) do
-        vim.api.nvim_set_hl(0, group, { bg = "none" })
-      end
+        for _, group in ipairs(transparent_groups) do
+          vim.api.nvim_set_hl(0, group, { bg = "none" })
+        end
 
-      -- DIAGNOSTICS
+        -- DIAGNOSTICS
 
-      vim.o.updatetime = 300
+        vim.o.updatetime = 300
 
-      vim.diagnostic.config({
-        virtual_text = false,
-        underline = true,
-        update_in_insert = false,
-        severity_sort = true,
+        vim.diagnostic.config({
+          virtual_text = false,
+          underline = true,
+          update_in_insert = false,
+          severity_sort = true,
 
-        signs = {
-          text = {
-            [vim.diagnostic.severity.ERROR] = "󰅚 ",
-            [vim.diagnostic.severity.WARN]  = "󰀪 ",
-            [vim.diagnostic.severity.INFO]  = "󰋽 ",
-            [vim.diagnostic.severity.HINT]  = "󰌶 ",
+          signs = {
+            text = {
+              [vim.diagnostic.severity.ERROR] = "󰅚 ",
+              [vim.diagnostic.severity.WARN]  = "󰀪 ",
+              [vim.diagnostic.severity.INFO]  = "󰋽 ",
+              [vim.diagnostic.severity.HINT]  = "󰌶 ",
+            },
           },
-        },
 
-        float = {
-          border = "rounded",
-          source = "if_many",
-        },
-      })
-
-      vim.api.nvim_create_autocmd("CursorHold", {
-        callback = function()
-          vim.diagnostic.open_float(nil, {
-            focusable = false,
+          float = {
             border = "rounded",
             source = "if_many",
-            scope = "cursor",
-          })
-        end,
-      })
-      -----
+          },
+        })
 
-      --- Doc Border
-        vim.lsp.handlers["textDocument/hover"] =
-          vim.lsp.with(
-            vim.lsp.handlers.hover,
-            {
+        vim.api.nvim_create_autocmd("CursorHold", {
+          callback = function()
+            vim.diagnostic.open_float(nil, {
+              focusable = false,
               border = "rounded",
-            }
-          )
+              source = "if_many",
+              scope = "cursor",
+            })
+          end,
+        })
+        -----
 
-        vim.lsp.handlers["textDocument/signatureHelp"] =
-          vim.lsp.with(
-            vim.lsp.handlers.signature_help,
-            {
-              border = "rounded",
-            }
-          )
+        --- Doc Border
+          vim.lsp.handlers["textDocument/hover"] =
+            vim.lsp.with(
+              vim.lsp.handlers.hover,
+              {
+                border = "rounded",
+              }
+            )
 
-      ---
+          vim.lsp.handlers["textDocument/signatureHelp"] =
+            vim.lsp.with(
+              vim.lsp.handlers.signature_help,
+              {
+                border = "rounded",
+              }
+            )
+
+        ---
 
     '';
-
-    # COLORSCHEME
-    colorschemes = {
-      everforest = {
-        enable = true;
-
-        settings = {
-          background = "hard";
-          transparent_background = 1;
-          disable_italic_comment = 0;
-          better_performance = true;
-        };
-      };
-    };
 
     # PLUGINS
     plugins = {
@@ -378,7 +385,7 @@
 
         settings = {
           options = {
-            theme = "everforest";
+            theme = "tomorrow_night";
             globalstatus = true;
             component_separators = "";
             section_separators = "";
@@ -617,10 +624,10 @@
         enable = true;
 
         settings = {
-          format_on_save = {
-            timeout_ms = 500;
-            lsp_fallback = true;
-          };
+          # format_on_save = {
+          #   timeout_ms = 500;
+          #   lsp_fallback = true;
+          # };
 
           formatters_by_ft = {
             lua = [ "stylua" ];

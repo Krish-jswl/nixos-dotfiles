@@ -31,10 +31,9 @@
     hypridle
     wlr-randr
     qbittorrent
-    kitty
     glow
     keepassxc
-    tomato-c
     sioyek
+    foot
   ];
 }

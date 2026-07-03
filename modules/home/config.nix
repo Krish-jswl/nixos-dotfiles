@@ -10,7 +10,7 @@ let
     waybar = "waybar";
     mako = "mako";
     mango = "mango";
-    kitty = "kitty";
+    foot = "foot";
     sioyek = "sioyek";
   };
 in

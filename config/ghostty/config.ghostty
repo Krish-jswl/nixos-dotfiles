@@ -1,46 +1,36 @@
-# ~/.config/ghostty/config
-
-# Font
-font-family = Iosevka Nerd Font
+font-family = JetBrainsMono Nerd Font
 font-size = 14
 
-# Window
 window-padding-x = 10
 window-padding-y = 10
 background-opacity = 0.85
 
-# Cursor
 cursor-style = block
 shell-integration = detect
-cursor-color = #81a2be
-custom-shader = shaders/cursor_tail.glsl
-custom-shader-animation = always
+cursor-color = #d3c6aa
+# custom-shader = shaders/cursor_tail.glsl
+# custom-shader-animation = always
 
-# Tomorrow Night Theme
+background = #1e2326
+foreground = #d3c6aa
 
-background = #1d1f21
-foreground = #c5c8c6
+selection-background = #414b50
+selection-foreground = #d3c6aa
 
-cursor-color = #aeafad
-selection-background = #373b41
-selection-foreground = #c5c8c6
+palette = 0=#272e33
+palette = 1=#e67e80
+palette = 2=#a7c080
+palette = 3=#dbbc7f
+palette = 4=#7fbbb3
+palette = 5=#d699b6
+palette = 6=#83c092
+palette = 7=#d3c6aa
 
-# Normal colors
-palette = 0=#1d1f21
-palette = 1=#cc6666
-palette = 2=#b5bd68
-palette = 3=#f0c674
-palette = 4=#81a2be
-palette = 5=#b294bb
-palette = 6=#8abeb7
-palette = 7=#c5c8c6
-
-# Bright colors
-palette = 8=#969896
-palette = 9=#cc6666
-palette = 10=#b5bd68
-palette = 11=#f0c674
-palette = 12=#81a2be
-palette = 13=#b294bb
-palette = 14=#8abeb7
-palette = 15=#ffffff
+palette = 8=#859289
+palette = 9=#e67e80
+palette = 10=#a7c080
+palette = 11=#dbbc7f
+palette = 12=#7fbbb3
+palette = 13=#d699b6
+palette = 14=#83c092
+palette = 15=#fffbef

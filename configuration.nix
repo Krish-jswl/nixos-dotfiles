@@ -15,6 +15,16 @@
     useOSProber = true;
   };
 
+  boot.initrd.luks.devices."cryptswap" = {
+    device = "/dev/disk/by-uuid/6d010916-e4e7-40c3-835a-d020abd8dec0";
+  };
+
+  swapDevices = [
+    {
+      device = "/dev/mapper/cryptswap";
+    }
+  ];
+
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -141,7 +151,10 @@
     jack.enable = true;
   };
 
-  security.rtkit.enable = true;
+  security = {
+    pam.services.hyprlock = { };
+    rtkit.enable = true;
+  };
 
   services.dbus.enable = true;
   services.udisks2.enable = true;

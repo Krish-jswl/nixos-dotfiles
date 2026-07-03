@@ -81,12 +81,11 @@
       PROMPT='$(nix_prompt)%F{cyan}%n@%m%f %F{blue}%~%f %# '
       # Paths
       export PATH="/usr/local/bin:$PATH"
-      export PATH="/home/krishj/go/bin:$PATH"
 
       # Env Var
       export EDITOR=nvim
       export VISUAL=nvim
-      export TERM=kitty
+      export TERM=foot
     '';
   };
 

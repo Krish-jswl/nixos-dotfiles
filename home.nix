@@ -12,8 +12,8 @@
   xdg.userDirs.setSessionVariables = true;
 
   home.sessionVariables = {
-    TERMINAL = "kitty";
-    EDITOR = "emacs";
+    TERMINAL = "foot";
+    EDITOR = "nvim";
   };
 
 }

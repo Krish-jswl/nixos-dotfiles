@@ -11,7 +11,6 @@ in
     ];
 
     colorschemes = {
-      # Leave empty/disabled if Tairiki isn't a built-in colorscheme.
     };
 
     extraConfigLua = ''

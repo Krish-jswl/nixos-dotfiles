@@ -35,5 +35,6 @@
     keepassxc
     sioyek
     foot
+    discord
   ];
 }

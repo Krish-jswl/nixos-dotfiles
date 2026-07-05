@@ -7,6 +7,7 @@
 
   imports = [
     ./modules/home/default.nix
+    ./modules/nixvim/default.nix
   ];
 
   xdg.userDirs.setSessionVariables = true;

@@ -1,28 +1,45 @@
 { ... }:
 
 {
-  programs.nixvim.opts = {
-    number = true;
-    relativenumber = true;
+  programs.nixvim = {
 
-    tabstop = 4;
-    shiftwidth = 4;
-    expandtab = true;
-    smartindent = true;
+    globals = {
+      mapleader = " ";
+      netrw_banner = 0;
+    };
 
-    wrap = false;
+    opts = {
+      number = true;
+      relativenumber = true;
 
-    mouse = "a";
+      tabstop = 4;
+      shiftwidth = 4;
+      expandtab = true;
+      smartindent = true;
 
-    ignorecase = true;
-    smartcase = true;
+      wrap = false;
 
-    termguicolors = true;
-    signcolumn = "yes";
-    cursorline = true;
-    scrolloff = 8;
+      mouse = "a";
 
-    undofile = true;
-    swapfile = false;
+      ignorecase = true;
+      smartcase = true;
+
+      termguicolors = true;
+      signcolumn = "yes";
+      cursorline = true;
+      scrolloff = 8;
+
+      undofile = true;
+      swapfile = false;
+
+      winblend = 10;
+      pumblend = 10;
+    };
+
+    clipboard = {
+      register = "unnamedplus";
+      providers.wl-copy.enable = true;
+    };
+
   };
 }

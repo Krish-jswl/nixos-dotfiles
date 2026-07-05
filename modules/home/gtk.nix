@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  tomorrow-night-gtk = pkgs.callPackage ./pkgs/tomorrow-night-gtk.nix { };
+  tomorrow-night-gtk = pkgs.callPackage ../pkgs/tomorrow-night-gtk.nix { };
 in
 
 {

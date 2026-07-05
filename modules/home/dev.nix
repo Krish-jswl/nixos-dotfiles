@@ -15,18 +15,16 @@
     python3
     rustup
 
-    # lsp
-    clang-tools
-    gopls
-
     # formater
+    clang-tools
     nixfmt
     prettier
     black
     shfmt
     stylua
 
-    # extra tools
+
+    # utilities
     unzip
     gnutar
     gzip

@@ -163,18 +163,18 @@
     }
 
     # Toggle Term
-      {
-        mode = "n";
-        key = "<leader>th";
-        action = "<cmd>ToggleTerm direction=horizontal<CR>";
-        options.desc = "horizontal split terminal";
-      }
-      {
-        mode = "t";
-        key = "<Esc>";
-        action = "<C-\\><C-n>";
-        options.desc = "Exit terminal mode";
-      }
+    {
+      mode = "n";
+      key = "<leader>th";
+      action = "<cmd>ToggleTerm direction=horizontal<CR>";
+      options.desc = "horizontal split terminal";
+    }
+    {
+      mode = "t";
+      key = "<Esc>";
+      action = "<C-\\><C-n>";
+      options.desc = "Exit terminal mode";
+    }
 
     # Indent blank Line Toggle
     {
@@ -182,6 +182,41 @@
       key = "<leader>ti";
       action = "<cmd>IBLToggle<CR>";
       options.desc = "Toggle indent guides";
+    }
+
+    # LuaSnipp
+    {
+      mode = [
+        "i"
+        "s"
+      ];
+      key = "<C-l>";
+
+      action.__raw = ''
+        function()
+          local ls = require("luasnip")
+          if ls.expand_or_jumpable() then
+            ls.expand_or_jump()
+          end
+        end
+      '';
+    }
+
+    {
+      mode = [
+        "i"
+        "s"
+      ];
+      key = "<C-h>";
+
+      action.__raw = ''
+        function()
+          local ls = require("luasnip")
+          if ls.jumpable(-1) then
+            ls.jump(-1)
+          end
+        end
+      '';
     }
 
   ];

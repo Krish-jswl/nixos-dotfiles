@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   imports = [
@@ -86,25 +86,40 @@
   time.timeZone = "Asia/Kolkata";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
+  programs.niri.enable = true;
+  environment.sessionVariables = {
+    # NIXOS_OZONE_WL = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
+  };
 
-  programs.mango.enable = true;
-
-  xdg.portal = {
+  services.greetd = {
     enable = true;
 
-    wlr.enable = true;
-    config = {
-      common = {
-        default = [ "wlr" ];
+    settings = {
+      default_session = {
+        command = ''
+          ${pkgs.tuigreet}/bin/tuigreet \
+            --time \
+            --remember \
+            --cmd "${config.programs.niri.package}/bin/niri-session"
+        '';
       };
     };
   };
 
+  xdg.portal = {
+  enable = true;
+
+  extraPortals = with pkgs; [
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-gnome
+  ];
+
+  config.common.default = [ "gnome" ];
+};
+
   programs.dconf.enable = true;
   programs.zsh.enable = true;
-  programs.firefox.enable = false;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [

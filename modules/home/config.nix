@@ -9,8 +9,8 @@ let
     fuzzel = "fuzzel";
     waybar = "waybar";
     mako = "mako";
-    mango = "mango";
-    foot = "foot";
+    niri = "niri";
+    kitty = "kitty";
     sioyek = "sioyek";
   };
 in

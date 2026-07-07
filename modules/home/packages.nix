@@ -8,7 +8,6 @@
     brightnessctl
     wl-clipboard
     waybar
-    fuzzel
     brave
     librewolf
     grim
@@ -20,13 +19,9 @@
     syncthing
     mako
     libnotify
-    thunar
-    thunar-archive-plugin
-    thunar-volman
-    thunar-media-tags-plugin
     ffmpegthumbnailer
-    tumbler
-    swaybg
+    nautilus
+    file-roller
     hyprlock
     hypridle
     wlr-randr
@@ -34,7 +29,11 @@
     glow
     keepassxc
     sioyek
-    foot
     discord
+    kitty
+    fuzzel
+    swaybg
+    xwayland-satellite
+    awww
   ];
 }

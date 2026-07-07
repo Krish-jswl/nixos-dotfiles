@@ -1,5 +1,5 @@
 {
-  "modules-left": ["ext/workspaces", "dwl/window#title"],
+  "modules-left": ["niri/workspaces", "niri/window"],
 
   "modules-center": [],
 

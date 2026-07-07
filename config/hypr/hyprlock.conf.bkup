@@ -1,0 +1,117 @@
+background {
+    monitor =
+    path = /home/krishj/Pictures/Wallpapers/sakura.png
+    blur_passes = 1
+    contrast = 0.90
+    brightness = 0.65
+    vibrancy = 0.10
+    vibrancy_darkness = 0.0
+}
+
+shape {
+    monitor =
+    size = 310, 360
+
+    # Tomorrow Night surface
+    color = rgba(29,31,33,0.55)
+
+    rounding = 15
+    border_size = 1
+    border_color = rgba(102,102,102,0.45)
+
+    position = 0, 0
+    halign = center
+    valign = center
+}
+
+image {
+    monitor =
+    path = /home/krishj/Pictures/pfp/pfp.jpeg
+
+    border_color = rgb(129,162,190) # Blue
+    border_size = 2
+
+    size = 100
+    rounding = -1
+    rotate = 0
+    reload_time = -1
+
+    position = 0, 95
+    halign = center
+    valign = center
+}
+
+label {
+    monitor =
+    text = Krish
+
+    color = rgba(197,200,198,0.95)
+    font_size = 22
+    font_family = JetBrainsMono Nerd Font Bold
+
+    position = 0, 15
+    halign = center
+    valign = center
+}
+
+input-field {
+    monitor =
+    size = 250, 50
+    outline_thickness = 1
+
+    dots_size = 0.25
+    dots_spacing = 0.3
+    dots_center = true
+
+    outer_color = rgba(102,102,102,0.50)
+    inner_color = rgba(40,42,46,0.80)
+    font_color = rgb(197,200,198)
+
+    fade_on_empty = false
+    font_family = JetBrainsMono Nerd Font
+    placeholder_text = Enter Password
+    hide_input = false
+
+    position = 0, -65
+    halign = center
+    valign = center
+}
+
+label {
+    monitor =
+    text = cmd[update:1000] date +"%I:%M %p"
+
+    color = rgba(129,162,190,0.95)
+    font_size = 40
+    font_family = JetBrainsMono Nerd Font Bold
+
+    position = 50, -40
+    halign = left
+    valign = top
+}
+
+label {
+    monitor =
+    text = cmd[update:1000] date +"%A, %d %B"
+
+    color = rgba(181,189,104,0.90)
+    font_size = 16
+    font_family = JetBrainsMono Nerd Font
+
+    position = 50, -120
+    halign = left
+    valign = top
+}
+
+label {
+    monitor =
+    text = cmd[update:30000] sh -c 'echo "󰁹 $(cat /sys/class/power_supply/BAT0/capacity)%"'
+
+    color = rgba(230,197,71,0.90)
+    font_size = 25
+    font_family = JetBrainsMono Nerd Font
+
+    position = -50, -50
+    halign = right
+    valign = top
+}

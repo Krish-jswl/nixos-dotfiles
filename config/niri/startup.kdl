@@ -1,0 +1,7 @@
+// Startup
+spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+spawn-at-startup "waybar"
+spawn-at-startup "mako"
+spawn-at-startup "awww-daemon"
+spawn-at-startup "hypridle"
+spawn-at-startup "syncthing"

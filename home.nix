@@ -13,8 +13,16 @@
   xdg.userDirs.setSessionVariables = true;
 
   home.sessionVariables = {
-    TERMINAL = "foot";
+    TERMINAL = "kitty";
     EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 
+  xdg.mimeApps = {
+    enable = true;
+
+    defaultApplications = {
+      "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+    };
+  };
 }

@@ -4,12 +4,6 @@
   programs.zsh = {
     enable = true;
 
-    loginExtra = ''
-      if [[ -z "$WAYLAND_DISPLAY" && "$XDG_VTNR" == "1" ]]; then
-        exec dbus-run-session mango
-      fi
-    '';
-
     shellAliases = {
       hmodules = "nvim ~/nixos-dotfiles/modules/home/";
       packages = "nvim ~/nixos-dotfiles/modules/home/packages.nix";

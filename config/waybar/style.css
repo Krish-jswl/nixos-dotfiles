@@ -1,3 +1,5 @@
+/* Everforest Dark Hard */
+
 * {
   border: none;
   border-radius: 0;
@@ -12,8 +14,8 @@
    ========================== */
 
 window#waybar {
-  background: #1d1f21;
-  color: #c5c8c6;
+  background: #1e2326;
+  color: #d3c6aa;
 }
 
 /* ==========================
@@ -25,8 +27,8 @@ window#waybar {
 }
 
 #workspaces button {
-  background: #373b41;
-  color: #c5c8c6;
+  background: #272e33;
+  color: #d3c6aa;
 
   min-width: 20px;
   min-height: 20px;
@@ -36,35 +38,35 @@ window#waybar {
 
   border-radius: 4px;
 
-  border-top: 1px solid #666666;
-  border-bottom: 3px solid #1d1f21;
+  border-top: 1px solid #4f585e;
+  border-bottom: 3px solid #1e2326;
 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 4px rgba(0,0,0,.25);
 }
 
 #workspaces button:hover {
-  background: #666666;
+  background: #374145;
 }
 
 #workspaces button.active {
-  background: #81a2be;
-  color: #1d1f21;
+  background: #a7c080;
+  color: #1e2326;
 
-  border-top: 1px solid #9cb9d1;
-  border-bottom: 3px solid #5d7f99;
+  border-top: 1px solid #c5d7a5;
+  border-bottom: 3px solid #6f8f55;
 }
 
 #workspaces button.hidden {
-  background: #373b41;
-  color: #666666;
+  background: #272e33;
+  color: #5c6a72;
 }
 
 #workspaces button.urgent {
-  background: #cc6666;
+  background: #e67e80;
   color: #ffffff;
 
-  border-top: 1px solid #ff3334;
-  border-bottom: 3px solid #9f4f4f;
+  border-top: 1px solid #f29ea0;
+  border-bottom: 3px solid #b8565b;
 }
 
 /* ==========================
@@ -85,7 +87,7 @@ window#waybar {
 
   border-radius: 4px;
 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 4px rgba(0,0,0,.25);
 }
 
 /* ==========================
@@ -93,11 +95,11 @@ window#waybar {
    ========================== */
 
 #window {
-  background: #373b41;
-  color: #c5c8c6;
+  background: #272e33;
+  color: #d3c6aa;
 
-  border-top: 1px solid #666666;
-  border-bottom: 3px solid #1d1f21;
+  border-top: 1px solid #4f585e;
+  border-bottom: 3px solid #1e2326;
 }
 
 /* ==========================
@@ -105,11 +107,11 @@ window#waybar {
    ========================== */
 
 #clock {
-  background: #81a2be;
-  color: #1d1f21;
+  background: #7fbbb3;
+  color: #1e2326;
 
-  border-top: 1px solid #9cb9d1;
-  border-bottom: 3px solid #5d7f99;
+  border-top: 1px solid #9ed1cb;
+  border-bottom: 3px solid #5b8f89;
 }
 
 /* ==========================
@@ -117,27 +119,27 @@ window#waybar {
    ========================== */
 
 #battery {
-  background: #b5bd68;
-  color: #1d1f21;
+  background: #a7c080;
+  color: #1e2326;
 
-  border-top: 1px solid #cdd67e;
-  border-bottom: 3px solid #8d9440;
+  border-top: 1px solid #bfd7a0;
+  border-bottom: 3px solid #708c55;
 }
 
 #battery.warning {
-  background: #e6c547;
-  color: #1d1f21;
+  background: #dbbc7f;
+  color: #1e2326;
 
-  border-top: 1px solid #f0c674;
-  border-bottom: 3px solid #b8992d;
+  border-top: 1px solid #e8cf9e;
+  border-bottom: 3px solid #b08c52;
 }
 
 #battery.critical {
-  background: #cc6666;
+  background: #e67e80;
   color: #ffffff;
 
-  border-top: 1px solid #ff3334;
-  border-bottom: 3px solid #9f4f4f;
+  border-top: 1px solid #f29ea0;
+  border-bottom: 3px solid #b8565b;
 }
 
 /* ==========================
@@ -145,11 +147,11 @@ window#waybar {
    ========================== */
 
 #network {
-  background: #70c0ba;
-  color: #1d1f21;
+  background: #83c092;
+  color: #1e2326;
 
-  border-top: 1px solid #8cd2cd;
-  border-bottom: 3px solid #4a9892;
+  border-top: 1px solid #a3d3ae;
+  border-bottom: 3px solid #5f9770;
 }
 
 /* ==========================
@@ -157,39 +159,32 @@ window#waybar {
    ========================== */
 
 #backlight {
-  background: #e6c547;
-  color: #1d1f21;
+  background: #dbbc7f;
+  color: #1e2326;
 
-  border-top: 1px solid #f0c674;
-  border-bottom: 3px solid #b8992d;
+  border-top: 1px solid #e8cf9e;
+  border-bottom: 3px solid #b08c52;
 }
 
 /* ==========================
    AUDIO
    ========================== */
 
-#wireplumber {
-  background: #b294bb;
-  color: #1d1f21;
+#wireplumber,
+#wireplumber-mic {
+  background: #d699b6;
+  color: #1e2326;
 
-  border-top: 1px solid #c5abd0;
-  border-bottom: 3px solid #85678e;
+  border-top: 1px solid #e5b7ce;
+  border-bottom: 3px solid #a86d8b;
 }
 
 #wireplumber.muted {
-  background: #cc6666;
+  background: #e67e80;
   color: #ffffff;
 
-  border-top: 1px solid #ff3334;
-  border-bottom: 3px solid #9f4f4f;
-}
-
-#wireplumber-mic {
-  background: #b294bb;
-  color: #1d1f21;
-
-  border-top: 1px solid #c5abd0;
-  border-bottom: 3px solid #85678e;
+  border-top: 1px solid #f29ea0;
+  border-bottom: 3px solid #b8565b;
 }
 
 /* ==========================
@@ -197,11 +192,11 @@ window#waybar {
    ========================== */
 
 #tray {
-  background: #373b41;
-  color: #c5c8c6;
+  background: #272e33;
+  color: #d3c6aa;
 
-  border-top: 1px solid #666666;
-  border-bottom: 3px solid #1d1f21;
+  border-top: 1px solid #4f585e;
+  border-bottom: 3px solid #1e2326;
 }
 
 /* ==========================
@@ -209,11 +204,11 @@ window#waybar {
    ========================== */
 
 tooltip {
-  background: #282a2e;
-  border: 1px solid #666666;
+  background: #272e33;
+  border: 1px solid #4f585e;
   border-radius: 6px;
 }
 
 tooltip label {
-  color: #c5c8c6;
+  color: #d3c6aa;
 }

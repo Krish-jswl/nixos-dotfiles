@@ -9,7 +9,6 @@
     man-pages
     man-pages-posix
     powertop
-    tlp
     pciutils
   ];
 }

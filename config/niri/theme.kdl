@@ -1,14 +1,10 @@
-// Cursor
 cursor {
     xcursor-theme "Bibata-Modern-Ice"
     xcursor-size 24
 }
 
-// Decorations
 prefer-no-csd
 
-// Overview
 overview {
-      backdrop-color "#1E2326"
+    backdrop-color "#282828"
 }
-

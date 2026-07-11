@@ -1,5 +1,3 @@
-/* Everforest Dark Hard */
-
 * {
   border: none;
   border-radius: 0;
@@ -9,69 +7,50 @@
   min-height: 0;
 }
 
-/* ==========================
-   BAR
-   ========================== */
-
 window#waybar {
-  background: #1e2326;
-  color: #d3c6aa;
+  background: #292828;
+  color: #d4be98;
 }
-
-/* ==========================
-   WORKSPACES
-   ========================== */
 
 #workspaces {
   margin: 2px;
 }
 
 #workspaces button {
-  background: #272e33;
-  color: #d3c6aa;
-
+  background: #32302f;
+  color: #d4be98;
   min-width: 20px;
   min-height: 20px;
-
   padding: 0;
   margin: 2px;
-
   border-radius: 4px;
-
-  border-top: 1px solid #4f585e;
-  border-bottom: 3px solid #1e2326;
-
-  box-shadow: 0 2px 4px rgba(0,0,0,.25);
+  border-top: 1px solid #504945;
+  border-bottom: 3px solid #1f1e1d;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 #workspaces button:hover {
-  background: #374145;
+  background: #3c3836;
 }
 
 #workspaces button.active {
-  background: #a7c080;
-  color: #1e2326;
-
-  border-top: 1px solid #c5d7a5;
-  border-bottom: 3px solid #6f8f55;
+  background: #a9b665;
+  color: #292828;
+  border-top: 1px solid #c5d18a;
+  border-bottom: 3px solid #7c8843;
 }
 
 #workspaces button.hidden {
-  background: #272e33;
-  color: #5c6a72;
+  background: #32302f;
+  color: #7c6f64;
 }
 
 #workspaces button.urgent {
-  background: #e67e80;
+  background: #ea6962;
   color: #ffffff;
-
-  border-top: 1px solid #f29ea0;
-  border-bottom: 3px solid #b8565b;
+  border-top: 1px solid #f0928d;
+  border-bottom: 3px solid #ba3c35;
 }
-
-/* ==========================
-   COMMON MODULES
-   ========================== */
 
 #clock,
 #battery,
@@ -84,131 +63,141 @@ window#waybar {
   min-height: 15px;
   padding: 0 10px;
   margin: 4px 2px;
-
   border-radius: 4px;
-
-  box-shadow: 0 2px 4px rgba(0,0,0,.25);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
-
-/* ==========================
-   WINDOW
-   ========================== */
 
 #window {
-  background: #272e33;
-  color: #d3c6aa;
-
-  border-top: 1px solid #4f585e;
-  border-bottom: 3px solid #1e2326;
+  background: #32302f;
+  color: #d4be98;
+  border-top: 1px solid #504945;
+  border-bottom: 3px solid #1f1e1d;
 }
-
-/* ==========================
-   CLOCK
-   ========================== */
 
 #clock {
-  background: #7fbbb3;
-  color: #1e2326;
-
-  border-top: 1px solid #9ed1cb;
-  border-bottom: 3px solid #5b8f89;
+  background: #89b482;
+  color: #292828;
+  border-top: 1px solid #abd2a5;
+  border-bottom: 3px solid #5d7f5f;
 }
 
-/* ==========================
-   BATTERY
-   ========================== */
-
 #battery {
-  background: #a7c080;
-  color: #1e2326;
-
-  border-top: 1px solid #bfd7a0;
-  border-bottom: 3px solid #708c55;
+  background: #a9b665;
+  color: #292828;
+  border-top: 1px solid #c5d18a;
+  border-bottom: 3px solid #7c8843;
 }
 
 #battery.warning {
-  background: #dbbc7f;
-  color: #1e2326;
-
-  border-top: 1px solid #e8cf9e;
-  border-bottom: 3px solid #b08c52;
+  background: #d8a657;
+  color: #292828;
+  border-top: 1px solid #e7c288;
+  border-bottom: 3px solid #a8782f;
 }
 
 #battery.critical {
-  background: #e67e80;
+  background: #ea6962;
   color: #ffffff;
-
-  border-top: 1px solid #f29ea0;
-  border-bottom: 3px solid #b8565b;
+  border-top: 1px solid #f0928d;
+  border-bottom: 3px solid #ba3c35;
 }
-
-/* ==========================
-   NETWORK
-   ========================== */
 
 #network {
-  background: #83c092;
-  color: #1e2326;
-
-  border-top: 1px solid #a3d3ae;
-  border-bottom: 3px solid #5f9770;
+  background: #7daea3;
+  color: #292828;
+  border-top: 1px solid #9fc9bf;
+  border-bottom: 3px solid #558379;
 }
-
-/* ==========================
-   BACKLIGHT
-   ========================== */
 
 #backlight {
-  background: #dbbc7f;
-  color: #1e2326;
-
-  border-top: 1px solid #e8cf9e;
-  border-bottom: 3px solid #b08c52;
+  background: #d8a657;
+  color: #292828;
+  border-top: 1px solid #e7c288;
+  border-bottom: 3px solid #a8782f;
 }
-
-/* ==========================
-   AUDIO
-   ========================== */
 
 #wireplumber,
 #wireplumber-mic {
-  background: #d699b6;
-  color: #1e2326;
-
-  border-top: 1px solid #e5b7ce;
-  border-bottom: 3px solid #a86d8b;
+  background: #d3869b;
+  color: #292828;
+  border-top: 1px solid #e5aebd;
+  border-bottom: 3px solid #a45a6d;
 }
 
 #wireplumber.muted {
-  background: #e67e80;
+  background: #ea6962;
   color: #ffffff;
-
-  border-top: 1px solid #f29ea0;
-  border-bottom: 3px solid #b8565b;
+  border-top: 1px solid #f0928d;
+  border-bottom: 3px solid #ba3c35;
 }
-
-/* ==========================
-   TRAY
-   ========================== */
 
 #tray {
-  background: #272e33;
-  color: #d3c6aa;
-
-  border-top: 1px solid #4f585e;
-  border-bottom: 3px solid #1e2326;
+  background: #32302f;
+  color: #d4be98;
+  border-top: 1px solid #504945;
+  border-bottom: 3px solid #1f1e1d;
 }
 
-/* ==========================
-   TOOLTIP
-   ========================== */
+#custom-tomat {
+  min-height: 15px;
+  padding: 0 10px;
+  margin: 4px 2px;
+  background: #32302f;
+  color: #d4be98;
+  border-top: 1px solid #504945;
+  border-bottom: 3px solid #1f1e1d;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+#custom-tomat.work {
+  background: #ea6962;
+  color: #ffffff;
+  border-top: 1px solid #f0928d;
+  border-bottom: 3px solid #ba3c35;
+}
+
+#custom-tomat.work-paused {
+  background: #d3869b;
+  color: #292828;
+  border-top: 1px solid #e5aebd;
+  border-bottom: 3px solid #a45a6d;
+}
+
+#custom-tomat.break {
+  background: #7daea3;
+  color: #292828;
+  border-top: 1px solid #9fc9bf;
+  border-bottom: 3px solid #558379;
+}
+
+#custom-tomat.break-paused {
+  background: #89b482;
+  color: #292828;
+  border-top: 1px solid #abd2a5;
+  border-bottom: 3px solid #5d7f5f;
+}
+
+#custom-tomat.long-break {
+  background: #a9b665;
+  color: #292828;
+  border-top: 1px solid #c5d18a;
+  border-bottom: 3px solid #7c8843;
+}
+
+#custom-tomat.long-break-paused {
+  background: #d8a657;
+  color: #292828;
+  border-top: 1px solid #e7c288;
+  border-bottom: 3px solid #a8782f;
+}
 
 tooltip {
-  background: #272e33;
-  border: 1px solid #4f585e;
+  background: #32302f;
+  border: 1px solid #504945;
   border-radius: 6px;
 }
 
 tooltip label {
-  color: #d3c6aa;
+  color: #d4be98;
 }

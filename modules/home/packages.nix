@@ -35,5 +35,10 @@
     swaybg
     xwayland-satellite
     awww
+    btop
+    ghostty
+    tomat
+    abiword
+    wireguard-tools
   ];
 }

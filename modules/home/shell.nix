@@ -79,7 +79,7 @@
       # Env Var
       export EDITOR=nvim
       export VISUAL=nvim
-      export TERM=foot
+      export TERM=xterm-kitty
     '';
   };
 

@@ -32,7 +32,7 @@
       undofile = true;
       swapfile = false;
 
-      winblend = 10;
+      winblend = 0;
       pumblend = 10;
     };
 

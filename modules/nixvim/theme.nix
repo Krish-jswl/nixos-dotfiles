@@ -2,34 +2,18 @@
   programs.nixvim = {
     enable = true;
 
-    colorschemes.everforest = {
+    colorschemes.gruvbox-material = {
       enable = true;
 
       settings = {
         background = "hard";
-        transparent_background = 2;
+        transparent_background = 1;
         disable_italic_comment = 1;
         ui_contrast = "high";
       };
     };
 
     extraConfigLua = ''
-      local transparent_groups = {
-        "Normal",
-        "NormalNC",
-        "NormalFloat",
-        "SignColumn",
-        "EndOfBuffer",
-        "FoldColumn",
-        "CursorLineNr",
-        "TelescopeNormal",
-        "TelescopeBorder",
-      }
-
-      for _, group in ipairs(transparent_groups) do
-        vim.api.nvim_set_hl(0, group, { bg = "none" })
-      end
-
       vim.o.updatetime = 300
       vim.o.winborder = "rounded"
 

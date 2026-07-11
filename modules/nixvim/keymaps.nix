@@ -184,40 +184,5 @@
       options.desc = "Toggle indent guides";
     }
 
-    # LuaSnipp
-    {
-      mode = [
-        "i"
-        "s"
-      ];
-      key = "<C-l>";
-
-      action.__raw = ''
-        function()
-          local ls = require("luasnip")
-          if ls.expand_or_jumpable() then
-            ls.expand_or_jump()
-          end
-        end
-      '';
-    }
-
-    {
-      mode = [
-        "i"
-        "s"
-      ];
-      key = "<C-h>";
-
-      action.__raw = ''
-        function()
-          local ls = require("luasnip")
-          if ls.jumpable(-1) then
-            ls.jump(-1)
-          end
-        end
-      '';
-    }
-
   ];
 }

@@ -5,6 +5,7 @@
 
   "modules-right": [
     "tray",
+    "custom/tomat",
     "network",
     "backlight",
     "wireplumber",
@@ -84,5 +85,14 @@
   "custom/sep": {
     "format": "|",
     "interval": 0,
+  },
+  "custom/tomat": {
+    "exec": "tomat status",
+    "interval": 1,
+    "return-type": "json",
+    "format": "{text}",
+    "tooltip": true,
+    "on-click": "tomat toggle",
+    "on-click-right": "tomat skip",
   },
 }

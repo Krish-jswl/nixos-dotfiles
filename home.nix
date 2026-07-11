@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   home.username = "krishj";
@@ -22,7 +22,19 @@
     enable = true;
 
     defaultApplications = {
+      # File manager
       "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+
+      # Browser
+      "text/html" = [ "librewolf.desktop" ];
+      "application/xhtml+xml" = [ "librewolf.desktop" ];
+      "x-scheme-handler/http" = [ "librewolf.desktop" ];
+      "x-scheme-handler/https" = [ "librewolf.desktop" ];
+      "x-scheme-handler/about" = [ "librewolf.desktop" ];
+      "x-scheme-handler/unknown" = [ "librewolf.desktop" ];
+
+      # PDF
+      "application/pdf" = [ "sioyek.desktop" ];
     };
   };
 }

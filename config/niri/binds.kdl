@@ -31,7 +31,7 @@ binds {
     XF86MonBrightnessUp   { spawn "brightnessctl" "set" "+2%"; }
 
     Mod+Q { close-window; }
-    Mod+S { toggle-window-floating; }
+    Mod+Shift+Space { toggle-window-floating; }
 
     Mod+Left  { focus-column-left; }
     Mod+Right { focus-column-right; }

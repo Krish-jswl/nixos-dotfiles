@@ -2,3 +2,20 @@ window-rule {
     geometry-corner-radius 5
     clip-to-geometry true
 }
+
+window-rule {
+    draw-border-with-background false
+    match app-id="kitty"
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    draw-border-with-background false
+    match app-id="sioyek"
+    opacity 0.85
+    background-effect {
+        blur true
+    }
+}

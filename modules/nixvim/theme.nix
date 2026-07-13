@@ -2,14 +2,23 @@
   programs.nixvim = {
     enable = true;
 
-    colorschemes.gruvbox-material = {
+    colorschemes.rose-pine = {
       enable = true;
 
       settings = {
-        background = "hard";
-        transparent_background = 1;
-        disable_italic_comment = 1;
-        ui_contrast = "high";
+        variant = "moon";          # main, moon, or dawn
+        dark_variant = "moon";
+
+        styles = {
+          transparency = true;
+          italic = false;
+        };
+
+        highlight_groups = {
+          CursorLine = {
+            bg = "surface";
+          };
+        };
       };
     };
 
@@ -40,6 +49,13 @@
 
       vim.api.nvim_create_autocmd("CursorHold", {
         callback = function()
+          for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+            local cfg = vim.api.nvim_win_get_config(win)
+            if cfg.relative ~= "" then
+              return
+            end
+          end
+
           vim.diagnostic.open_float(nil, {
             focusable = false,
             border = "rounded",

@@ -21,7 +21,6 @@
     ./plugins/indent-blankline.nix
     ./plugins/mini-surround.nix
     ./plugins/treesitter.nix
-    ./plugins/render-markdown.nix
     
     ./plugins/extra.nix
   ];

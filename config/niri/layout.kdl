@@ -21,8 +21,8 @@ layout {
         on
         width 3
 
-        active-color "#A9B665"
-        inactive-color "#504945"
+        active-color "#c4a7e7"
+        inactive-color "#393552"
     }
 
     gaps 6

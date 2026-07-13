@@ -6,20 +6,21 @@
 
     gtk4 = {
       theme = {
-        name = "Gruvbox-Material-Dark";
-        package = pkgs.gruvbox-material-gtk-theme;
+        name = "rose-pine-moon";
+        package = pkgs.rose-pine-gtk-theme;
       };
     };
 
     theme = {
-      name = "Gruvbox-Material-Dark";
-      package = pkgs.gruvbox-material-gtk-theme;
+      name = "rose-pine-moon";
+      package = pkgs.rose-pine-gtk-theme;
     };
 
     iconTheme = {
-      name = "Gruvbox-Plus-Dark";
-      package = pkgs.gruvbox-plus-icons;
-
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme.override {
+        color = "violet";
+      };
     };
 
     font = {
@@ -35,7 +36,7 @@
   };
 
   home.pointerCursor = {
-    name = "Bibata-Modern-Amber";
+    name = "Bibata-Modern-Ice";
     package = pkgs.bibata-cursors;
     size = 24;
     gtk.enable = true;

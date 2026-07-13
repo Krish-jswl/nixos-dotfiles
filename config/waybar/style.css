@@ -1,203 +1,123 @@
 * {
-  border: none;
-  border-radius: 0;
-  font-family: "JetBrainsMono Nerd Font";
-  font-size: 14px;
-  font-weight: bold;
-  min-height: 0;
+    border: none;
+    min-height: 0;
+    min-width: 0;
+
+    font-family: "Lexend", "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    font-weight: 600;
 }
 
 window#waybar {
-  background: #292828;
-  color: #d4be98;
+    background: #191724;
+    color: #e0def4;
 }
 
-#workspaces {
-  margin: 2px;
-}
+/* ---------------- Workspaces ---------------- */
 
 #workspaces button {
-  background: #32302f;
-  color: #d4be98;
-  min-width: 20px;
-  min-height: 20px;
-  padding: 0;
-  margin: 2px;
-  border-radius: 4px;
-  border-top: 1px solid #504945;
-  border-bottom: 3px solid #1f1e1d;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    padding: 1px 7px;
+    margin: 3px 2px;
+
+    background: #1f1d2e;
+    color: #908caa;
+
+    border-radius: 5px;
+    transition: all 0.15s ease;
 }
 
 #workspaces button:hover {
-  background: #3c3836;
+    background: #403d52;
+    color: #e0def4;
 }
 
 #workspaces button.active {
-  background: #a9b665;
-  color: #292828;
-  border-top: 1px solid #c5d18a;
-  border-bottom: 3px solid #7c8843;
-}
-
-#workspaces button.hidden {
-  background: #32302f;
-  color: #7c6f64;
+    background: #26233a;
+    color: #c4a7e7;
 }
 
 #workspaces button.urgent {
-  background: #ea6962;
-  color: #ffffff;
-  border-top: 1px solid #f0928d;
-  border-bottom: 3px solid #ba3c35;
+    color: #eb6f92;
 }
 
+/* ---------------- Modules ---------------- */
+
+#window,
 #clock,
 #battery,
-#network,
-#backlight,
 #wireplumber,
-#wireplumber-mic,
+#wireplumber#mic,
+#backlight,
+#network,
 #tray,
-#window {
-  min-height: 15px;
-  padding: 0 10px;
-  margin: 4px 2px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+#custom-tomat {
+    padding: 2px 8px;
+    margin: 3px 2px;
+
+    background: #1f1d2e;
+    border-radius: 5px;
 }
 
+/* ---------------- Colors ---------------- */
+
 #window {
-  background: #32302f;
-  color: #d4be98;
-  border-top: 1px solid #504945;
-  border-bottom: 3px solid #1f1e1d;
+    color: #e0def4;
 }
 
 #clock {
-  background: #89b482;
-  color: #292828;
-  border-top: 1px solid #abd2a5;
-  border-bottom: 3px solid #5d7f5f;
+    color: #9ccfd8;
 }
 
 #battery {
-  background: #a9b665;
-  color: #292828;
-  border-top: 1px solid #c5d18a;
-  border-bottom: 3px solid #7c8843;
+    color: #f6c177;
 }
 
 #battery.warning {
-  background: #d8a657;
-  color: #292828;
-  border-top: 1px solid #e7c288;
-  border-bottom: 3px solid #a8782f;
+    color: #ebbcba;
 }
 
 #battery.critical {
-  background: #ea6962;
-  color: #ffffff;
-  border-top: 1px solid #f0928d;
-  border-bottom: 3px solid #ba3c35;
+    color: #eb6f92;
+}
+
+#battery.charging {
+    color: #31748f;
 }
 
 #network {
-  background: #7daea3;
-  color: #292828;
-  border-top: 1px solid #9fc9bf;
-  border-bottom: 3px solid #558379;
+    color: #31748f;
 }
 
 #backlight {
-  background: #d8a657;
-  color: #292828;
-  border-top: 1px solid #e7c288;
-  border-bottom: 3px solid #a8782f;
+    color: #f6c177;
 }
 
-#wireplumber,
-#wireplumber-mic {
-  background: #d3869b;
-  color: #292828;
-  border-top: 1px solid #e5aebd;
-  border-bottom: 3px solid #a45a6d;
+#wireplumber {
+    color: #c4a7e7;
 }
 
 #wireplumber.muted {
-  background: #ea6962;
-  color: #ffffff;
-  border-top: 1px solid #f0928d;
-  border-bottom: 3px solid #ba3c35;
+    color: #6e6a86;
+}
+
+#wireplumber#mic {
+    color: #ebbcba;
 }
 
 #tray {
-  background: #32302f;
-  color: #d4be98;
-  border-top: 1px solid #504945;
-  border-bottom: 3px solid #1f1e1d;
+    color: #908caa;
 }
 
 #custom-tomat {
-  min-height: 15px;
-  padding: 0 10px;
-  margin: 4px 2px;
-  background: #32302f;
-  color: #d4be98;
-  border-top: 1px solid #504945;
-  border-bottom: 3px solid #1f1e1d;
-  border-radius: 4px;
-  transition: all 0.2s ease;
+    color: #eb6f92;
 }
 
-#custom-tomat.work {
-  background: #ea6962;
-  color: #ffffff;
-  border-top: 1px solid #f0928d;
-  border-bottom: 3px solid #ba3c35;
-}
-
-#custom-tomat.work-paused {
-  background: #d3869b;
-  color: #292828;
-  border-top: 1px solid #e5aebd;
-  border-bottom: 3px solid #a45a6d;
-}
-
-#custom-tomat.break {
-  background: #7daea3;
-  color: #292828;
-  border-top: 1px solid #9fc9bf;
-  border-bottom: 3px solid #558379;
-}
-
-#custom-tomat.break-paused {
-  background: #89b482;
-  color: #292828;
-  border-top: 1px solid #abd2a5;
-  border-bottom: 3px solid #5d7f5f;
-}
-
-#custom-tomat.long-break {
-  background: #a9b665;
-  color: #292828;
-  border-top: 1px solid #c5d18a;
-  border-bottom: 3px solid #7c8843;
-}
-
-#custom-tomat.long-break-paused {
-  background: #d8a657;
-  color: #292828;
-  border-top: 1px solid #e7c288;
-  border-bottom: 3px solid #a8782f;
-}
+/* ---------------- Tooltip ---------------- */
 
 tooltip {
-  background: #32302f;
-  border: 1px solid #504945;
-  border-radius: 6px;
-}
-
-tooltip label {
-  color: #d4be98;
+    background: #1f1d2e;
+    border: 1px solid #c4a7e7;
+    border-radius: 6px;
+    color: #e0def4;
+    padding: 6px;
 }

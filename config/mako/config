@@ -1,9 +1,9 @@
 font=JetBrainsMono Nerd Font 11
 
-background-color=#282828
-text-color=#ddc7a1
+background-color=#232136
+text-color=#e0def4
 
-border-color=#89b482
+border-color=#c4a7e7
 border-size=2
 border-radius=10
 
@@ -18,14 +18,14 @@ height=110
 icons=1
 markup=1
 
-progress-color=over #32302f
+progress-color=over #393552
 
 [urgency=low]
-border-color=#a9b665
+border-color=#9ccfd8
 
 [urgency=normal]
-border-color=#89b482
+border-color=#c4a7e7
 
 [urgency=high]
-border-color=#ea6962
+border-color=#eb6f92
 default-timeout=0

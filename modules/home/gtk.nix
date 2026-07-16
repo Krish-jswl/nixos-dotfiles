@@ -6,21 +6,23 @@
 
     gtk4 = {
       theme = {
-        name = "rose-pine-moon";
-        package = pkgs.rose-pine-gtk-theme;
+        name = "Adwaita";
+        package = pkgs.gnome-themes-extra;
       };
     };
 
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+
     theme = {
-      name = "rose-pine-moon";
-      package = pkgs.rose-pine-gtk-theme;
+      name = "Adwaita";
+      package = pkgs.gnome-themes-extra;
     };
 
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme.override {
-        color = "violet";
-      };
+      package = pkgs.papirus-icon-theme;
     };
 
     font = {
@@ -36,7 +38,7 @@
   };
 
   home.pointerCursor = {
-    name = "Bibata-Modern-Ice";
+    name = "Bibata-Modern-Amber";
     package = pkgs.bibata-cursors;
     size = 24;
     gtk.enable = true;

@@ -9,6 +9,7 @@
     ./packages.nix
     ./git.nix
     ./ssh.nix
+    ./tmux.nix
   ];
 }
 

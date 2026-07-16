@@ -1,5 +1,5 @@
 window-rule {
-    geometry-corner-radius 5
+    geometry-corner-radius 12
     clip-to-geometry true
 }
 
@@ -14,7 +14,7 @@ window-rule {
 window-rule {
     draw-border-with-background false
     match app-id="sioyek"
-    opacity 0.85
+    opacity 0.9
     background-effect {
         blur true
     }

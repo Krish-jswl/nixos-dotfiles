@@ -2,23 +2,11 @@
   programs.nixvim = {
     enable = true;
 
-    colorschemes.rose-pine = {
+    colorschemes.moonfly = {
       enable = true;
 
       settings = {
-        variant = "moon";          # main, moon, or dawn
-        dark_variant = "moon";
-
-        styles = {
-          transparency = true;
-          italic = false;
-        };
-
-        highlight_groups = {
-          CursorLine = {
-            bg = "surface";
-          };
-        };
+        Transparent = true;
       };
     };
 

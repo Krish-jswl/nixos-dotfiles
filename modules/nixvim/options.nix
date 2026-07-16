@@ -27,6 +27,7 @@
       termguicolors = true;
       signcolumn = "yes";
       cursorline = true;
+      showmode = false;
       scrolloff = 8;
 
       undofile = true;

@@ -67,24 +67,15 @@
       "disconnected": ["󰖪"],
     },
   },
-  "ext/workspaces": {
+  "niri/workspaces": {
     "format": "{icon}",
-    "ignore-hidden": true,
-    "on-click": "activate",
-    "sort-by-id": true,
-  },
-  "dwl/tags": {
-    "num-tags": 9,
-  },
-  "dwl/window#layout": {
-    "format": "[{layout}]",
-  },
-  "dwl/window#title": {
-    "format": "{title}",
-  },
-  "custom/sep": {
-    "format": "|",
-    "interval": 0,
+    "format-icons": {
+      "focused": "",
+      "active": "",
+      "default": "",
+      "empty": "",
+      "urgent": "",
+    },
   },
   "custom/tomat": {
     "exec": "tomat status",

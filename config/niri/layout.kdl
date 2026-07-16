@@ -19,10 +19,20 @@ layout {
 
     border {
         on
-        width 4
+        width 3
 
-        active-color "#9f9f9f"
-        inactive-color "#2a2a2a"
+        active-color "#87af87"
+        inactive-color "#444444"
+    }
+
+    shadow {
+        on
+        softness 20
+        spread 7
+        offset x=0 y=5
+        draw-behind-window true
+        color "#00000070"
+        inactive-color "#00000054"
     }
 
     gaps 6

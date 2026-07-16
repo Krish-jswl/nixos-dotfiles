@@ -8,7 +8,7 @@ binds {
     Mod+Return { spawn "kitty"; }
     Mod+R { spawn "fuzzel"; }
     Mod+B { spawn "librewolf"; }
-    Mod+Escape { spawn "hyprlock"; }
+    Mod+Escape { spawn "~/.local/bin/fuzzel-pwrmenu.sh"; }
     Mod+E { spawn "nautilus" "--new-window"; }
     Mod+W { spawn "~/.local/bin/wp.sh"; }
 
@@ -47,11 +47,8 @@ binds {
     Mod+Shift+Up    { move-window-up; }
     Mod+Shift+Down  { move-window-down; }
 
-    Mod+Page_Up   { focus-workspace-up; }
-    Mod+Page_Down { focus-workspace-down; }
-    Mod+Ctrl+H { focus-workspace-down; }
-    Mod+Ctrl+L { focus-workspace-up; } 
-
+    Mod+P   { focus-workspace-up; }
+    Mod+N { focus-workspace-down; }
 
     Mod+Shift+Page_Up   { move-column-to-workspace-up; }
     Mod+Shift+Page_Down { move-column-to-workspace-down; }

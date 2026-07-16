@@ -1,12 +1,13 @@
 {
+  "hight": 29,
   "modules-left": ["niri/workspaces", "niri/window"],
 
   "modules-center": [],
 
   "modules-right": [
     "tray",
-    "custom/tomat",
-    "network",
+    // "custom/tomat",
+    // "network",
     "backlight",
     "wireplumber",
     "wireplumber#mic",
@@ -24,7 +25,7 @@
       "warning": 30,
       "critical": 15,
     },
-    "format": "{capacity}% {icon}",
+    "format": "{capacity}% {icon} ",
     "format-charging": "{capacity}% ",
     "format-plugged": "{capacity}% ",
     "format-alt": "{capacity}% {time}",
@@ -40,8 +41,8 @@
   },
   "wireplumber#mic": {
     "node-type": "Audio/Source",
-    "format": " 󰍬 ",
-    "format-muted": " 󰍭 ",
+    "format": "󰍬",
+    "format-muted": "󰍭",
     "tooltip": false,
   },
   "backlight": {

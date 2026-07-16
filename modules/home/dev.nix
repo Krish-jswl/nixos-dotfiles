@@ -23,7 +23,6 @@
     shfmt
     stylua
 
-
     # utilities
     unzip
     gnutar

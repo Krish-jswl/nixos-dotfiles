@@ -32,11 +32,9 @@
     discord
     kitty
     fuzzel
-    swaybg
     xwayland-satellite
     awww
     btop
-    tomat
     abiword
     wireguard-tools
   ];

@@ -21,8 +21,8 @@ layout {
         on
         width 3
 
-        active-color "#87af87"
-        inactive-color "#444444"
+        active-color "#98c379"
+        inactive-color "#3e4451"
     }
 
     shadow {
@@ -35,7 +35,7 @@ layout {
         inactive-color "#00000054"
     }
 
-    gaps 6
+    gaps 5
 
     struts {
         left 5

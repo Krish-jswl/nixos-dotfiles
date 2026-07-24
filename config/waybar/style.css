@@ -9,8 +9,8 @@
 }
 
 window#waybar {
-    background: #2A2426;
-    color: #e6d6ac;
+    background: #282C34;
+    color: #ABB2BF;
 }
 
 #workspaces {
@@ -22,7 +22,7 @@ window#waybar {
     margin: 0 3px;
 
     background: transparent;
-    color: #5b5b5b;
+    color: #5C6370;
 
     border-radius: 999px;
     transition: all 0.2s ease;
@@ -30,15 +30,15 @@ window#waybar {
 
 #workspaces button.active,
 #workspaces button.focused {
-    color: #d9bb80;
+    color: #98C379;
 }
 
 #workspaces button.empty {
-    color: #444444;
+    color: #3E4451;
 }
 
 #workspaces button:hover {
-    color: #e6d6ac;
+    color: #61AFEF;
 }
 
 #window,
@@ -53,66 +53,66 @@ window#waybar {
     padding: 3px 10px;
     margin: 4px 3px;
 
-    background: #312b2d;
+    background: #21252B;
     border-radius: 10px;
 }
 
 #window {
-    color: #e6d6ac;
+    color: #ABB2BF;
 }
 
 #clock {
-    color: #d9bb80;
+    color: #E5C07B;
 }
 
 #battery {
-    color: #87af87;
+    color: #98C379;
 }
 
 #battery.warning {
-    color: #e39b7b;
+    color: #D19A66;
 }
 
 #battery.critical {
-    color: #e68183;
+    color: #E06C75;
 }
 
 #battery.charging {
-    color: #87c095;
+    color: #56B6C2;
 }
 
 #network {
-    color: #89beba;
+    color: #61AFEF;
 }
 
 #backlight {
-    color: #d9bb80;
+    color: #E5C07B;
 }
 
 #wireplumber {
-    color: #d3a0bc;
+    color: #C678DD;
 }
 
 #wireplumber.muted {
-    color: #5b5b5b;
+    color: #5C6370;
 }
 
 #wireplumber#mic {
-    color: #e68183;
+    color: #E06C75;
 }
 
 #tray {
-    color: #e6d6ac;
+    color: #ABB2BF;
 }
 
 #custom-tomat {
-    color: #89beba;
+    color: #61AFEF;
 }
 
 tooltip {
-    background: #312b2d;
-    border: 1px solid #444444;
+    background: #21252B;
+    border: 1px solid #3E4451;
     border-radius: 10px;
-    color: #e6d6ac;
+    color: #ABB2BF;
     padding: 8px;
 }

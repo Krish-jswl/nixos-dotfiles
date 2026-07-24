@@ -1,20 +1,17 @@
-{ pkgs, ... }:
-
-let
-  miramare = pkgs.callPackage ../pkgs/miramare.nix {};
-in
-
 {
   programs.nixvim = {
     enable = true;
 
-    extraPlugins = [
-      miramare
-    ];
+    colorschemes.onedark = {
+      enable = true;
+
+      settings = {
+        style = "dark";
+        transparent = true;
+      };
+    };
 
     extraConfigLua = ''
-      vim.cmd.colorscheme("miramare")
-
       vim.o.updatetime = 300
       vim.o.winborder = "rounded"
 

@@ -148,7 +148,9 @@
 
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      package = pkgs.papirus-icon-theme.override {
+        color = "green";
+      };
     };
 
     font = {

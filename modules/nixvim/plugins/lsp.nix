@@ -9,7 +9,27 @@
       clangd.enable = true;
 
       # Go
-      gopls.enable = true;
+      gopls = {
+        enable = true;
+
+        filetypes = [
+          "go"
+          "gomod"
+          "gosum"
+          "gotmpl"
+          "gohtmltmpl"
+          "gotexttmpl"
+        ];
+
+        settings = {
+          gopls = {
+            analyses = {
+              unusedparams = true;
+            };
+            staticcheck = true;
+          };
+        };
+      };
 
       # Rust
       rust_analyzer = {

@@ -2,11 +2,11 @@
   programs.nixvim = {
     enable = true;
 
-    colorschemes.onedark = {
+    colorschemes.tokyonight = {
       enable = true;
 
       settings = {
-        style = "dark";
+        style = "night";
         transparent = true;
       };
     };

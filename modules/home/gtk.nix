@@ -4,20 +4,20 @@
   gtk = {
     enable = true;
 
+    theme = {
+      name = "Tokyonight-Dark";
+      package = pkgs.tokyonight-gtk-theme;
+    };
+
     gtk4 = {
       theme = {
-        name = "Adwaita";
-        package = pkgs.gnome-themes-extra;
+        name = "Tokyonight-Dark";
+        package = pkgs.tokyonight-gtk-theme;
       };
     };
 
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
-    };
-
-    theme = {
-      name = "Adwaita";
-      package = pkgs.gnome-themes-extra;
     };
 
     iconTheme = {

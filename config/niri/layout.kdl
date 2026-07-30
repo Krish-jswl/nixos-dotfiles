@@ -21,8 +21,8 @@ layout {
         on
         width 3
 
-        active-color "#9ece6a"
-        inactive-color "#414868"
+        active-color "#a9b665"
+        inactive-color "#3c3836"
     }
 
     shadow {

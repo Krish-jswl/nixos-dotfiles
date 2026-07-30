@@ -6,5 +6,5 @@ cursor {
 prefer-no-csd
 
 overview {
-    backdrop-color "#1a1b26"
+    backdrop-color "#282828"
 }

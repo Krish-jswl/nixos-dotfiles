@@ -12,7 +12,6 @@
     librewolf
     grim
     slurp
-    obsidian
     mpv
     imv
     obs-studio

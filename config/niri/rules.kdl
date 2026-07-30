@@ -19,3 +19,19 @@ window-rule {
         blur true
     }
 }
+
+window-rule {
+    draw-border-with-background false
+    match app-id="emacs"
+    opacity 0.75
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    draw-border-with-background false
+    match app-id="Tk"
+    open-floating true
+}
+

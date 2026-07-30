@@ -10,5 +10,6 @@
     man-pages-posix
     powertop
     pciutils
+    efibootmgr
   ];
 }

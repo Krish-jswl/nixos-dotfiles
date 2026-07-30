@@ -68,16 +68,7 @@
       "disconnected": ["󰖪"],
     },
   },
-  "niri/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "focused": "",
-      "active": "",
-      "default": "",
-      "empty": "",
-      "urgent": "",
-    },
-  },
+  "niri/workspaces": {},
   "custom/tomat": {
     "exec": "tomat status",
     "interval": 1,

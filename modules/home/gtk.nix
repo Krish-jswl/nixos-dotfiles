@@ -5,14 +5,15 @@
     enable = true;
 
     theme = {
-      name = "Tokyonight-Dark";
-      package = pkgs.tokyonight-gtk-theme;
+      name = "Gruvbox-Material-Dark";
+      package = pkgs.gruvbox-material-gtk-theme;
+
     };
 
     gtk4 = {
       theme = {
-        name = "Tokyonight-Dark";
-        package = pkgs.tokyonight-gtk-theme;
+        name = "Gruvbox-Material-Dark";
+        package = pkgs.gruvbox-material-gtk-theme;
       };
     };
 
@@ -21,8 +22,9 @@
     };
 
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      name = "Gruvbox-Plus-Dark";
+      package = pkgs.gruvbox-plus-icons;
+
     };
 
     font = {

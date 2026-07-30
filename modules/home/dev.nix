@@ -7,6 +7,11 @@
     nix-direnv.enable = true;
   };
 
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs30-pgtk;
+  };
+
   home.packages = with pkgs; [
     # dev tooling
     gcc
@@ -14,6 +19,7 @@
     gnumake
     pkg-config
     bear
+    jq
 
     # languages
     go

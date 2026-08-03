@@ -36,5 +36,7 @@
     btop
     abiword
     wireguard-tools
+    obsidian
+    glow
   ];
 }

@@ -27,6 +27,7 @@
               unusedparams = true;
             };
             staticcheck = true;
+            fileWatcher = "fsnotify";
           };
         };
       };

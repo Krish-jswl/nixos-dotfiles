@@ -16,6 +16,11 @@
       unbind C-b
       bind C-s send-prefix
 
+      bind-key h select-pane -L
+      bind-key j select-pane -D
+      bind-key k select-pane -U
+      bind-key l select-pane -R
+
       set -as terminal-features ",*:RGB"
       set -g xterm-keys on
       set -g renumber-windows on

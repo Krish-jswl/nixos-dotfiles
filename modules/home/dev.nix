@@ -7,11 +7,6 @@
     nix-direnv.enable = true;
   };
 
-  programs.emacs = {
-    enable = true;
-    package = pkgs.emacs30-pgtk;
-  };
-
   home.packages = with pkgs; [
     # dev tooling
     gcc
@@ -41,6 +36,9 @@
     ripgrep
     fzf
     fd
+
+    #lsp
+    gopls
 
   ];
 }

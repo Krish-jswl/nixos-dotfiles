@@ -23,7 +23,7 @@ window-rule {
 window-rule {
     draw-border-with-background false
     match app-id="emacs"
-    opacity 0.75
+    opacity 1.0
     background-effect {
         blur true
     }

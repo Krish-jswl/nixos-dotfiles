@@ -1,7 +1,8 @@
 // Keybindings
 binds {
 
-    Mod+Tab { toggle-overview; }
+    Mod+Backslash { toggle-overview; }
+    Mod+Tab { focus-workspace-previous; }
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // launch apps

@@ -16,3 +16,4 @@ stdenvNoCC.mkDerivation rec {
     cp -r ./* $out/share/themes/tomorrow-night/
   '';
 }
+

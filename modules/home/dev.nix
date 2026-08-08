@@ -37,8 +37,5 @@
     fzf
     fd
 
-    #lsp
-    gopls
-
   ];
 }

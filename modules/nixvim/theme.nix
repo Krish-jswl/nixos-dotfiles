@@ -7,7 +7,7 @@
 
       settings = {
         transparent_background = 2;
-        background = "hard";
+        background = "medium";
         disable_italic_comment = 1;
         ui_contrast = "high";
       };

@@ -1,0 +1,59 @@
+{
+  "layer": "top",
+  "position": "top",
+
+  "height": 30,
+
+  "margin-top": 6,
+
+  "modules-left": [],
+  "modules-center": [
+    "clock",
+    "niri/workspaces",
+    "backlight",
+    "wireplumber",
+    "battery",
+    "tray",
+  ],
+  "modules-right": [],
+
+  "clock": {
+    "format": " {:%I:%M %p}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}",
+  },
+
+  "backlight": {
+    "device": "amdgpu_bl1",
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+  },
+
+  "wireplumber": {
+    "format": "{icon}{volume:>3}%",
+    "format-muted": "󰖁 {volume:>3}%",
+    "format-bluetooth": "{icon} {volume:>2}% 󰂯",
+    "format-bluetooth-muted": "󰖁 {icon} 󰂯",
+    "format-icons": [" ", " ", " "],
+  },
+  "wireplumber#mic": {
+    "node-type": "Audio/Source",
+    "format": "󰍬",
+    "format-muted": "󰍭",
+    "tooltip": false,
+  },
+
+  "battery": {
+    "states": { "good": 95, "warning": 30, "critical": 15 },
+    "format": "{capacity}% {icon} ",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{capacity}% {time}",
+    "format-time": "{H}:{M}",
+    "format-icons": ["", "", "", "", ""],
+  },
+
+  "niri/workspaces": {
+    "format": "{icon}",
+  },
+}

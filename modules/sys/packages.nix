@@ -2,7 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    vim
     wget
     git
     mesa-demos

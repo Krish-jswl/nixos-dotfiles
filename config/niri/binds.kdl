@@ -1,8 +1,8 @@
 // Keybindings
 binds {
 
-    Mod+Backslash { toggle-overview; }
     Mod+Tab { focus-workspace-previous; }
+    Mod+Space { toggle-overview; }
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // launch apps
@@ -68,8 +68,11 @@ binds {
     Mod+Shift+4 { move-column-to-workspace 4; }
     Mod+Shift+5 { move-column-to-workspace 5; }
 
-    Mod+BracketLeft  { set-column-width "-5%"; }
-    Mod+BracketRight { set-column-width "+5%"; }
+    //resize window
+    Mod+BracketLeft { spawn "niri" "msg" "action" "set-window-width" "-20"; }
+    Mod+BracketRight { spawn "niri" "msg" "action" "set-window-width" "+20"; }
+    Mod+Shift+BracketLeft { spawn "niri" "msg" "action" "set-window-height" "-20"; }
+    Mod+Shift+BracketRight { spawn "niri" "msg" "action" "set-window-height" "+20"; }
 
     Mod+D { switch-preset-column-width; }
     Mod+F { maximize-column; }
@@ -83,6 +86,6 @@ binds {
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 
-    Mod+Shift+P { power-off-monitors; }
+    // Mod+Shift+P { power-off-monitors; }
 }
 

@@ -5,10 +5,6 @@ let
   link = path: config.lib.file.mkOutOfStoreSymlink path;
 
   configs = {
-    hypr = "hypr";
-    fuzzel = "fuzzel";
-    waybar = "waybar";
-    mako = "mako";
     niri = "niri";
     kitty = "kitty";
     sioyek = "sioyek";

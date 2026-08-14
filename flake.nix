@@ -12,9 +12,13 @@
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nixvim, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
@@ -27,6 +31,10 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
+
+            extraSpecialArgs = {
+              inherit inputs;
+            };
 
             sharedModules = [
               nixvim.homeModules.nixvim

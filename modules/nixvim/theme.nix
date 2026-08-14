@@ -2,14 +2,12 @@
   programs.nixvim = {
     enable = true;
 
-    colorschemes.gruvbox-material = {
+    colorschemes.tokyonight = {
       enable = true;
 
       settings = {
-        transparent_background = 2;
-        background = "medium";
-        disable_italic_comment = 1;
-        ui_contrast = "high";
+        style = "night";
+        transparent = true;
       };
     };
 

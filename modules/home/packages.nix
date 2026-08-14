@@ -7,7 +7,6 @@
     htop
     brightnessctl
     wl-clipboard
-    waybar
     brave
     librewolf
     grim
@@ -16,7 +15,6 @@
     imv
     obs-studio
     syncthing
-    mako
     libnotify
     ffmpegthumbnailer
     nautilus
@@ -30,13 +28,12 @@
     sioyek
     discord
     kitty
-    fuzzel
     xwayland-satellite
-    awww
     btop
     abiword
     wireguard-tools
     obsidian
     glow
+    bruno
   ];
 }

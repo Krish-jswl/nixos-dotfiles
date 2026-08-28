@@ -1,0 +1,157 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+  font-weight: bold;
+  min-height: 0;
+}
+
+window#waybar {
+  background: #141415;
+  color: #cdcdcd;
+}
+
+#workspaces {
+  margin: 2px;
+}
+
+#workspaces button {
+  background: #252530;
+  color: #606079;
+  min-width: 20px;
+  min-height: 20px;
+  padding: 0;
+  margin: 2px;
+  border-radius: 4px;
+  border-top: 1px solid #6e94b2;
+  border-bottom: 3px solid #141415;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.35);
+}
+
+#workspaces button:hover {
+  background: #30303d;
+  color: #cdcdcd;
+}
+
+#workspaces button.active {
+  background: #6e94b2;
+  color: #141415;
+  border-top: 1px solid #8ba9c1;
+  border-bottom: 3px solid #4e718c;
+}
+
+#workspaces button.urgent {
+  background: #d8647e;
+  color: #141415;
+  border-top: 1px solid #e08398;
+  border-bottom: 3px solid #9e4055;
+}
+
+
+#clock,
+#battery,
+#network,
+#backlight,
+#wireplumber,
+#wireplumber-mic,
+#tray,
+#window {
+  min-height: 15px;
+  padding: 0 10px;
+  margin: 4px 2px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.35);
+}
+
+
+#window {
+  background: #252530;
+  color: #cdcdcd;
+  border-top: 1px solid #6e94b2;
+  border-bottom: 3px solid #141415;
+}
+
+
+#clock {
+  background: #6e94b2;
+  color: #141415;
+  border-top: 1px solid #8ba9c1;
+  border-bottom: 3px solid #4e718c;
+}
+
+
+#battery {
+  background: #7fa563;
+  color: #141415;
+  border-top: 1px solid #99b782;
+  border-bottom: 3px solid #58753f;
+}
+
+
+#battery.warning {
+  background: #f3be7c;
+  color: #141415;
+  border-top: 1px solid #f5cb96;
+  border-bottom: 3px solid #b98745;
+}
+
+
+#battery.critical {
+  background: #d8647e;
+  color: #141415;
+  border-top: 1px solid #e08398;
+  border-bottom: 3px solid #9e4055;
+}
+
+
+#network {
+  background: #aeaed1;
+  color: #141415;
+  border-top: 1px solid #bebeda;
+  border-bottom: 3px solid #77779b;
+}
+
+
+#backlight {
+  background: #f3be7c;
+  color: #141415;
+  border-top: 1px solid #f5cb96;
+  border-bottom: 3px solid #b98745;
+}
+
+
+#wireplumber,
+#wireplumber-mic {
+  background: #bb9dbd;
+  color: #141415;
+  border-top: 1px solid #c9b1ca;
+  border-bottom: 3px solid #806783;
+}
+
+
+#wireplumber.muted {
+  background: #d8647e;
+  color: #141415;
+  border-top: 1px solid #e08398;
+  border-bottom: 3px solid #9e4055;
+}
+
+
+#tray {
+  background: #252530;
+  color: #cdcdcd;
+  border-top: 1px solid #6e94b2;
+  border-bottom: 3px solid #141415;
+}
+
+
+tooltip {
+  background: #252530;
+  border: 1px solid #6e94b2;
+  border-radius: 6px;
+}
+
+tooltip label {
+  color: #cdcdcd;
+}

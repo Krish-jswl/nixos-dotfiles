@@ -10,7 +10,6 @@
     ./git.nix
     ./ssh.nix
     ./tmux.nix
-    ./noctalia.nix
   ];
 }
 

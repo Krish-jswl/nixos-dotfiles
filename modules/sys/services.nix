@@ -2,6 +2,7 @@
 
 {
   services.blueman.enable = true;
+  programs.nm-applet.enable = true;
 
   services.tumbler.enable = true;
 

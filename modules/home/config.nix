@@ -8,10 +8,10 @@ let
     hypr = "hypr";
     fuzzel = "fuzzel";
     waybar = "waybar";
-    mako = "mako";
     niri = "niri";
     kitty = "kitty";
     sioyek = "sioyek";
+    quickshell = "quickshell";
   };
 in
 {

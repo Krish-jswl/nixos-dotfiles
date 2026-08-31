@@ -5,6 +5,13 @@ cursor {
 
 prefer-no-csd
 
+blur {
+    passes 3
+    offset 8
+    noise 0.03
+    saturation 2.2
+}
+
 overview {
     backdrop-color "#141415"
 }

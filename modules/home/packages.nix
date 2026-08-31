@@ -7,7 +7,6 @@
     htop
     brightnessctl
     wl-clipboard
-    waybar
     brave
     librewolf
     grim
@@ -16,7 +15,6 @@
     imv
     obs-studio
     syncthing
-    mako
     libnotify
     ffmpegthumbnailer
     nautilus
@@ -36,5 +34,8 @@
     btop
     abiword
     wireguard-tools
+    obsidian
+    osu-lazer-bin
+    antigravity
   ];
 }

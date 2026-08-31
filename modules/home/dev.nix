@@ -7,6 +7,10 @@
     nix-direnv.enable = true;
   };
 
+  programs.quickshell = {
+    enable = true;
+  };
+
   home.packages = with pkgs; [
     # dev tooling
     gcc
@@ -18,7 +22,6 @@
 
     # languages
     go
-    python3
     rustup
 
     # formater

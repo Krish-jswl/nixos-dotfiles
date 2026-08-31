@@ -67,7 +67,7 @@
       # Frontend
       html.enable = true;
       cssls.enable = true;
-      ts_ls.enable = true;
+      vtsls.enable = true; #tsls replacement
       jsonls.enable = true;
       yamlls.enable = true;
     };

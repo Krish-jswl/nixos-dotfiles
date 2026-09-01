@@ -153,11 +153,11 @@ ShellRoot {
             const charging = (status === "Charging" || status === "Full")
             const pluggedNotCharging = (status === "Not charging")
             const p = parseInt(pct) || 0
-            if (pluggedNotCharging) return "#b4a7d6"
-            if (charging) return "#7e98e8"
-            if (p <= 10)  return "#d8647e"
-            if (p <= 25)  return "#f3be7c"
-            return "#7fa563"
+            if (pluggedNotCharging) return Theme.pluggedIn
+            if (charging) return Theme.accent
+            if (p <= 10)  return Theme.error
+            if (p <= 25)  return Theme.warning
+            return Theme.success
         }
 
 
@@ -186,7 +186,7 @@ ShellRoot {
                       ? (root.player.isPlaying ? "󰎆" : "󰏤")
                       : "󰝛"
 
-                iconColor: "#7e98e8"
+                iconColor: Theme.accent
 
                 maxLabelWidth: 220
 
@@ -236,7 +236,7 @@ ShellRoot {
                 icon: "󰥔"
                 label: clock.value
 
-                iconColor: "#f3be7c"
+                iconColor: Theme.warning
 
                 clickable: true
 
@@ -285,8 +285,8 @@ ShellRoot {
                        : ""
 
                 iconColor: notif.active.length > 0
-                            ? "#f3be7c"
-                            : "#cdcdcd"
+                            ? Theme.warning
+                            : Theme.fg
 
                 clickable: true
 
@@ -306,7 +306,7 @@ ShellRoot {
             Pill {
                 icon: "󰖩"
                 label: net.value
-                iconColor: "#bb9dbd"
+                iconColor: Theme.network
             }
 
 
@@ -318,7 +318,7 @@ ShellRoot {
                        ? "mute"
                        : Math.round(audio.volume * 100) + "%"
 
-                iconColor: audio.muted ? "#606079" : "#c48282"
+                iconColor: audio.muted ? Theme.volumeOff : Theme.volumeOn
 
                 clickable: true
 
@@ -338,7 +338,7 @@ ShellRoot {
 
                 label: Math.round(brightness.percent * 100) + "%"
 
-                iconColor: "#e0a363"
+                iconColor: Theme.brightness
 
                 clickable: true
 
@@ -364,7 +364,7 @@ ShellRoot {
 
                 icon: "⏻"
 
-                iconColor: "#d8647e"
+                iconColor: Theme.error
 
                 clickable: true
 

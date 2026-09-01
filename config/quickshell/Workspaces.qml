@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Layouts
+import Quickshell
 
 Item {
   id: root
@@ -21,7 +22,7 @@ Item {
     height: 24
     implicitWidth: rowLay.implicitWidth + 20
     radius: height / 2
-    color: "#141415"   // bg
+    color: Theme.bg
 
     RowLayout {
       id: rowLay
@@ -35,9 +36,9 @@ Item {
           width: modelData.is_focused ? 18 : 8
           height: 8
           radius: 4
-          color: modelData.is_urgent ? "#d8647e"       // error
-                 : modelData.is_focused ? "#6e94b2"     // warning
-                 : (modelData.is_active ? "#9bb4bc" : "#606079")   // type : comment
+          color: modelData.is_urgent ? Theme.wsUrgent
+                 : modelData.is_focused ? Theme.wsFocused
+                 : (modelData.is_active ? Theme.wsActive : Theme.comment)
 
           Behavior on width { NumberAnimation { duration: 140; easing.type: Easing.OutCubic } }
           Behavior on color { ColorAnimation { duration: 140 } }

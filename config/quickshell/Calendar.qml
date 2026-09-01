@@ -59,9 +59,9 @@ PopupWindow {
     width: parent.width
     implicitHeight: col.implicitHeight + 24
     radius: 14
-    color: "#1c1c24"   // inactiveBg
+    color: Theme.inactiveBg
     border.width: 1
-    border.color: "#606079"   // comment
+    border.color: Theme.comment
 
     scale: calWindow.open ? 1 : 0.85
     opacity: calWindow.open ? 1 : 0
@@ -80,7 +80,7 @@ PopupWindow {
         Layout.fillWidth: true
         Text {
           text: "󰅁"   // left chevron
-          color: "#606079"
+          color: Theme.comment
           font.family: "Iosevka Nerd Font"
           font.pixelSize: 13
           MouseArea {
@@ -92,7 +92,7 @@ PopupWindow {
         }
         Text {
           text: calWindow.monthLabel()
-          color: "#cdcdcd"   // fg
+          color: Theme.fg
           font.family: "Iosevka Nerd Font"
           font.pixelSize: 14
           font.bold: true
@@ -101,7 +101,7 @@ PopupWindow {
         }
         Text {
           text: "󰅂"   // right chevron
-          color: "#606079"
+          color: Theme.comment
           font.family: "Iosevka Nerd Font"
           font.pixelSize: 13
           MouseArea {
@@ -123,7 +123,7 @@ PopupWindow {
           model: ["S", "M", "T", "W", "T", "F", "S"]
           delegate: Text {
             text: modelData
-            color: "#606079"   // comment
+            color: Theme.comment
             font.family: "Iosevka Nerd Font"
             font.pixelSize: 11
             Layout.preferredWidth: 30
@@ -137,11 +137,11 @@ PopupWindow {
             Layout.preferredWidth: 30
             Layout.preferredHeight: 26
             radius: 8
-            color: modelData.isToday ? "#f3be7c" : "transparent"   // warning
+            color: modelData.isToday ? Theme.warning : "transparent"
             Text {
               anchors.centerIn: parent
               text: modelData.day === 0 ? "" : String(modelData.day)
-              color: modelData.isToday ? "#141415" : "#cdcdcd"   // bg : fg
+              color: modelData.isToday ? Theme.bg : Theme.fg
               font.family: "Iosevka Nerd Font"
               font.pixelSize: 12
               font.bold: modelData.isToday

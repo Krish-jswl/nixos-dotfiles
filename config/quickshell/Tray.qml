@@ -25,7 +25,7 @@ Item {
 
         radius: height / 2
 
-        color: "#141415"
+        color: Theme.bg
 
 
         RowLayout {
@@ -48,7 +48,7 @@ Item {
                     radius: 11
 
                     color: mouseArea.containsMouse
-                           ? "#252530"
+                           ? Theme.line
                            : "transparent"
 
 

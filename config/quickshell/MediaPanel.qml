@@ -58,9 +58,9 @@ PopupWindow {
     width: parent.width
     implicitHeight: col.implicitHeight + 24
     radius: 18
-    color: "#1c1c24"   // inactiveBg
+    color: Theme.inactiveBg
     border.width: 1
-    border.color: "#606079"   // comment
+    border.color: Theme.comment
 
     scale: panel.open ? 1 : 0.85
     opacity: panel.open ? 1 : 0
@@ -79,7 +79,7 @@ PopupWindow {
         Layout.fillWidth: true
         Layout.preferredHeight: 200
         radius: 14
-        color: "#141415"   // bg
+        color: Theme.bg
 
         Image {
           anchors.fill: parent
@@ -93,7 +93,7 @@ PopupWindow {
           anchors.centerIn: parent
           visible: !panel.hasArt
           text: "󰝚"   // music-note glyph for the no-art placeholder
-          color: "#606079"   // comment
+          color: Theme.comment
           font.pixelSize: 40
           font.family: "Iosevka Nerd Font"
         }
@@ -104,7 +104,7 @@ PopupWindow {
         spacing: 2
         Text {
           text: panel.player ? (panel.player.trackTitle || "Unknown title") : "Nothing playing"
-          color: "#cdcdcd"   // fg
+          color: Theme.fg
           font.family: "Iosevka Nerd Font"
           font.pixelSize: 15
           font.bold: true
@@ -113,7 +113,7 @@ PopupWindow {
         }
         Text {
           text: panel.player ? (panel.player.trackArtist || "Unknown artist") : ""
-          color: "#606079"   // comment
+          color: Theme.comment
           font.family: "Iosevka Nerd Font"
           font.pixelSize: 12
           elide: Text.ElideRight
@@ -132,12 +132,12 @@ PopupWindow {
           Layout.fillWidth: true
           height: 4
           radius: 2
-          color: "#333738"   // visual
+          color: Theme.trackBg
 
           Rectangle {
             height: parent.height
             radius: 2
-            color: "#f3be7c"   // warning
+            color: Theme.warning
             width: (panel.player && panel.player.length > 0)
                    ? track.width * Math.min(1, panel.player.position / panel.player.length)
                    : 0
@@ -160,12 +160,12 @@ PopupWindow {
           Layout.fillWidth: true
           Text {
             text: panel.formatTime(panel.player ? panel.player.position : 0)
-            color: "#606079"; font.pixelSize: 10; font.family: "Iosevka Nerd Font"
+            color: Theme.comment; font.pixelSize: 10; font.family: "Iosevka Nerd Font"
           }
           Item { Layout.fillWidth: true }
           Text {
             text: panel.formatTime(panel.player ? panel.player.length : 0)
-            color: "#606079"; font.pixelSize: 10; font.family: "Iosevka Nerd Font"
+            color: Theme.comment; font.pixelSize: 10; font.family: "Iosevka Nerd Font"
           }
         }
       }
@@ -177,7 +177,7 @@ PopupWindow {
 
         Text {
           text: "⏮"
-          color: (panel.player && panel.player.canGoPrevious) ? "#cdcdcd" : "#3a3a3d"
+          color: (panel.player && panel.player.canGoPrevious) ? Theme.fg : Theme.disabled
           font.pixelSize: 20
           MouseArea {
             anchors.fill: parent
@@ -190,7 +190,7 @@ PopupWindow {
 
         Text {
           text: (panel.player && panel.player.isPlaying) ? "⏸" : "▶"
-          color: "#f3be7c"   // warning
+          color: Theme.warning
           font.pixelSize: 26
           MouseArea {
             anchors.fill: parent
@@ -203,7 +203,7 @@ PopupWindow {
 
         Text {
           text: "⏭"
-          color: (panel.player && panel.player.canGoNext) ? "#cdcdcd" : "#3a3a3d"
+          color: (panel.player && panel.player.canGoNext) ? Theme.fg : Theme.disabled
           font.pixelSize: 20
           MouseArea {
             anchors.fill: parent

@@ -28,8 +28,8 @@ in
     };
 
     font = {
-      name = "JetBrainsMono Nerd Font";
-      size = 11;
+      name = "Iosevka Nerd Font";
+      size = 12;
     };
   };
 

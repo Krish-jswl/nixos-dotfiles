@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Layouts
+import Quickshell
 
 // vague.nvim palette reference (https://github.com/vague-theme/vague.nvim)
 // bg #141415  inactiveBg #1c1c24  line #252530  fg #cdcdcd  comment #606079
@@ -9,8 +10,8 @@ Rectangle {
   id: root
   property string icon: ""
   property string label: ""
-  property color iconColor: "#cdcdcd"   // fg
-  property color textColor: "#cdcdcd"   // fg
+  property color iconColor: Theme.fg
+  property color textColor: Theme.fg
   property int maxLabelWidth: 400
   property bool active: false
   property bool clickable: false
@@ -22,9 +23,9 @@ Rectangle {
   implicitWidth: row.implicitWidth + 22
   implicitHeight: 24
   radius: height / 2
-  color: root.active ? "#252530" : (ma.containsMouse && root.clickable ? "#1c1c24" : "#141415")
+  color: root.active ? Theme.line : (ma.containsMouse && root.clickable ? Theme.inactiveBg : Theme.bg)
   border.width: root.active ? 1 : 0
-  border.color: "#606079"
+  border.color: Theme.comment
 
   Behavior on color { ColorAnimation { duration: 120 } }
 

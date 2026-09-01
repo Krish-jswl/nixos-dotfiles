@@ -37,9 +37,9 @@ PopupWindow {
     implicitHeight: header.implicitHeight + list.contentHeight + 24
     height: Math.min(implicitHeight, 480)
     radius: 14
-    color: "#1c1c24"   // inactiveBg
+    color: Theme.inactiveBg
     border.width: 1
-    border.color: "#606079"   // comment
+    border.color: Theme.comment
     clip: true
 
     scale: centerWindow.open ? 1 : 0.85
@@ -59,7 +59,7 @@ PopupWindow {
         Layout.fillWidth: true
         Text {
           text: "Notifications"
-          color: "#cdcdcd"   // fg
+          color: Theme.fg
           font.family: "Iosevka Nerd Font"
           font.pixelSize: 14
           font.bold: true
@@ -67,7 +67,7 @@ PopupWindow {
         }
         Text {
           text: "Clear"
-          color: "#606079"   // comment
+          color: Theme.comment
           font.family: "Iosevka Nerd Font"
           font.pixelSize: 12
           visible: centerWindow.notifications.history.length > 0
@@ -83,7 +83,7 @@ PopupWindow {
       Text {
         visible: centerWindow.notifications.history.length === 0
         text: "No notifications yet"
-        color: "#606079"   // comment
+        color: Theme.comment
         font.family: "Iosevka Nerd Font"
         font.pixelSize: 12
         Layout.topMargin: 8
@@ -101,7 +101,7 @@ PopupWindow {
           width: list.width
           implicitHeight: entryCol.implicitHeight + 16
           radius: 10
-          color: "#141415"   // bg
+          color: Theme.bg
 
           ColumnLayout {
             id: entryCol
@@ -113,7 +113,7 @@ PopupWindow {
               Layout.fillWidth: true
               Text {
                 text: modelData.appName
-                color: "#606079"   // comment
+                color: Theme.comment
                 font.family: "Iosevka Nerd Font"
                 font.pixelSize: 11
                 Layout.fillWidth: true
@@ -121,14 +121,14 @@ PopupWindow {
               }
               Text {
                 text: modelData.time
-                color: "#606079"   // comment
+                color: Theme.comment
                 font.family: "Iosevka Nerd Font"
                 font.pixelSize: 11
               }
             }
             Text {
               text: modelData.summary
-              color: "#cdcdcd"   // fg
+              color: Theme.fg
               font.family: "Iosevka Nerd Font"
               font.pixelSize: 13
               font.bold: true
@@ -138,7 +138,7 @@ PopupWindow {
             }
             Text {
               text: modelData.body
-              color: "#c3c3d5"   // property
+              color: Theme.fgDim
               font.family: "Iosevka Nerd Font"
               font.pixelSize: 12
               wrapMode: Text.WordWrap

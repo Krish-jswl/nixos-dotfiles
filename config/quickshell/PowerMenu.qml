@@ -59,9 +59,9 @@ PopupWindow {
     width: parent.width
     implicitHeight: col.implicitHeight + 24
     radius: 14
-    color: "#1c1c24"   // inactiveBg
+    color: Theme.inactiveBg
     border.width: 1
-    border.color: "#606079"   // comment
+    border.color: Theme.comment
 
     scale: powerWindow.open ? 1 : 0.85
     opacity: powerWindow.open ? 1 : 0
@@ -78,7 +78,7 @@ PopupWindow {
 
       Text {
         text: "Session"
-        color: "#606079"   // comment
+        color: Theme.comment
         font.family: "Iosevka Nerd Font"
         font.pixelSize: 12
         Layout.bottomMargin: 4
@@ -97,7 +97,7 @@ PopupWindow {
           Layout.fillWidth: true
           implicitHeight: 34
           radius: 10
-          color: rowMa.containsMouse ? "#252530" : "transparent"   // line
+          color: rowMa.containsMouse ? Theme.line : "transparent"
           Behavior on color { ColorAnimation { duration: 100 } }
 
           RowLayout {
@@ -107,14 +107,14 @@ PopupWindow {
             spacing: 10
             Text {
               text: modelData.icon
-              color: modelData.action === "shutdown" || modelData.action === "logout" ? "#d8647e" : "#cdcdcd"
+              color: modelData.action === "shutdown" || modelData.action === "logout" ? Theme.error : Theme.fg
               font.family: "Iosevka Nerd Font"
               font.pixelSize: 15
               visible: modelData.icon !== ""
             }
             Text {
               text: modelData.label
-              color: "#cdcdcd"   // fg
+              color: Theme.fg
               font.family: "Iosevka Nerd Font"
               font.pixelSize: 13
               Layout.fillWidth: true

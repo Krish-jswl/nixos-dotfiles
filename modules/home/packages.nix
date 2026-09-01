@@ -37,5 +37,8 @@
     obsidian
     osu-lazer-bin
     antigravity
+    exercism
+    gsettings-desktop-schemas
+    glib
   ];
 }

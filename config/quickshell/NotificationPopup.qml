@@ -26,7 +26,7 @@ PanelWindow {
         Layout.fillWidth: true
         implicitHeight: inner.implicitHeight + 20
         radius: 12
-        color: "#141415"   // inactiveBg
+        color: Theme.bg
         border.width: 1
         border.color: toastWindow.notifications.urgencyColor(modelData.urgency)
 
@@ -41,7 +41,7 @@ PanelWindow {
             spacing: 6
             Text {
               text: modelData.appName || "Notification"
-              color: "#606079"   // comment
+              color: Theme.comment
               font.family: "Iosevka Nerd Font"
               font.pixelSize: 12
               Layout.fillWidth: true
@@ -49,7 +49,7 @@ PanelWindow {
             }
             Text {
               text: ""   // paste a close-icon glyph here if you'd like one
-              color: "#606079"
+              color: Theme.comment
               font.family: "Iosevka Nerd Font"
               font.pixelSize: 13
               MouseArea {
@@ -63,7 +63,7 @@ PanelWindow {
 
           Text {
             text: modelData.summary || ""
-            color: "#cdcdcd"   // fg
+            color: Theme.fg
             font.family: "Iosevka Nerd Font"
             font.pixelSize: 14
             font.bold: true
@@ -73,7 +73,7 @@ PanelWindow {
           }
           Text {
             text: modelData.body || ""
-            color: "#c3c3d5"   // property
+            color: Theme.fgDim
             font.family: "Iosevka Nerd Font"
             font.pixelSize: 12
             Layout.fillWidth: true

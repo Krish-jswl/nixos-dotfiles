@@ -8,37 +8,37 @@ PopupWindow {
   id: panel
   property bool open: false
   property bool _mapped: false
-  property var player   // pass in the currently active MprisPlayer (or null)
-  property var anchorItem: null   // the Pill that triggers this panel
-
+  property var player
+  property var anchorItem: null
   anchor.item: panel.anchorItem
   anchor.edges: Edges.Bottom
   anchor.gravity: Edges.Bottom
   anchor.margins.top: 8
 
   color: "transparent"
-  implicitWidth: 280
-  implicitHeight: card.implicitHeight
+
+  readonly property real fullWidth: 280
+  readonly property real fullHeight: col.implicitHeight + 24
+
+  implicitWidth: panel.fullWidth
+  implicitHeight: panel.fullHeight
   visible: panel._mapped
 
-  // keep the window mapped a little longer than "open" so the close
-  // animation has time to play before the surface disappears
   onOpenChanged: {
     if (open) panel._mapped = true
     else closeTimer.restart()
   }
-  Timer { id: closeTimer; interval: 250; onTriggered: panel._mapped = false }
+  Timer { id: closeTimer; interval: 260; onTriggered: panel._mapped = false }
 
   MouseArea {
     anchors.fill: parent
     onClicked: panel.open = false
     z: -10
+    enabled: panel.open
   }
 
   readonly property bool hasArt: panel.player && panel.player.trackArtUrl !== ""
 
-  // MPRIS position doesn't update every frame on its own - nudge it while
-  // the panel is open and something is playing, per the Quickshell docs.
   Timer {
     running: panel.open && panel.player && panel.player.playbackState === MprisPlaybackState.Playing
     interval: 1000
@@ -53,27 +53,49 @@ PopupWindow {
     return m + ":" + (s < 10 ? "0" : "") + s
   }
 
+  readonly property real srcWidth: panel.anchorItem ? panel.anchorItem.width : 40
+  readonly property real srcHeight: panel.anchorItem ? panel.anchorItem.height : 24
+
   Rectangle {
     id: card
-    width: parent.width
-    implicitHeight: col.implicitHeight + 24
-    radius: 18
-    color: Theme.inactiveBg
-    border.width: 1
+    x: 0
+    y: 0
+    width: panel.open ? panel.fullWidth : panel.srcWidth
+    height: panel.open ? panel.fullHeight : panel.srcHeight
+    radius: panel.open ? 18 : height / 2
+    color: panel.open ? Theme.inactiveBg : Theme.bg
+    border.width: panel.open ? 1 : 0
     border.color: Theme.comment
+    clip: true
 
-    scale: panel.open ? 1 : 0.85
-    opacity: panel.open ? 1 : 0
-    transformOrigin: Item.Top
-
-    Behavior on scale { NumberAnimation { duration: 220; easing.type: Easing.OutBack; easing.overshoot: 2.5 } }
-    Behavior on opacity { NumberAnimation { duration: 180; easing.type: Easing.OutCubic } }
+    Behavior on width        { NumberAnimation { duration: 320; easing.type: Easing.OutExpo } }
+    Behavior on height       { NumberAnimation { duration: 320; easing.type: Easing.OutExpo } }
+    Behavior on radius       { NumberAnimation { duration: 320; easing.type: Easing.OutExpo } }
+    Behavior on color        { ColorAnimation  { duration: 220 } }
+    Behavior on border.width { NumberAnimation { duration: 220 } }
 
     ColumnLayout {
       id: col
       anchors.fill: parent
       anchors.margins: 12
       spacing: 10
+
+      opacity: panel.open ? 1 : 0
+      scale: panel.open ? 1 : 0.9
+      transformOrigin: Item.Top
+
+      Behavior on opacity {
+        SequentialAnimation {
+          PauseAnimation { duration: panel.open ? 140 : 0 }
+          NumberAnimation { duration: 160; easing.type: Easing.OutCubic }
+        }
+      }
+      Behavior on scale {
+        SequentialAnimation {
+          PauseAnimation { duration: panel.open ? 140 : 0 }
+          NumberAnimation { duration: 180; easing.type: Easing.OutCubic }
+        }
+      }
 
       ClippingRectangle {
         Layout.fillWidth: true
@@ -92,7 +114,7 @@ PopupWindow {
         Text {
           anchors.centerIn: parent
           visible: !panel.hasArt
-          text: "󰝚"   // music-note glyph for the no-art placeholder
+          text: "󰝚"
           color: Theme.comment
           font.pixelSize: 40
           font.family: "Iosevka Nerd Font"

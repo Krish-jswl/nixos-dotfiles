@@ -15,20 +15,27 @@ PopupWindow {
   anchor.margins.top: 8
 
   color: "transparent"
-  implicitWidth: 260
-  implicitHeight: bg.implicitHeight
+
+  readonly property real fullWidth: 260
+  readonly property real fullHeight: col.implicitHeight + 24
+
+  // mapped at full size immediately - only the inner card resizes, so the
+  // grow animation stays a pure scene-graph animation (smooth on Wayland)
+  implicitWidth: calWindow.fullWidth
+  implicitHeight: calWindow.fullHeight
   visible: calWindow._mapped
 
   onOpenChanged: {
     if (open) calWindow._mapped = true
     else closeTimer.restart()
   }
-  Timer { id: closeTimer; interval: 250; onTriggered: calWindow._mapped = false }
+  Timer { id: closeTimer; interval: 150; onTriggered: calWindow._mapped = false }
 
   MouseArea {
     anchors.fill: parent
     onClicked: calWindow.open = false
     z: -10
+    enabled: calWindow.open
   }
 
   function monthLabel() {
@@ -54,27 +61,49 @@ PopupWindow {
     return cells
   }
 
+  readonly property real srcWidth: calWindow.anchorItem ? calWindow.anchorItem.width : 40
+  readonly property real srcHeight: calWindow.anchorItem ? calWindow.anchorItem.height : 24
+
   Rectangle {
     id: bg
-    width: parent.width
-    implicitHeight: col.implicitHeight + 24
-    radius: 14
-    color: Theme.inactiveBg
-    border.width: 1
+    x: 0
+    y: 0
+    width: calWindow.open ? calWindow.fullWidth : calWindow.srcWidth
+    height: calWindow.open ? calWindow.fullHeight : calWindow.srcHeight
+    radius: calWindow.open ? 14 : height / 2
+    color: calWindow.open ? Theme.inactiveBg : Theme.bg
+    border.width: calWindow.open ? 1 : 0
     border.color: Theme.comment
+    clip: true
 
-    scale: calWindow.open ? 1 : 0.85
-    opacity: calWindow.open ? 1 : 0
-    transformOrigin: Item.Top
-
-    Behavior on scale { NumberAnimation { duration: 220; easing.type: Easing.OutBack; easing.overshoot: 2.5 } }
-    Behavior on opacity { NumberAnimation { duration: 180; easing.type: Easing.OutCubic } }
+    Behavior on width        { NumberAnimation { duration: 180; easing.type: Easing.OutExpo } }
+    Behavior on height       { NumberAnimation { duration: 180; easing.type: Easing.OutExpo } }
+    Behavior on radius       { NumberAnimation { duration: 180; easing.type: Easing.OutExpo } }
+    Behavior on color        { ColorAnimation  { duration: 120 } }
+    Behavior on border.width { NumberAnimation { duration: 120 } }
 
     ColumnLayout {
       id: col
       anchors.fill: parent
       anchors.margins: 12
       spacing: 10
+
+      opacity: calWindow.open ? 1 : 0
+      scale: calWindow.open ? 1 : 0.9
+      transformOrigin: Item.Top
+
+      Behavior on opacity {
+        SequentialAnimation {
+          PauseAnimation { duration: calWindow.open ? 70 : 0 }
+          NumberAnimation { duration: 90; easing.type: Easing.OutCubic }
+        }
+      }
+      Behavior on scale {
+        SequentialAnimation {
+          PauseAnimation { duration: calWindow.open ? 70 : 0 }
+          NumberAnimation { duration: 100; easing.type: Easing.OutCubic }
+        }
+      }
 
       RowLayout {
         Layout.fillWidth: true

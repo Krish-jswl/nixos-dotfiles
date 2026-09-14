@@ -25,9 +25,9 @@ PanelWindow {
         id: card
         Layout.fillWidth: true
         implicitHeight: inner.implicitHeight + 20
-        radius: 12
+        radius: 8
         color: Theme.bg
-        border.width: 1
+        border.width: 2
         border.color: toastWindow.notifications.urgencyColor(modelData.urgency)
 
         ColumnLayout {

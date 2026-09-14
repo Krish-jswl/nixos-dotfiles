@@ -53,9 +53,9 @@ ShellRoot {
 
         margins {
             top: 5
-            left: 1
-            right: 1
-            bottom: 5
+            left: 0
+            right: 0
+            bottom: 3
         }
 
         color: "transparent"
@@ -173,7 +173,7 @@ ShellRoot {
 
             anchors.leftMargin: 14
 
-            spacing: 8
+            spacing: 3
 
             Workspaces {
                 niri: niri
@@ -228,7 +228,7 @@ ShellRoot {
 
             anchors.centerIn: parent
 
-            spacing: 8
+            spacing: 3
 
             Pill {
                 id: clockPill
@@ -265,7 +265,7 @@ ShellRoot {
 
             anchors.rightMargin: 14
 
-            spacing: 8
+            spacing: 3
 
 
             // System tray
@@ -303,11 +303,11 @@ ShellRoot {
 
 
             // Network
-            Pill {
-                icon: "󰖩"
-                label: net.value
-                iconColor: Theme.network
-            }
+            // Pill {
+            //     icon: "󰖩"
+            //     label: net.value
+            //     iconColor: Theme.network
+            // }
 
 
             // Volume

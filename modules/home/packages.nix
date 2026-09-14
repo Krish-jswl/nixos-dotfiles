@@ -35,10 +35,11 @@
     abiword
     wireguard-tools
     obsidian
-    osu-lazer-bin
     antigravity
     exercism
-    gsettings-desktop-schemas
-    glib
+    rnote
+    vscodium-fhs
+    lutris
+    galaxy-buds-client
   ];
 }

@@ -10,13 +10,13 @@ binds {
     Mod+Return { spawn "kitty"; }
     Mod+R { spawn "fuzzel"; }
     Mod+B { spawn "librewolf"; }
-    Mod+Escape { spawn "~/.local/bin/fuzzel-pwrmenu.sh"; }
+    Mod+Escape { spawn "qs" "ipc" "call" "session" "toggle"; }
     Mod+E { spawn "nautilus" "--new-window"; }
     Mod+W { spawn "~/.local/bin/wp.sh"; }
 
     // media keys
     XF86AudioRaiseVolume allow-when-locked=true {
-        spawn "wpctl" "set-volume" "-l" "1" "@DEFAULT_AUDIO_SINK@" "5%+"
+        spawn "wpctl" "set-volume" "-l" "1.5" "@DEFAULT_AUDIO_SINK@" "5%+"
     }
     XF86AudioLowerVolume allow-when-locked=true {
         spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"

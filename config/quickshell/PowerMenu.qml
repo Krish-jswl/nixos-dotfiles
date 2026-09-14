@@ -3,33 +3,46 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 
-PopupWindow {
+PanelWindow {
   id: powerWindow
   property bool open: false
   property bool _mapped: false
-  property var anchorItem: null   // the Pill that triggers this panel
+  property var anchorItem: null   // kept only to size the grow-from animation
 
-  anchor.item: powerWindow.anchorItem
-  anchor.edges: Edges.Bottom
-  anchor.gravity: Edges.Bottom
-  anchor.margins.top: 8
+  anchors { top: true; right: true }
+  margins { top: 0; right: 14 }
+  exclusiveZone: 0
+  focusable: powerWindow.open
 
   color: "transparent"
-  implicitWidth: 220
-  implicitHeight: bg.implicitHeight
+
+  readonly property real fullWidth: 220
+  readonly property real fullHeight: col.implicitHeight + 24
+
+  implicitWidth: powerWindow.fullWidth
+  implicitHeight: powerWindow.fullHeight
   visible: powerWindow._mapped
 
+  property int currentIndex: 0
+
   onOpenChanged: {
-    if (open) powerWindow._mapped = true
-    else closeTimer.restart()
+    if (open) {
+      powerWindow._mapped = true
+      powerWindow.currentIndex = 0
+      focusTimer.restart()
+    } else {
+      closeTimer.restart()
+    }
   }
-  Timer { id: closeTimer; interval: 250; onTriggered: powerWindow._mapped = false }
+  Timer { id: closeTimer; interval: 150; onTriggered: powerWindow._mapped = false }
+  Timer { id: focusTimer; interval: 10; onTriggered: bg.forceActiveFocus() }
 
   // click-away to close
   MouseArea {
     anchors.fill: parent
     onClicked: powerWindow.open = false
     z: -10
+    enabled: powerWindow.open
   }
 
   Process { id: runner }
@@ -46,6 +59,16 @@ PopupWindow {
   function reboot()   { run("systemctl reboot") }
   function shutdown() { run("systemctl poweroff") }
 
+  readonly property var actionOrder: ["lock", "logout", "suspend", "reboot", "shutdown"]
+  function activateCurrent() {
+    const a = powerWindow.actionOrder[powerWindow.currentIndex]
+    if (a === "lock") powerWindow.lock()
+    else if (a === "logout") powerWindow.logout()
+    else if (a === "suspend") powerWindow.suspend()
+    else if (a === "reboot") powerWindow.reboot()
+    else if (a === "shutdown") powerWindow.shutdown()
+  }
+
   // qs ipc call session toggle / open_ / close_
   IpcHandler {
     target: "session"
@@ -54,27 +77,66 @@ PopupWindow {
     function close_(): void { powerWindow.open = false }
   }
 
+  readonly property real srcWidth: powerWindow.anchorItem ? powerWindow.anchorItem.width : 40
+  readonly property real srcHeight: powerWindow.anchorItem ? powerWindow.anchorItem.height : 24
+
   Rectangle {
     id: bg
-    width: parent.width
-    implicitHeight: col.implicitHeight + 24
-    radius: 14
-    color: Theme.inactiveBg
-    border.width: 1
+    x: parent.width - width
+    y: 0
+    focus: true
+
+    Keys.onPressed: event => {
+      if (event.key === Qt.Key_Down) {
+        powerWindow.currentIndex = (powerWindow.currentIndex + 1) % powerWindow.actionOrder.length
+        event.accepted = true
+      } else if (event.key === Qt.Key_Up) {
+        powerWindow.currentIndex = (powerWindow.currentIndex - 1 + powerWindow.actionOrder.length) % powerWindow.actionOrder.length
+        event.accepted = true
+      } else if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
+        powerWindow.activateCurrent()
+        event.accepted = true
+      } else if (event.key === Qt.Key_Escape) {
+        powerWindow.open = false
+        event.accepted = true
+      }
+    }
+    width: powerWindow.open ? powerWindow.fullWidth : powerWindow.srcWidth
+    height: powerWindow.open ? powerWindow.fullHeight : powerWindow.srcHeight
+    radius: powerWindow.open ? 14 : height / 2
+    color: powerWindow.open ? Theme.inactiveBg : Theme.bg
+    border.width: powerWindow.open ? 1 : 0
     border.color: Theme.comment
+    clip: true
 
-    scale: powerWindow.open ? 1 : 0.85
-    opacity: powerWindow.open ? 1 : 0
-    transformOrigin: Item.Top
-
-    Behavior on scale { NumberAnimation { duration: 220; easing.type: Easing.OutBack; easing.overshoot: 2.5 } }
-    Behavior on opacity { NumberAnimation { duration: 180; easing.type: Easing.OutCubic } }
+    Behavior on width        { NumberAnimation { duration: 180; easing.type: Easing.OutExpo } }
+    Behavior on height       { NumberAnimation { duration: 180; easing.type: Easing.OutExpo } }
+    Behavior on radius       { NumberAnimation { duration: 180; easing.type: Easing.OutExpo } }
+    Behavior on color        { ColorAnimation  { duration: 120 } }
+    Behavior on border.width { NumberAnimation { duration: 120 } }
 
     ColumnLayout {
       id: col
       anchors.fill: parent
       anchors.margins: 12
       spacing: 6
+
+      opacity: powerWindow.open ? 1 : 0
+      scale: powerWindow.open ? 1 : 0.9
+      transformOrigin: Item.Top
+
+      Behavior on opacity {
+        SequentialAnimation {
+          PauseAnimation { duration: powerWindow.open ? 70 : 0 }
+          NumberAnimation { duration: 90; easing.type: Easing.OutCubic }
+        }
+      }
+      Behavior on scale {
+        SequentialAnimation {
+          PauseAnimation { duration: powerWindow.open ? 70 : 0 }
+          NumberAnimation { duration: 100; easing.type: Easing.OutCubic }
+        }
+      }
 
       Text {
         text: "Session"
@@ -84,7 +146,6 @@ PopupWindow {
         Layout.bottomMargin: 4
       }
 
-      // icon left blank on each row below - paste your own nerd font glyph
       Repeater {
         model: [
           { label: "Lock",      icon: "󰌾", action: "lock" },
@@ -97,7 +158,7 @@ PopupWindow {
           Layout.fillWidth: true
           implicitHeight: 34
           radius: 10
-          color: rowMa.containsMouse ? Theme.line : "transparent"
+          color: (rowMa.containsMouse || index === powerWindow.currentIndex) ? Theme.line : "transparent"
           Behavior on color { ColorAnimation { duration: 100 } }
 
           RowLayout {
@@ -126,6 +187,7 @@ PopupWindow {
             anchors.fill: parent
             hoverEnabled: true
             cursorShape: Qt.PointingHandCursor
+            onEntered: powerWindow.currentIndex = index
             onClicked: {
               if (modelData.action === "lock") powerWindow.lock()
               else if (modelData.action === "logout") powerWindow.logout()

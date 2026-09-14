@@ -7,6 +7,7 @@
 
       settings = {
         transparent = true;
+        italic = false;
       };
     };
 

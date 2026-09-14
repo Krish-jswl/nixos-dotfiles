@@ -7,52 +7,76 @@ PopupWindow {
   property var notifications
   property bool open: false
   property bool _mapped: false
-  property var anchorItem: null   // the Pill that triggers this panel
-
+  property var anchorItem: null
   anchor.item: centerWindow.anchorItem
-  anchor.edges: Edges.Bottom
-  anchor.gravity: Edges.Bottom
+  anchor.edges: Edges.Bottom | Edges.Right
+  anchor.gravity: Edges.Bottom | Edges.Left
   anchor.margins.top: 8
 
   color: "transparent"
-  implicitWidth: 340
-  implicitHeight: Math.min(480, bg.implicitHeight)
+
+  readonly property real fullWidth: 340
+  readonly property real fullHeight: Math.min(480, header.implicitHeight + list.contentHeight + 24)
+
+  implicitWidth: centerWindow.fullWidth
+  implicitHeight: centerWindow.fullHeight
   visible: centerWindow._mapped
 
   onOpenChanged: {
     if (open) centerWindow._mapped = true
     else closeTimer.restart()
   }
-  Timer { id: closeTimer; interval: 250; onTriggered: centerWindow._mapped = false }
+  Timer { id: closeTimer; interval: 150; onTriggered: centerWindow._mapped = false }
 
   MouseArea {
     anchors.fill: parent
     onClicked: centerWindow.open = false
     z: -10
+    enabled: centerWindow.open
   }
+
+  readonly property real srcWidth: centerWindow.anchorItem ? centerWindow.anchorItem.width : 40
+  readonly property real srcHeight: centerWindow.anchorItem ? centerWindow.anchorItem.height : 24
 
   Rectangle {
     id: bg
-    width: parent.width
-    implicitHeight: header.implicitHeight + list.contentHeight + 24
-    height: Math.min(implicitHeight, 480)
-    radius: 14
-    color: Theme.inactiveBg
-    border.width: 1
+    x: parent.width - width
+    y: 0
+    width: centerWindow.open ? centerWindow.fullWidth : centerWindow.srcWidth
+    height: centerWindow.open ? centerWindow.fullHeight : centerWindow.srcHeight
+    radius: centerWindow.open ? 14 : height / 2
+    color: centerWindow.open ? Theme.inactiveBg : Theme.bg
+    border.width: centerWindow.open ? 1 : 0
     border.color: Theme.comment
     clip: true
 
-    scale: centerWindow.open ? 1 : 0.85
-    opacity: centerWindow.open ? 1 : 0
-    transformOrigin: Item.Top
-
-    Behavior on scale { NumberAnimation { duration: 220; easing.type: Easing.OutBack; easing.overshoot: 2.5 } }
-    Behavior on opacity { NumberAnimation { duration: 180; easing.type: Easing.OutCubic } }
+    Behavior on width        { NumberAnimation { duration: 180; easing.type: Easing.OutExpo } }
+    Behavior on height       { NumberAnimation { duration: 180; easing.type: Easing.OutExpo } }
+    Behavior on radius       { NumberAnimation { duration: 180; easing.type: Easing.OutExpo } }
+    Behavior on color        { ColorAnimation  { duration: 120 } }
+    Behavior on border.width { NumberAnimation { duration: 120 } }
 
     ColumnLayout {
       anchors.fill: parent
       anchors.margins: 12
       spacing: 8
+
+      opacity: centerWindow.open ? 1 : 0
+      scale: centerWindow.open ? 1 : 0.9
+      transformOrigin: Item.Top
+
+      Behavior on opacity {
+        SequentialAnimation {
+          PauseAnimation { duration: centerWindow.open ? 70 : 0 }
+          NumberAnimation { duration: 90; easing.type: Easing.OutCubic }
+        }
+      }
+      Behavior on scale {
+        SequentialAnimation {
+          PauseAnimation { duration: centerWindow.open ? 70 : 0 }
+          NumberAnimation { duration: 100; easing.type: Easing.OutCubic }
+        }
+      }
 
       RowLayout {
         id: header

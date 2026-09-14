@@ -1,0 +1,37 @@
+{
+    "name": "Gruvbox Material Dark Medium",
+
+    "bg":             "#282828",
+    "inactiveBg":     "#1d2021",
+    "line":           "#3c3836",
+
+    "fg":             "#d4be98",
+    "fgDim":          "#a89984",
+    "comment":        "#928374",
+    "disabled":       "#665c54",
+
+    "floatBorder":    "#6e94b2",
+
+    "trackBg":        "#3c3836",
+
+    "accent":         "#6e94b2",
+
+    "warning":        "#d8a657",
+    "error":          "#ea6962",
+    "success":        "#a9b665",
+    "info":           "#6e94b2",
+
+    "volumeOn":       "#ea6962",
+    "volumeOff":      "#928374",
+
+    "brightness":     "#d8a657",
+
+    "network":        "#d3869b",
+    "pluggedIn":      "#83a598",
+
+    "batteryLow":     "#d8a657",
+
+    "wsActive":       "#a89984",
+    "wsFocused":      "#6e94b2",
+    "wsUrgent":       "#ea6962"
+}

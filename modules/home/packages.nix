@@ -35,11 +35,11 @@
     abiword
     wireguard-tools
     obsidian
-    antigravity
     exercism
     rnote
     vscodium-fhs
     lutris
     galaxy-buds-client
+    antigravity
   ];
 }

@@ -23,6 +23,7 @@
     # languages
     go
     rustup
+    python3
 
     # formater
     clang-tools

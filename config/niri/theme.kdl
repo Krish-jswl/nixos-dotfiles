@@ -6,7 +6,7 @@ cursor {
 prefer-no-csd
 
 blur {
-    on
+    off
     passes 3
     offset 8
     noise 0.03

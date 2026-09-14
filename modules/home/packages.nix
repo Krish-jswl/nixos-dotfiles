@@ -41,5 +41,6 @@
     lutris
     galaxy-buds-client
     antigravity
+    google-chrome
   ];
 }

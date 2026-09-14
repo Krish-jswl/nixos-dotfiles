@@ -5,7 +5,6 @@ binds {
     Mod+Space { toggle-overview; }
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-
     // launch apps
     Mod+Return { spawn "kitty"; }
     Mod+R { spawn "fuzzel"; }
@@ -31,7 +30,13 @@ binds {
     // brightness keys
     XF86MonBrightnessDown { spawn "brightnessctl" "set" "2%-"; }
     XF86MonBrightnessUp   { spawn "brightnessctl" "set" "+2%"; }
+    F5 {
+        spawn "brightnessctl" "set" "2%-";
+    }
 
+    F6 {
+        spawn "brightnessctl" "set" "+2%";
+    }
     Mod+Q { close-window; }
     Mod+Shift+Space { toggle-window-floating; }
 
